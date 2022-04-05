@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    position: relative;
+}
+
+.top_nav a {
+    text-decoration: none;
+    display: block;
+    float: left;
+    padding: 14px 16px;
+    color: white;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+.top_nav {
+    background-color: #333;
+    overflow: hidden;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.top_nav a:hover:not(.active_background) {
+    background-color: #555;
+}
+
+.top_nav::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.active_background {
+    background-color: black;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+#dot{
+    height: 200px;
+}
+
+.Go-Menu {
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    text-align: center;
+}
+
+.Go-Menu a {
+    padding: 16px 26px;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 12px;   
+
+}
+
+.Go-Menu a:hover {
+    background-color: rgb(2, 236, 2);
+    color: black;
+}
+
+.mySlides {
+    display: none;
+   
+}
+
+.slideshow-container {
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px;
+    box-shadow: 1px red;
+}
+
+.mySlides img {
+    vertical-align: middle;
+    margin-top: 60px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    margin-bottom: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.active {
+    background-color: #717171;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.column {
+    float: left;
+    margin-top: 60px;
+}
+
+footer {
+    clear: left;
+    margin-bottom: 0%;
+    color: rgb(186, 248, 248);
+    margin: auto;
+}
+
+.category {
+    margin: 20px;
+    padding-bottom: 240px;
+}
+
+.category a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.body-left {
+    width: 20%;
+    text-align: center;
+}
+
+.body-right {
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    margin: 30px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 #00000033;
+    transition: 0.3s;
+    width: 30%;
+    border-radius: 5px;
+    margin: 15px;
+    float: left;
+    font-size: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 #00000033;
+}
+
+.card img {
+    border-radius: 5px 5px 0 0;
+}
+
+.description {
+    padding: 2px 16px;
+    display: inline;
+    word-break: break-word;
+}
+
+.price {
+    font-size: 24px;
+    float: right;
+    margin-right: 10px;
+}
+
+#AddToCart {
+    display: block;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    padding: 7px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+#AddToCart:hover {
+    background-color: #111;
+}
+
+.search-container {
+    float: left;
+    margin-top: 12px;
+}
+
+.search-container input[type=text] {
+    padding: 5px 45px 5px 45px;
+    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    outline: none;
+}
+
+.search-container button {
+    padding: 5px 5px;
+    float: right;
+
+    margin-right: 16px;
+    background-color: white;
+    margin-left: 0;
+    color: #333;
+    outline: none;
+    font-size: 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#button-cart {
+    float: right;
+    margin: 10px 30px 0 0;
+    background-color: #333;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+#button-login{
+    float: right;
+    margin: 12px 30px 0 0;
+    background-color: #333;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.des-about {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    color: white;
+    background-color: #654c3f;
+}
+
+.des-about h1 {
+    font-size: 70px;
+}
+
+.info {
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.info table {
+    width: 70%;
+    margin-top: 10px;
+}
+
+.des-contact {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    color: white;
+    background-color: #3d4551;
+}
+
+.des-contact h1 {
+    font-size: 70px;
+}
+
+.contact {
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.contact input[type=text] {
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 26px;
+    border-radius: 5px;
+    border: none;
+}
