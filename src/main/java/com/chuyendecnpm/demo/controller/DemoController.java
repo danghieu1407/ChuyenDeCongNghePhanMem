@@ -13,15 +13,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.context.annotation.Configuration;
+
+
 
 @Controller
 public class DemoController {
+
+    
 
     private UserDAO dao = new UserDAO();
 
     @RequestMapping({ "/", "/index" })
     public String index() {
         return "index";
+    }
+    @RequestMapping({ "/productDetail" })
+    public String productDetail() {
+        return "productDetail";
     }
 
     // Đã add một atrribute vào trang Login với biến User, Object User bằng rỗng để
@@ -34,24 +43,26 @@ public class DemoController {
     // Check đăng kí xử lí bằng đã xử lí bằng javaScript
     // Xử lí giùm phần check login và đăng kí :/ , tạo seesion cho user lúc đăng
     // nhập thành công
+
     @RequestMapping(value = { "/login" }, method = { RequestMethod.POST })
-    public String CheckLogin(@RequestParam(name = "emaillogin") String emailvalue,
+    public String CheckLogin(HttpSession session, @RequestParam(name = "emaillogin") String emailvalue,
             @RequestParam(name = "passwordlogin") String passwordvalue) {
 
         if (!emailvalue.isEmpty() && !passwordvalue.isEmpty()) {
             User user = dao.getUserByEmail(emailvalue, passwordvalue);
-          
+            String username = user.getName();
             if (user.getEmail() != null) {
                 System.out.println(user.toString());
                 System.out.println("Lấy user thành công");
                 // Tạo session chỗ này để lưu lại user đã đăng nhập
-             
-                return "redirect:/index?message=Đăng nhập thành công";
+                session.setAttribute("tendangnhap", username);
+
+                return "redirect:/productDetail";
 
             }
         }
         System.out.println("User không tồn tại");
-        return "redirect:/login?message=DangNhapThatBai";
+        return "redirect:/login?message=Error Email or Password";
     }
 
     @RequestMapping(value = { "/register" }, method = { RequestMethod.POST })

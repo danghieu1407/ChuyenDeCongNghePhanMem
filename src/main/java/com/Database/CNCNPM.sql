@@ -11,6 +11,16 @@ create table _User
 	_wallet int default 0
 )
 
+create table Product
+(
+	_ID text not null,
+	_ProductID nchar(100) primary key,
+	_Name nchar(100) not null,
+	_Category nchar(10) default 'User',
+	_Price nchar(100) not null,
+	_Amount nvarchar(200) not null,
+	_Status int default 0
+)
 
 
 insert into _User values ('Cao Bảo Thái', 'cbt@gmail.com','123456','Admin','0972707663','An Giang','0')

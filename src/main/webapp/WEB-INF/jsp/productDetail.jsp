@@ -51,6 +51,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
+                             <% String username = (String)session.getAttribute("tendangnhap");
+                             if(session!= null){
+                                 out.print(username);
+                             }
+                             %>
                                 <a class="nav-item nav-link" href="index.html">Home</a>
                                 <a class="nav-item nav-link" href="collection.html">Collection</a>
                                 <a class="nav-item nav-link" href="shoes.html">Shoes</a>

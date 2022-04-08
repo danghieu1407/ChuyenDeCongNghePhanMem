@@ -54,7 +54,7 @@
 							<br>
 							<a href="#">Forgot your password?</a>	
 						
-
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							
 					</form>
 					

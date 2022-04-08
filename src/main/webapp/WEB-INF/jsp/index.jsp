@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"> -->
     <title>Trang Chủ</title>
 </head>
 
@@ -20,20 +21,24 @@
             </div>
             <div class="slideshow-container">
                 <div class="mySlides">
-                    <img src="../images/img1.png" style="width:100%" height="600px">
+                    <img src="/images/image6.jpg" style="width:100%" height="600px">
                 </div>
                 <div class="mySlides">
-                    <img src="../images/img2.png" style="width:100%" height="600px">
+                    <img src="/images/image1.jpg" style="width:100%" height="600px">
                 </div>
                 <div class="mySlides">
-                    <img src="../images/img3.png" style="width:100%" height="600px">
+                    <img src="/images/image2.jpg" style="width:100%" height="600px">
+
                 </div>
                 <div class="mySlides">
-                    <img src="../images/img4.jpg" style="width:100%" height="600px">
+                    <img src="/images/image3.jpg" style="width:100%" height="600px">
+
                 </div> <div class="mySlides">
-                    <img src="../images/img5.jpg" style="width:100%" height="600px">
+                    <img src="/images/image4.jpg" style="width:100%" height="600px">
+
                 </div> <div class="mySlides">
-                    <img src="../images/img6.jpg" style="width:100%" height="600px">
+                    <img src="/images/image5.jpg" style="width:100%" height="600px">
+
                 </div>
             </div>
             <div class="Go-Menu">
@@ -51,12 +56,7 @@
     </div>
 <!-
 
-    <footer>
-        <p>
-            Created <i class="fa fa-heart"></i> by
-            Dang Hieu - Bao Thai - Hoai Bao
-        </p>
-    </footer>
+ 
 </body>
 <script>
     var slideIndex = 0;
