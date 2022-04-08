@@ -49,6 +49,8 @@
             </div>
         </div>
     </div>
+<!-
+
     <footer>
         <p>
             Created <i class="fa fa-heart"></i> by

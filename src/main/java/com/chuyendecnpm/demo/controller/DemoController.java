@@ -1,5 +1,8 @@
 package com.chuyendecnpm.demo.controller;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
+
 import com.chuyendecnpm.demo.DAO.UserDAO;
 import com.chuyendecnpm.demo.Model.User;
 
@@ -28,7 +31,7 @@ public class DemoController {
         model.addAttribute("User", new User());
         return "login";
     }
-
+    // Check đăng kí xử lí bằng đã xử lí bằng javaScript
     // Xử lí giùm phần check login và đăng kí :/ , tạo seesion cho user lúc đăng
     // nhập thành công
     @RequestMapping(value = { "/login" }, method = { RequestMethod.POST })
@@ -42,12 +45,13 @@ public class DemoController {
                 System.out.println(user.toString());
                 System.out.println("Lấy user thành công");
                 // Tạo session chỗ này để lưu lại user đã đăng nhập
-                return "redirect:/index";
+             
+                return "redirect:/index?message=Đăng nhập thành công";
 
             }
         }
         System.out.println("User không tồn tại");
-        return "redirect:/login";
+        return "redirect:/login?message=DangNhapThatBai";
     }
 
     @RequestMapping(value = { "/register" }, method = { RequestMethod.POST })
