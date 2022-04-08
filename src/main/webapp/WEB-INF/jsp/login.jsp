@@ -40,16 +40,24 @@
 						<h1>Sign in</h1>
 						<input type="email" name="emaillogin" placeholder="Email" required />
 						<input type="password" name="passwordlogin" placeholder="Password"  required/>
-						<a href="#">Forgot your password?</a>
+					
 						<!-- <% String getValues=(String) request.getAttribute("message"); %> -->
 
-							<span id="message" style="color:red; font-size: 16px;" >
-								${param.message} 
-							</span>
-							<br>
+						<br>
 
+						<span id="message" style="color:red; font-size: 14px;" >
+							${param.message} 
+						</span>
+						
+						<br>
 							<button id="login">Sign In</button>
+							<br>
+							<a href="#">Forgot your password?</a>	
+						
+
+							
 					</form>
+					
 				</div>
 				<div class="overlay-container">
 					<div class="overlay">
