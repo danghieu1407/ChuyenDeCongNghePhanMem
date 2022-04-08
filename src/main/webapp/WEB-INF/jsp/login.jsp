@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,19 +15,26 @@
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
+	
+		 <form:form action="register" method="post" modelAttribute="User">
+		 	<h1>Create Account</h1>
+		 										
+            <form:input path="name" placeholder="Name" type="text" />
+			<form:input path="email" placeholder="Email"/>       
+			<form:input path="password" placeholder="Password" type="Password"/>     
+			<form:input path="phone" placeholder="Phone number"/>   
+			<form:input path="address" placeholder="Address"/>            
+                 
+            <form:button >Register</form:button>
+        </form:form>
 	</div>
+
+
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="/login" method="post">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" name="emaillogin" placeholder="Email" />
+			<input type="password" name ="passwordlogin" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
@@ -65,6 +74,8 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 </Script>
+
+
 </body>
 
 </html>
