@@ -18,6 +18,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="/css/dropdown.css">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- style css -->
@@ -35,59 +36,81 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
         media="screen">
-   
+        <script src="/js/DropDown.js"></script>
 </head>
 <!-- body -->
 
 <body class="main-layout">
-    <!-- header section start -->
-    <div class="header_section header_main">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="logo"><a href="#"><img src="images/logo.png"></a></div>
-                </div>
-                <div class="col-sm-9">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                             <% String username = (String)session.getAttribute("tendangnhap");
-                             if(session!= null){
-                                 out.print(username);
-                             }
-                             %>
-                                <a class="nav-item nav-link" href="index.html">Home</a>
-                                <a class="nav-item nav-link" href="collection.html">Collection</a>
-                                <a class="nav-item nav-link" href="shoes.html">Shoes</a>
-                                <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                                <a class="nav-item nav-link" href="contact.html">Contact</a>
-                                <a class="nav-item nav-link last" href="#"><img src="images/search_icon.png"></a>
-                                <a class="nav-item nav-link last" href="contact.html"><img
-                                        src="images/shop_icon.png"></a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+ <!-- header reponsive -->
+
+    <header>
+        <nav id='cssmenu'>
+        <div class="logo"><a href="">Chăn Rao </a></div>
+        <div id="head-mobile"></div>
+        <div class="button"></div>
+        <ul>
+        <li class='active'><a href='#'>HOME</a></li>
+        <li><a href='#'>ABOUT</a></li>
+        <li><a href='#'>PRODUCTS</a>
+           <ul>
+              <li><a href='#'>Product 1</a>
+                 <ul>
+                    <li><a href='#'>Sub Product</a></li>
+                    <li><a href='#'>Sub Product</a></li>
+                 </ul>
+              </li>
+              <li><a href='#'>Product 2</a>
+                 <ul>
+                    <li><a href='#'>Sub Product</a></li>
+                    <li><a href='#'>Sub Product</a></li>
+                 </ul>
+              </li>
+           </ul>
+        </li>
+        <li><a href='#'>BIO</a></li>
+        <li><a href='#'>VIDEO</a></li>
+        <li><a href='#'>GALLERY</a></li>
+        <li><a href='#'>CONTACT</a></li>
+       
+
+            <li><a id="namefromheader"  href='#'><img src="/images/user.jpg" width="16" height="16"> <% String username = (String)session.getAttribute("tendangnhap");
+                if(session!= null){
+                    out.print(username);
+                }
+                %></a>
+                <ul>
+                   <li><a href='#'>Product 1</a>
+                      <ul>
+                         <li><a href='#'>Sub Product</a></li>
+                         <li><a href='#'>Sub Product</a></li>
+                      </ul>
+                   </li>
+                   <li><a href='#'>Product 2</a>
+                      <ul>
+                         <li><a href='#'>Sub Product</a></li>
+                         <li><a href='#'>Sub Product</a></li>
+                      </ul>
+                   </li>
+                </ul>
+             </li>    
+        </ul>
+        </nav>
+        </header>
+        
     <!-- Khúc này chạy vòng for yêu dấu nè -->
-    <c:forEach var="product1" items="${Listproduct}">
+ 
     <div class="layout_padding gallery_section">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
+    <c:forEach var="product1" items="${Listproduct}">
+
+            <div class="row-sm-3s">
+                <div class="col-sm-3s ">
                     <div class="best_shoes">
                         <h1>${product1.name}</h1>
                         <p class="best_text">${product1.productID} </p>
-                        <div class="shoes_icon"><img src="images/shoes-img4.png"></div>
+                        <div class="shoes_icon"><img src="/images/image1.jpg" width="250" height="250"></div>
                         <div class="star_text">
-                            <div class="left_part">
+                            <div class="">
                                 <ul>
                                     
                                 </ul>
@@ -99,63 +122,15 @@
                         </div>
                     </div>
                 </div>
-                
-            </c:forEach>
-            <div class="buy_now_bt">
-                <button class="buy_text">Buy Now</button>
             </div>
-        </div>
-    </div>
+            </c:forEach>
+            
+    
     
     <!-- section footer end -->
     <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
 
 
-    <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
 
-
-            $('#myCarousel').carousel({
-                interval: false
-            });
-
-            //scroll slides on swipe for touch enabled devices
-
-            $("#myCarousel").on("touchstart", function (event) {
-
-                var yClick = event.originalEvent.touches[0].pageY;
-                $(this).one("touchmove", function (event) {
-
-                    var yMove = event.originalEvent.touches[0].pageY;
-                    if (Math.floor(yClick - yMove) > 1) {
-                        $(".carousel").carousel('next');
-                    }
-                    else if (Math.floor(yClick - yMove) < -1) {
-                        $(".carousel").carousel('prev');
-                    }
-                });
-                $(".carousel").on("touchend", function () {
-                    $(this).off("touchmove");
-                });
-            });
-        });
-    </script>
-</body>
 
 </html>

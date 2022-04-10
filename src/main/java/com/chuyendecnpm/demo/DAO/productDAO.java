@@ -8,7 +8,7 @@ import com.Database.Connect;
 
 import com.chuyendecnpm.demo.Model.Product;
 
-public class ProductDAO {
+public class ProductDAO{
     public List<Product> getAll(){
         List<Product> list = new ArrayList<>();
         String sql = " Select * from _Product";
