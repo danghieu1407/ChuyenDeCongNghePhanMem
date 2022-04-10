@@ -1,104 +1,97 @@
 package com.chuyendecnpm.demo.Model;
 
-public class product {
-    private int ID;
-    private String ProductID;
-    private String Name;
-    private String Category;
-    private String Price;
-    private String Amount;
-    private String Status;
-    private String Image;
+public class Product {
+    private String productID;
+    private String name;
+    private String category;
+    private int price;
+    private int amount;
+    private String image;
+    private String detail;
 
-    public product() {
+    public Product() {
     }
 
-    public product(int ID, String ProductID, String Name, String Category, String Price, String Amount, String Status, String Image) {
-        this.ID = ID;
-        this.ProductID = ProductID;
-        this.Name = Name;
-        this.Category = Category;
-        this.Price = Price;
-        this.Amount = Amount;
-        this.Status = Status;
-        this.Image = Image;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
+    public Product(String productID, String name, String category, int price, int amount, String image, String detail)
+     {
+        this.productID = productID;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.amount = amount;
+        this.image = image;
+        this.detail = detail;
     }
 
     public String getProductID() {
-        return ProductID;
+        return productID;
     }
 
-    public void setProductID(String ProductID) {
-        this.ProductID = ProductID;
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
-    public void setCategory(String Category) {
-        this.Category = Category;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getPrice() {
-        return Price;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPrice(String Price) {
-        this.Price = Price;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getAmount() {
-        return Amount;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setAmount(String Amount) {
-        this.Amount = Amount;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String Status) {
-        this.Status = Status;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getImage() {
-        return Image;
+        return image;
     }
 
-    public void setImage(String Image) {
-        this.Image = Image;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     @Override
     public String toString() {
-        return "product{" +
-                "ID=" + ID +
-                ", ProductID='" + ProductID + '\'' +
-                ", Name='" + Name + '\'' +
-                ", Category='" + Category + '\'' +
-                ", Price='" + Price + '\'' +
-                ", Amount='" + Amount + '\'' +
-                ", Status='" + Status + '\'' +
-                ", Image='" + Image + '\'' +
+        return "Product{" +
+                "productID='" + productID + '\'' +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                ", image='" + image + '\'' +
+                ", detail='" + detail + '\'' +
                 '}';
     }
+
+
+
 }

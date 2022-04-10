@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 import com.chuyendecnpm.demo.DAO.UserDAO;
-import com.chuyendecnpm.demo.DAO.productDAO;
+import com.chuyendecnpm.demo.DAO.ProductDAO;
 import com.chuyendecnpm.demo.Model.User;
-import com.chuyendecnpm.demo.Model.product;
+import com.chuyendecnpm.demo.Model.Product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,30 +20,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.context.annotation.Configuration;
 
-
-
 @Controller
 public class DemoController {
 
-    
-
     private UserDAO dao = new UserDAO();
-    private productDAO dao1 = new productDAO();
-
+    private ProductDAO dao1 = new ProductDAO();
 
     @RequestMapping({ "/", "/index" })
     public String index() {
         return "index";
     }
-    // lấy dữ liệu của product để hiển thị lên trang chủ
-    @RequestMapping(value = { "/productDetail" }, method = { RequestMethod.GET })
-    public String productDetail(Model model) {
-        List<product> product = dao1.getAll();
-        model.addAttribute("product", product);
-        System.out.println(product.toString());
 
-        return "productDetail";
-    }
+    // lấy dữ liệu của product để hiển thị lên trang chủ
+
 
     // Đã add một atrribute vào trang Login với biến User, Object User bằng rỗng để
     // khi nhập các ô input dẽ nhập thẳng vào user
@@ -64,12 +53,10 @@ public class DemoController {
             User user = dao.getUserByEmail(emailvalue, passwordvalue);
             String username = user.getName();
             if (user.getEmail() != null) {
-                System.out.println(user.toString());
-                System.out.println("Lấy user thành công");
                 // Tạo session chỗ này để lưu lại user đã đăng nhập
                 session.setAttribute("tendangnhap", username);
 
-                return "redirect:/productDetail";
+                return "redirect:/indexmain";
 
             }
         }
@@ -89,5 +76,13 @@ public class DemoController {
         }
 
         return "redirect:/login";
+    }
+
+    @RequestMapping(value = { "/indexmain" }, method = { RequestMethod.GET })
+    public String indexmain(Model model) {
+        List<Product> list = dao1.getAll();
+        model.addAttribute("Listproduct", list);
+
+        return "indexmain";
     }
 }

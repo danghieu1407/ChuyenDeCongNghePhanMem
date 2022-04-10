@@ -1,4 +1,8 @@
 
+
+ <!-- Muốn chạy được dòng for thì phải xài taglib với page này  -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,28 +77,25 @@
         </div>
     </div>
     <!-- Khúc này chạy vòng for yêu dấu nè -->
-    <c:forEach var="product1" items="${product}" varStatus="loop">
+    <c:forEach var="product1" items="${Listproduct}">
     <div class="layout_padding gallery_section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="best_shoes">
-                        <h1>${product1.Name}</h1>
-                        <p class="best_text">${product1.ProductID} </p>
+                        <h1>${product1.name}</h1>
+                        <p class="best_text">${product1.productID} </p>
                         <div class="shoes_icon"><img src="images/shoes-img4.png"></div>
                         <div class="star_text">
                             <div class="left_part">
                                 <ul>
-                                    <li><a href="#"><img src="images/star-icon.png"></a></li>
-                                    <li><a href="#"><img src="images/star-icon.png"></a></li>
-                                    <li><a href="#"><img src="images/star-icon.png"></a></li>
-                                    <li><a href="#"><img src="images/star-icon.png"></a></li>
-                                    <li><a href="#"><img src="images/star-icon.png"></a></li>
+                                    
                                 </ul>
                             </div>
                             <div class="right_part">
-                                <div class="shoes_price">$ <span style="color: #ff4e5b;">60</span></div>
+                                <div class="shoes_price">$ <span style="color: #ff4e5b;">${product1.price}</span></div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

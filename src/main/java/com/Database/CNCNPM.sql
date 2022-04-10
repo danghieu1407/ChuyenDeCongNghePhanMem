@@ -1,4 +1,5 @@
-﻿use CDCNPM
+﻿create database CDCNPM
+use CDCNPM
 
 create table _User
 (
@@ -13,14 +14,14 @@ create table _User
 --nhớ insert thêm thằng này nhóe :D
 create table _Product
 (
-	_ID int IDENTITY(1,1) primary key,
-	_ProductID nchar(100),
-	_Name nchar(100) not null,
-	_Category nchar(100) not null,
-	_Price int not null,
-	_Amount int not null,
-	_Status nvarchar(200) not null,
-	_Image TEXT                     
+	
+	_productID nchar(100) primary key,
+	_name nchar(100) not null,
+	_category nchar(100) not null,
+	_price int not null,
+	_amount int default 0,
+	_image TEXT not null,
+	_detail text not null
 )
 
 
@@ -28,4 +29,5 @@ insert into _User values ('Cao Bảo Thái', 'cbt@gmail.com','123456','Admin','0
 insert into _User values ('Nguyen Dang Hieu', 'ndh@gmail.com','123456','User','123456789','Phu Yen','0')
 insert into _User values ('Huynh Nguyen Hoai Bao', 'hoaibao@gmail.com','123456','User','987654321','Tien Giang','0')
 
-INSERT INTO Product( _Name,_ProductID,_Category,_Price,_Amount,_Status) VALUES ('Cucumber','CCB1' ,'Vegestable','5','1', 'This cucumber is the best choices' );
+insert into _Product values('BBC','Bắp cải','vegatable','1000','0','1','Bắp cải siêu sạch')
+insert into _Product values('CCB','Dưa keo','vegatable','200','0','1','Dưa leo siêu sạch')
