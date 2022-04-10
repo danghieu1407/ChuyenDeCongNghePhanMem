@@ -1,10 +1,15 @@
 package com.chuyendecnpm.demo.controller;
 
+import java.util.List;
+
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 import com.chuyendecnpm.demo.DAO.UserDAO;
+import com.chuyendecnpm.demo.DAO.productDAO;
 import com.chuyendecnpm.demo.Model.User;
+import com.chuyendecnpm.demo.Model.product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,13 +28,20 @@ public class DemoController {
     
 
     private UserDAO dao = new UserDAO();
+    private productDAO dao1 = new productDAO();
+
 
     @RequestMapping({ "/", "/index" })
     public String index() {
         return "index";
     }
-    @RequestMapping({ "/productDetail" })
-    public String productDetail() {
+    // lấy dữ liệu của product để hiển thị lên trang chủ
+    @RequestMapping(value = { "/productDetail" }, method = { RequestMethod.GET })
+    public String productDetail(Model model) {
+        List<product> product = dao1.getAll();
+        model.addAttribute("product", product);
+        System.out.println(product.toString());
+
         return "productDetail";
     }
 
