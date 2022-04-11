@@ -85,4 +85,11 @@ public class DemoController {
 
         return "indexmain";
     }
+
+
+    @RequestMapping(value = { "/logout" }, method = { RequestMethod.GET })
+    public String backtologin(HttpSession session) {
+        session.invalidate(); 
+        return "redirect:/login";
+    }
 }

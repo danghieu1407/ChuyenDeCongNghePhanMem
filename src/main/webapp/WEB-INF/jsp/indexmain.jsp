@@ -3,6 +3,7 @@
  <!-- Muốn chạy được dòng for thì phải xài taglib với page này  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +44,12 @@
 <body class="main-layout">
  <!-- header reponsive -->
 
+   <%
+     if(session.getAttribute("tendangnhap")==null || session == null)
+     {
+        response.sendRedirect("/login");
+     }
+   %>
     <header>
         <nav id='cssmenu'>
         <div class="logo"><a href="">Chăn Rao </a></div>
@@ -79,11 +86,7 @@
                 }
                 %></a>
                 <ul>
-                   <li><a href='#'>Product 1</a>
-                      <ul>
-                         <li><a href='#'>Sub Product</a></li>
-                         <li><a href='#'>Sub Product</a></li>
-                      </ul>
+                   <li><a href='#'>Quản lí sản phẩm</a>
                    </li>
                    <li><a href='#'>Product 2</a>
                       <ul>
@@ -91,6 +94,7 @@
                          <li><a href='#'>Sub Product</a></li>
                       </ul>
                    </li>
+                    <li><a href='/logout'>Đăng xuất</a>
                 </ul>
              </li>    
         </ul>
