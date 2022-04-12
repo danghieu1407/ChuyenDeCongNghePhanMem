@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"> -->
-    <title>Trang Chủ</title>
+    <title>Trang Chủ</title>`
 </head>
 
 <body>
