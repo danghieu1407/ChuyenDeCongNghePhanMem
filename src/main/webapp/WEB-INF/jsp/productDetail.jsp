@@ -89,7 +89,7 @@
                                                 height="16">
                                             <% String username=(String)session.getAttribute("tendangnhap");
                                                 if(session!=null){ out.print(username); } %>
-                                        </a>
+                                        </a>""
                                         <ul>
                                             <li><a href='#'>Quản lí sản phẩm</a>
                                             </li>
@@ -108,7 +108,7 @@
 
                         </header>
 
-                     <!-- chi tiet san pham  -->
+                     <!-- chi tiet san pham  o day ne -->
                         <body class="main-layout">
                             <h1>Chi tiết sản phẩm</h1>
                             <h2> ${ProductDetail.name}</h2>
