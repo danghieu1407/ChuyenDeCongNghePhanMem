@@ -28,6 +28,7 @@ public class DemoController {
 
     @RequestMapping({ "/", "/index" })
     public String index() {
+        
         return "index";
     }
 
@@ -91,5 +92,14 @@ public class DemoController {
     public String backtologin(HttpSession session) {
         session.invalidate(); 
         return "redirect:/login";
+    }
+
+    @RequestMapping({ "/productDetail" })
+    public String productDetail(Model model, @RequestParam(name = "id") String id) {
+        System.out.println(dao1.findProductById("CCB").getName());
+        Product product = dao1.findProductById(id);
+        model.addAttribute("ProductDetail", product);
+        System.out.println(product.getName());
+        return "productDetail";
     }
 }

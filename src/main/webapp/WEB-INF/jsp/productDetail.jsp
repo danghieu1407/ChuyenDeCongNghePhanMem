@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <%@ page import="java.io.*,java.util.*" %>
+    
             <!DOCTYPE html>
             <html lang="en">
 
@@ -103,44 +104,16 @@
                                     </li>
 
 
+
+
                         </header>
 
-                   
-                        <div class="row">
-
-                            <c:forEach var="product1" items="${Listproduct}">
-                                <div class="product-box col-lg-3" id="productbox">
-                                <form action="/productDetail?id=${product1.productID}" method="post">
-
-                                    <div class="product-item ">
-                                        <div class="product-item-image">
-                                            <img src="/images/duahau1.jpg">
-                                            <div class="product-item-image-hover">
-                                            </div>
-                                        </div>
-                                        <div class="product-item-content">
-
-                                            <div class="product-item-title">
-                                                ${product1.name}
-                                            </div>
-                                            <div class="product-item-price">
-                                                ${product1.price} $
-                                            </div>
-                                             <button type="submit" class="button-pill">
-                                                <span>Shop Now</span>
-                                            </button>
-                                        </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-
-                            </c:forEach>
-
-                        </div>
-
-
+                     
+                        <body class="main-layout">
+                            <h1>Chi tiết sản phẩm</h1>
+                            <h2> ${ProductDetail.name}</h2>
+                        </body>
+                            
                     </div>
 
                     </div>
@@ -152,36 +125,5 @@
                     </footer>
 
 
-                    <script>(function ($) {
-                            $(function () {
-
-                                //  open and close nav 
-                                $('#navbar-toggle').click(function () {
-                                    $('nav ul').slideToggle();
-                                });
-
-
-                                // Hamburger toggle
-                                $('#navbar-toggle').on('click', function () {
-                                    this.classList.toggle('active');
-                                });
-
-
-                                // If a link has a dropdown, add sub menu toggle.
-                                $('nav ul li a:not(:only-child)').click(function (e) {
-                                    $(this).siblings('.navbar-dropdown').slideToggle("slow");
-
-                                    // Close dropdown when select another dropdown
-                                    $('.navbar-dropdown').not($(this).siblings()).hide("slow");
-                                    e.stopPropagation();
-                                });
-
-
-                                // Click outside the dropdown will remove the dropdown class
-                                $('html').click(function () {
-                                    $('.navbar-dropdown').hide();
-                                });
-                            });
-                        })(jQuery); </script>
 
             </html>

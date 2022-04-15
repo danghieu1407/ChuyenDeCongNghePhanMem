@@ -79,6 +79,7 @@ public class Product {
         this.detail = detail;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
