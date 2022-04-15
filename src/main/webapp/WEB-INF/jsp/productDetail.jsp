@@ -108,7 +108,7 @@
 
                         </header>
 
-                     
+                     <!-- chi tiet san pham  -->
                         <body class="main-layout">
                             <h1>Chi tiết sản phẩm</h1>
                             <h2> ${ProductDetail.name}</h2>
