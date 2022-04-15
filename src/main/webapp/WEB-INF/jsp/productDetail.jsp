@@ -23,6 +23,7 @@
                 <link rel="stylesheet" href="css/bootstrap.min.css">
                 <!-- style css -->
                 <link rel="stylesheet" href="css/product.css">
+                <link rel="stylesheet" href="css/productDetail.css">
                 <!-- Responsive-->
                 <link rel="stylesheet" href="css/responsive.css">
                 <!-- fevicon -->
@@ -39,6 +40,7 @@
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
                 <script src="/Js/dropdown.js"></script>
+           
                 <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
                         e.stopPropagation();
                     });</script>
@@ -89,7 +91,7 @@
                                                 height="16">
                                             <% String username=(String)session.getAttribute("tendangnhap");
                                                 if(session!=null){ out.print(username); } %>
-                                        </a>""
+                                        </a>
                                         <ul>
                                             <li><a href='#'>Quản lí sản phẩm</a>
                                             </li>
@@ -110,8 +112,63 @@
 
                      <!-- chi tiet san pham  o day ne -->
                         <body class="main-layout">
-                            <h1>Chi tiết sản phẩm</h1>
-                            <h2> ${ProductDetail.name}</h2>
+                            <!-- <h1>Chi tiết sản phẩm</h1>  -->
+                        
+                            <div class = "card-wrapper">
+                                <div class = "card">
+                                  <!-- card left -->
+                                  <div class = "product-imgs">
+                                    <div class = "img-display">
+                                      <div class = "img-showcase">
+                                        <img src = "/images/${ProductDetail.image}" alt = "shoe image">
+                                   
+                                      </div>
+                                    </div>
+                                  
+                                  </div>
+                                  <!-- card right -->
+                                  <div class = "product-content">
+                                    <h2 class = "product-title">${ProductDetail.name}</h2>
+                           
+                                    <div class = "product-rating">
+                                      <i class = "fas fa-star"></i>
+                                      <i class = "fas fa-star"></i>
+                                      <i class = "fas fa-star"></i>
+                                      <i class = "fas fa-star"></i>
+                                      <i class = "fas fa-star-half-alt"></i>
+                                      <span>4.7(21)</span>
+                                    </div>
+                              
+                                    <div class = "product-price">
+                                      
+                                      <p class = "new-price">Price: <span>${ProductDetail.price} $</span></p>
+                                    </div>
+                              
+                                    <div class = "product-detail">
+                                      <h2>about this item: </h2>
+                                      <p>${ProductDetail.detail} </p>
+                                 
+                                      <!-- <ul>
+                                        <li>Color: <span>Black</span></li>
+                                        <li>Available: <span>in stock</span></li>
+                                        <li>Category: <span>Shoes</span></li>
+                                        <li>Shipping Area: <span>All over the world</span></li>
+                                        <li>Shipping Fee: <span>Free</span></li>
+                                      </ul> -->
+                                    </div>
+                              
+                                    <div class = "purchase-info">
+                                      <input type = "number" min = "0" value = "1">
+                                      <button type = "button" class = "btn">
+                                        Add to Cart <i class = "fas fa-shopping-cart"></i>
+                                      </button>
+                                      <button type = "button" class = "btn">Compare</button>
+                                    </div>
+                              
+                                   
+                                  </div>
+                                </div>
+                              </div>
                         </body>
                             
                     </div>

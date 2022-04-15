@@ -114,7 +114,7 @@
 
                                     <div class="product-item ">
                                         <div class="product-item-image">
-                                            <img src="/images/duahau1.jpg">
+                                            <img id="imageIndexMain" src="/images/${product1.image}"  alt="">
                                             <div class="product-item-image-hover">
                                             </div>
                                         </div>
