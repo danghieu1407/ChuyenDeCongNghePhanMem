@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <%@ page import="java.io.*,java.util.*" %>
-    
+
             <!DOCTYPE html>
             <html lang="en">
 
@@ -18,6 +18,8 @@
                 <meta name="keywords" content="">
                 <meta name="description" content="">
                 <meta name="author" content="">
+                <link rel="stylesheet" href="/css/table.css">
+
                 <link rel="stylesheet" href="/css/dropdown.css">
                 <!-- bootstrap css -->
                 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -35,12 +37,11 @@
                 <!-- owl stylesheets -->
                 <link rel="stylesheet" href="css/owl.carousel.min.css">
                 <link rel="stylesheet" href="css/owl.theme.default.min.css">
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
                 <script src="/Js/dropdown.js"></script>
-           
+
                 <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
                         e.stopPropagation();
                     });</script>
@@ -110,43 +111,79 @@
 
                         </header>
 
-                     
-                      <body>
-                        <html>
-                            <table class="rwd-table">
-                              <tr>
-                                <th>Header1</th>
-                                <th>Header2</th>
-                                <th>Header3</th>
-                                <th>Header4</th>
-                              </tr>
-                              <tr>
-                                <td>Content1</td>
-                                <td>Content1</td>
-                                <td>Content1</td>
-                                <td>Content1 </td>
-                              </tr>
-                              <tr>
-                                <td>Content2</td>
-                                <td>Content2</td>
-                                <td>Content2</td>
-                                <td>Content2 </td>
-                              </tr>
-                              <tr>
-                                <td>Content3</td>
-                                <td>Content3</td>
-                                <td>Content3</td>
-                                <td>Content3 </td>
-                              </tr>
-                            </table>
-                      </body>
-                      
+
+                        <body>
+                            <form action="" method="post">
+                                <button class="btn btn-success" type="submit">Add Product</button>
+                            </form>
+                            <div class="">
+                          
+                                  <table class="rwd-table">
+                                    <tbody>
+                                      <tr>
+                                        <th>Product ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Amount</th>
+                                        <th>Image</th>
+                                        <th>Detail</th>
+                                        <th>Action</th>
 
 
-                    <!-- section footer end -->
-                    <footer>
-                        <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
-                    </footer>
+                                      </tr>
+                                      <c:forEach var="Product" items="${Listproduct}">
+                                      <tr>
+                                        <td >
+                                          ${Product.productID}
+                                        </td>
+                                        <td >
+                                          ${Product.name}
+                                          
+                                        </td>
+                                        <td >
+                                          ${Product.category}
+
+                                        </td>
+                                        <td>
+                                          ${Product.price}
+
+                                        </td>
+                                        <td >
+                                          ${Product.amount}
+
+                                        </td>
+                                        <td>
+                                          ${Product.image}
+
+                                        </td>
+                                        <td>
+                                          ${Product.detail}
+
+                                          </td>
+                                          <td>
+                                            <button class="btn btn-warning" type="submit">Edit</button>
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                          </td>
+                                       
+                                      </tr>
+                                    </c:forEach>
+                                    
+                                          
+                                    
+                                      
+                                    </tbody>
+                                  </table>
+                               
+                                </div>
+                        </body>
+
+
+
+                        <!-- section footer end -->
+                        <footer>
+                            <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
+                        </footer>
 
 
 

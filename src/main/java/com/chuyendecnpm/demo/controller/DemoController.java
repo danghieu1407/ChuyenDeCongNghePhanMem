@@ -104,7 +104,9 @@ public class DemoController {
     }
 
       @RequestMapping(value = { "/managementProduct" }, method = { RequestMethod.GET })
-    public String managementProduct() {
+    public String managementProduct(Model model) {
+        List<Product> list = dao1.getAll();
+        model.addAttribute("Listproduct", list);
         return "managementProduct";
     }
 }
