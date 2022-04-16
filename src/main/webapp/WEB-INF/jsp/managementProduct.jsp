@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page contentType="text/html" pageEncoding="UTF-8" %>
         <%@ page import="java.io.*,java.util.*" %>
+    
             <!DOCTYPE html>
             <html lang="en">
 
@@ -22,6 +23,7 @@
                 <link rel="stylesheet" href="css/bootstrap.min.css">
                 <!-- style css -->
                 <link rel="stylesheet" href="css/product.css">
+                <link rel="stylesheet" href="css/productDetail.css">
                 <!-- Responsive-->
                 <link rel="stylesheet" href="css/responsive.css">
                 <!-- fevicon -->
@@ -38,6 +40,7 @@
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
                 <script src="/Js/dropdown.js"></script>
+           
                 <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
                         e.stopPropagation();
                     });</script>
@@ -103,47 +106,41 @@
                                     </li>
 
 
+
+
                         </header>
 
-                   
-                        <div class="row">
-
-                            <c:forEach var="product1" items="${Listproduct}">
-                                <div class="product-box col-lg-3" id="productbox">
-                                <form action="/productDetail?id=${product1.productID}" method="post">
-
-                                    <div class="product-item ">
-                                        <div class="product-item-image">
-                                            <img id="imageIndexMain" src="/images/${product1.image}"  alt="">
-                                            <div class="product-item-image-hover">
-                                            </div>
-                                        </div>
-                                        <div class="product-item-content">
-
-                                            <div class="product-item-title">
-                                                ${product1.name}
-                                            </div>
-                                            <div class="product-item-price">
-                                                ${product1.price} $
-                                            </div>
-                                             <button type="submit" class="button-pill">
-                                                <span>Shop Now</span>
-                                            </button>
-                                        </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-
-                            </c:forEach>
-
-                        </div>
-
-
-                    </div>
-
-                    </div>
+                     
+                      <body>
+                        <html>
+                            <table class="rwd-table">
+                              <tr>
+                                <th>Header1</th>
+                                <th>Header2</th>
+                                <th>Header3</th>
+                                <th>Header4</th>
+                              </tr>
+                              <tr>
+                                <td>Content1</td>
+                                <td>Content1</td>
+                                <td>Content1</td>
+                                <td>Content1 </td>
+                              </tr>
+                              <tr>
+                                <td>Content2</td>
+                                <td>Content2</td>
+                                <td>Content2</td>
+                                <td>Content2 </td>
+                              </tr>
+                              <tr>
+                                <td>Content3</td>
+                                <td>Content3</td>
+                                <td>Content3</td>
+                                <td>Content3 </td>
+                              </tr>
+                            </table>
+                      </body>
+                      
 
 
                     <!-- section footer end -->
@@ -152,36 +149,5 @@
                     </footer>
 
 
-                    <script>(function ($) {
-                            $(function () {
-
-                                //  open and close nav 
-                                $('#navbar-toggle').click(function () {
-                                    $('nav ul').slideToggle();
-                                });
-
-
-                                // Hamburger toggle
-                                $('#navbar-toggle').on('click', function () {
-                                    this.classList.toggle('active');
-                                });
-
-
-                                // If a link has a dropdown, add sub menu toggle.
-                                $('nav ul li a:not(:only-child)').click(function (e) {
-                                    $(this).siblings('.navbar-dropdown').slideToggle("slow");
-
-                                    // Close dropdown when select another dropdown
-                                    $('.navbar-dropdown').not($(this).siblings()).hide("slow");
-                                    e.stopPropagation();
-                                });
-
-
-                                // Click outside the dropdown will remove the dropdown class
-                                $('html').click(function () {
-                                    $('.navbar-dropdown').hide();
-                                });
-                            });
-                        })(jQuery); </script>
 
             </html>

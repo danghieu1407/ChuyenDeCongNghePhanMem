@@ -102,4 +102,9 @@ public class DemoController {
         System.out.println(product.getName());
         return "productDetail";
     }
+
+      @RequestMapping(value = { "/managementProduct" }, method = { RequestMethod.GET })
+    public String managementProduct() {
+        return "managementProduct";
+    }
 }
