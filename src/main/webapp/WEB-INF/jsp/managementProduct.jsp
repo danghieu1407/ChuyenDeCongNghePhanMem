@@ -162,8 +162,12 @@
 
                                           </td>
                                           <td>
-                                            <button class="btn btn-warning" type="submit">Edit</button>
+                                            <form action="" method="post">
+                                              <button class="btn btn-warning" type="submit">Edit</button>
+                                            </form>
+                                            <form action="/deleteProduct?id=${Product.productID}" method="post">
                                             <button class="btn btn-danger" type="submit">Delete</button>
+                                          </form>
                                           </td>
                                        
                                       </tr>

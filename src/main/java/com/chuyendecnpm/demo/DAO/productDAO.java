@@ -72,4 +72,32 @@ public class ProductDAO{
         
         return product;
     }
+
+    public Product DeletebyID(String _productId) {
+        List<Product> list = new ArrayList<>();
+        Product product = new Product();
+
+        String sql = " DELETE FROM _Product WHERE _productID = '"+ _productId +"'";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) {
+
+                product.setProductID(rs.getString("_productID"));
+                product.setName(rs.getString("_name"));
+                product.setCategory(rs.getString("_category"));
+                product.setPrice(rs.getInt( "_price"));
+                product.setAmount(rs.getInt("_amount"));
+                product.setImage(rs.getString("_image"));
+                product.setDetail(rs.getString("_detail"));
+              
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return product;
+    }
 }

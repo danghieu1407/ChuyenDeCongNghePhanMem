@@ -107,6 +107,14 @@ public class DemoController {
     public String managementProduct(Model model) {
         List<Product> list = dao1.getAll();
         model.addAttribute("Listproduct", list);
+        
+        dao1.DeletebyID("CCB");
+
         return "managementProduct";
+    }
+    @RequestMapping(value = { "/deleteProduct" }, method = { RequestMethod.POST })
+    public String deleteProduct(Model model, @RequestParam(name = "id") String id) {
+        dao1.DeletebyID(id);
+        return "redirect:/managementProduct";
     }
 }
