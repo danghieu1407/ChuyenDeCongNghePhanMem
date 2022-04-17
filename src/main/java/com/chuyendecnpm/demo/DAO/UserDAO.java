@@ -9,10 +9,7 @@ import java.util.List;
 import com.Database.Connect;
 import com.chuyendecnpm.demo.Model.User;
 
-/**
- *
- * @author BaoThai
- */
+
 public class UserDAO {
 
     public void Add(User user) throws Exception {

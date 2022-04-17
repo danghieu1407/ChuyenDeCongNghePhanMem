@@ -29,5 +29,5 @@ insert into _User values ('Cao Bảo Thái', 'cbt@gmail.com','123456','Admin','0
 insert into _User values ('Nguyen Dang Hieu', 'ndh@gmail.com','123456','User','123456789','Phu Yen','0')
 insert into _User values ('Huynh Nguyen Hoai Bao', 'hoaibao@gmail.com','123456','User','987654321','Tien Giang','0')
 
-insert into _Product values('BBC','Bắp cải','vegatable','1000','0','1','Bắp cải siêu sạch')
-insert into _Product values('CCB','Dưa keo','vegatable','200','0','1','Dưa leo siêu sạch')
+insert into _Product values('BBC','Cabbage','vegatable','1000','0','1','Bắp cải siêu sạch')
+insert into _Product values('CCB','Cucumber','vegatable','200','0','1','Dưa leo siêu sạch')

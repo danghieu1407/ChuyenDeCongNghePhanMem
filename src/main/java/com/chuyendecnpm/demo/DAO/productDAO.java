@@ -100,4 +100,26 @@ public class ProductDAO{
         
         return product;
     }
+
+    //add Product
+    public boolean addProduct(Product product) {
+        boolean check = false;
+        String sql = "INSERT INTO _Product(_productID,_name,_category,_price,_amount,_image,_detail) VALUES(?,?,?,?,?,?,?)";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, product.getProductID().toString());
+            stm.setString(2, product.getName());
+            stm.setString(3, product.getCategory());
+            stm.setInt(4, product.getPrice());
+            stm.setInt(5, product.getAmount());
+            stm.setString(6, product.getImage());
+            stm.setString(7, product.getDetail());
+            stm.executeUpdate();
+            check = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
 }

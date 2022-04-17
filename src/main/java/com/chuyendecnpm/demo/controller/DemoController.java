@@ -107,14 +107,38 @@ public class DemoController {
     public String managementProduct(Model model) {
         List<Product> list = dao1.getAll();
         model.addAttribute("Listproduct", list);
-        
-        dao1.DeletebyID("CCB");
 
         return "managementProduct";
     }
+
+    //Delete Product
     @RequestMapping(value = { "/deleteProduct" }, method = { RequestMethod.POST })
     public String deleteProduct(Model model, @RequestParam(name = "id") String id) {
         dao1.DeletebyID(id);
         return "redirect:/managementProduct";
     }
+
+    //Add Product
+    @RequestMapping(value = { "/addProduct" }, method = { RequestMethod.POST })
+    public String addProduct(Model model) {
+        model.addAttribute("Product", new Product());
+        return "addProduct";
+    }
+
+    //add Product
+    @RequestMapping(value = { "/addProductProcess" }, method = { RequestMethod.POST })
+    public String addProduct(Model model, @ModelAttribute("Product") Product product) {
+        try {
+            dao1.addProduct(product);
+            System.out.println(product);
+            System.out.println("Thêm thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Thêm thất bại");
+
+        }
+
+        return "redirect:/managementProduct";
+    }
+    
 }

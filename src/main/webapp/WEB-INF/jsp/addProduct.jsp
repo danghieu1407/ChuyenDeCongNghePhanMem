@@ -18,6 +18,8 @@
                 <meta name="keywords" content="">
                 <meta name="description" content="">
                 <meta name="author" content="">
+
+                
                 <link rel="stylesheet" href="/css/table.css">
 
                 <link rel="stylesheet" href="/css/dropdown.css">
@@ -113,76 +115,44 @@
 
 
                         <body>
-                            <form action="/addProduct" method="post">
-                                <button class="btn btn-success" type="submit">Add Product</button>
-                            </form>
-                            <div class="">
-                          
-                                  <table class="rwd-table">
-                                    <tbody>
-                                      <tr>
-                                        <th>Product ID</th>
-                                        <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Price</th>
-                                        <th>Amount</th>
-                                        <th>Image</th>
-                                        <th>Detail</th>
-                                        <th>Action</th>
-
-
-                                      </tr>
-                                      <c:forEach var="Product" items="${Listproduct}">
-                                      <tr>
-                                        <td >
-                                          ${Product.productID}
-                                        </td>
-                                        <td >
-                                          ${Product.name}
-                                          
-                                        </td>
-                                        <td >
-                                          ${Product.category}
-
-                                        </td>
-                                        <td>
-                                          ${Product.price}
-
-                                        </td>
-                                        <td >
-                                          ${Product.amount}
-
-                                        </td>
-                                        <td>
-                                          ${Product.image}
-
-                                        </td>
-                                        <td>
-                                          ${Product.detail}
-
-                                          </td>
-                                          <td>
-                                            <form action="" method="post">
-                                              <button class="btn btn-warning" type="submit">Edit</button>
-                                            </form>
-                                            <form action="/deleteProduct?id=${Product.productID}" method="post">
-                                            <button class="btn btn-danger" type="submit">Delete</button>
-                                          </form>
-                                          </td>
-                                       
-                                      </tr>
-                                    </c:forEach>
-                                    
-                                          
-                                    
-                                      
-                                    </tbody>
-                                  </table>
-                               
+                            <div id="addProductForm"  class="row">
+                                <h1>Add Product</h1>
+                            <form action="/addProductProcess" method="POST" modelAttribute="Product">
+                                <div class="form-group">
+                                    <label for="productID">Product ID</label>
+                                    <input name="productID" path="productID" type="text" class="form-control" id="productID" placeholder="Product ID">
+                                  </div>
+                                <div class="form-group">
+                                  <label for="Name">Name</label>
+                                  <input name="Name" path="name" type="text" class="form-control" id="Name" placeholder="Name">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="Category">Category</label>
+                                    <input name="Category" path="category" type="text" class="form-control" id="Category" placeholder="Category">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Price">Price</label>
+                                    <input name="Price" path="price" type="text" class="form-control" id="Price" placeholder="Price">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Amount">Amount</label>
+                                    <input name="Amount" path="amount" type="text" class="form-control" id="Amount" placeholder="Amount">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Image">Image</label>
+                                    <input name="Image" path="image" type="text" class="form-control" id="Image" placeholder="Image">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Detail">Detail</label>
+                                    <input name="detail" path="detail" type="text" class="form-control" id="Detail" placeholder="Detail">
+                                  </div>
+                             
+                                <button type="submit" class="btn btn-success">Submit</button>
+                              </form>
+                            </div>
                         </body>
-
-
+                        
 
                         <!-- section footer end -->
                         <footer>
