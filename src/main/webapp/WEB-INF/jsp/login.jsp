@@ -22,14 +22,14 @@
 					<form:form action="register" method="post" modelAttribute="User">
 						<h1>Create Account</h1>
 
-						<input path="name" placeholder="Name" type="text" required />
-						<input path="email" placeholder="Email" type="email" required />
-						<input path="password" id="pswd" placeholder="Password" type="Password" required />
+						<input name ="name" path="name" placeholder="Name" type="text" required />
+						<input name="email" path="email" placeholder="Email" type="email" required />
+						<input name = "password"path="password" id="pswd" placeholder="Password" type="Password" required />
 						<input path="Confirmpassword" id="Confirmpassword" placeholder="Confirm Password"
 							type="Password" required />
 
-						<input path="phone" placeholder="Phone number" required />
-						<input path="address" placeholder="Address" required />
+						<input name="phone" path="phone" placeholder="Phone number" required />
+						<input name="address" path="address" placeholder="Address" required />
 						<button id="Register">Register</button>
 					</form:form>
 				</div>

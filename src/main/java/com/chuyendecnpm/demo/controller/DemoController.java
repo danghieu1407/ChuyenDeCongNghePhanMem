@@ -68,6 +68,7 @@ public class DemoController {
     @RequestMapping(value = { "/register" }, method = { RequestMethod.POST })
     public String register(Model model, @ModelAttribute("User") User user) {
         try {
+            System.out.println(user);
             dao.Add(user);
             System.out.println("Đăng ký thành công");
         } catch (Exception e) {
