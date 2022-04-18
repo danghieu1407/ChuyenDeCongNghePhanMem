@@ -114,9 +114,7 @@
 
 
             <body>
-              <form action="/addProduct" method="post">
-                <button class="btn btn-success" type="submit">Add Product</button>
-              </form>
+           
               <div class="">
 
                 <table class="rwd-table">
@@ -163,10 +161,65 @@
 
                         </td>
                         <td>
-                          <form action="" method="post">
-                            <button class="btn btn-warning" type="submit">Edit</button>
-                          </form>
-                            <!-- open modal  -->
+                        
+
+                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
+                          <!-- modal edit -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h3 class="modal-title" id="exampleModalLabel">Edit ${Product.productID}</h3>
+                                
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form action="/editProductProcess?id=${Product.productID}" method="post" modelAttribute="Product1">
+                                    <div class="form-group">
+                                    
+                                      <input name="productID" type="text" class="form-control"  placeholder=" ${Product.productID}" value="${Product.productID}" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Name</label>
+                                      <input name="name" type="text" class="form-control"  placeholder="  ${Product.name}">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Category</label>
+                                      <input name="category" type="text" class="form-control"  placeholder=" ${Product.category}">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Price</label>
+                                      <input name="price" type="text" class="form-control"  placeholder=" ${Product.price}">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Amount</label>
+                                      <input name="amount" type="text" class="form-control"  placeholder=" ${Product.amount}">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Image</label>
+                                      <input name="image" type="text" class="form-control"  placeholder=" ${Product.image}">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Detail</label>
+                                      <input name="detail" type="text" class="form-control"  placeholder=" ${Product.detail}">
+                                    </div>
+                                   
+                                   
+                               
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  
+                                  <button class="btn btn-success" type="submit">Confirm</button>
+                                  </form>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                            <!-- open modal delete -->
                             <button class="btn btn-danger" type="button" data-toggle="modal"
                               data-target="#myModal">Delete</button>
                               <div class="modal fade" id="myModal" role="dialog">
@@ -196,10 +249,19 @@
                          
                         </td>
 
+                        
+
                       </tr>
+                    
                     </c:forEach>
 
-
+                    <tr>
+                      <td colspan="8" style="text-align: center;">
+                        <form action="/addProduct" method="post">
+                          <button class="btn btn-success" type="submit">Add Product</button>
+                        </form>
+                      </td>
+                    </tr>
 
 
                   </tbody>

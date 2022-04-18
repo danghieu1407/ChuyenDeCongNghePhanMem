@@ -141,5 +141,25 @@ public class DemoController {
 
         return "redirect:/managementProduct";
     }
+
+  //UPDATE Product
+
+
+    //update Product
+    @RequestMapping(value = { "/editProductProcess" }, method = { RequestMethod.POST })
+    public String updateProduct(Model model, @RequestParam(name = "id") String id, @ModelAttribute("Product1") Product product) {
+        try {
+            dao1.findProductById(id);
+            dao1.updateProduct(product);
+            System.out.println(dao1.updateProduct(product));
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+
+        }
+
+        return "redirect:/managementProduct";
+    }
     
 }

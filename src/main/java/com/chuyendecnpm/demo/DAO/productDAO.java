@@ -122,4 +122,26 @@ public class ProductDAO{
         }
         return check;
     }
+
+    //update Product
+    public Product updateProduct(Product product) {
+        
+        String sql = "UPDATE _Product SET  _name = ?,_category = ?,_price = ?,_amount = ?,_image = ?,_detail = ? WHERE _productID = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, product.getName());
+            stm.setString(2, product.getCategory());
+            stm.setInt(3, product.getPrice());
+            stm.setInt(4, product.getAmount());
+            stm.setString(5, product.getImage());
+            stm.setString(6, product.getDetail());
+            stm.setString(7, product.getProductID());
+            stm.executeUpdate();
+          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
 }
