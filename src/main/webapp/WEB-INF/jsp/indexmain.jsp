@@ -13,7 +13,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
                 <!-- site metas -->
-                <title>Shoes</title>
+                <title>Index    </title>
                 <meta name="keywords" content="">
                 <meta name="description" content="">
                 <meta name="author" content="">
@@ -56,7 +56,7 @@
 
                                 <ul style="height:15px">
 
-                                    <li class='active'><a href='#'>HOME</a></li>
+                                    <li class='active'><a href='/indexmain'>HOME</a></li>
                                     <li><a href='#'>ABOUT</a></li>
                                     <li><a href='#'>PRODUCTS</a>
                                         <ul>
