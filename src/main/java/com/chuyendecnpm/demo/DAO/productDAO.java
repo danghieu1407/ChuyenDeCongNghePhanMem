@@ -144,4 +144,33 @@ public class ProductDAO{
         }
         return product;
     }
+
+    //Select product where category = ?
+    public List<Product> getProductByCategory(String category) {
+        List<Product> list = new ArrayList<>();
+        String sql = " Select * from _Product WHERE _category = '"+ category +"'";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+
+                product.setProductID(rs.getString("_productID"));
+                product.setName(rs.getString("_name"));
+                product.setCategory(rs.getString("_category"));
+                product.setPrice(rs.getInt("_price"));
+                product.setAmount(rs.getInt("_amount"));
+                product.setImage(rs.getString("_image"));
+                product.setDetail(rs.getString("_detail"));
+                list.add(product);
+            }
+            con.close();
+            stm.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

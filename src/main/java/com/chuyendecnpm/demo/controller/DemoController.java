@@ -161,5 +161,14 @@ public class DemoController {
 
         return "redirect:/managementProduct";
     }
-    
+ 
+
+    //select Product by category
+    @RequestMapping(value = { "/category"}, method = { RequestMethod.GET })
+    public String selectProduct(Model model, @RequestParam(name = "category") String category) {
+        List<Product> list = dao1.getProductByCategory(category);
+        model.addAttribute("Listproduct", list);
+        System.out.println(list); 
+        return "category";
+    }
 }

@@ -107,8 +107,7 @@
                         
                    
                         <div class="row">
-                            <div  id="listgroup" class="list-group">
-                                <h1>Category</h1>
+                            <div id="listgroup" class="list-group">
                                 <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Tubers">Tubers</a>
                                 <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Leaves">Leaves</a>
                                 <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Seed">Seed</a>
@@ -143,7 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                        
+                            </form>
 
 
                             </c:forEach>
