@@ -103,7 +103,7 @@
 
 
                         </header>
-                        <div class="row">
+                        <div id="row"  class="row">
                             <div class="col-lg-2">
                                 <div id="listgroup" class="list-group">
                                     <h1>Category</h1>
@@ -140,7 +140,7 @@
                                 <div class="row">
                                     
                                     <c:forEach var="product1" items="${Listproduct}">
-                                        <div class="product-box col-lg-3" id="productbox">
+                                        <div class="product-box col-lg-2" id="productbox">
                                             <form action="/productDetail?id=${product1.productID}" method="post">
 
                                                 <div id="imageIndexMain" class="product-item ">

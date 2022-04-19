@@ -1,10 +1,16 @@
 package com.chuyendecnpm.demo.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import com.chuyendecnpm.demo.DAO.UserDAO;
 import com.chuyendecnpm.demo.DAO.ProductDAO;
@@ -18,6 +24,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.context.annotation.Configuration;
 
 @Controller
@@ -127,12 +136,55 @@ public class DemoController {
     }
 
     //add Product
+    private static String UPLOAD_FOLDER = "D:/DoAnChuyenDeCongNghePhanMem/DoAn/ChuyenDeCongNghePhanMem/src/main/resources/static/images/";
+
+
+    @RequestMapping(value = { "/upload" }, method = { RequestMethod.GET })
+    public String upload(Model model ) {
+        model.addAttribute("Product", new Product());
+        return "addProduct";
+    }
+
+	@RequestMapping(value = { "/upload" }, method = { RequestMethod.POST })
+	public String fileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+
+		if (file.isEmpty()) {
+			return "redirect:/addProduct?message=File was empty or not found"; 
+		}
+
+		try {
+			// read and write the file to the slelected location-
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+			Files.write(path, bytes);
+            
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		
+
+		}
+
+		return "redirect:/addProduct?message=Success";
+	}
+
+    @RequestMapping(value = { "/addProduct" }, method = { RequestMethod.GET })
+    public String addProduct(Model model, @RequestParam(name = "message") String message) {
+        model.addAttribute("Product", new Product());
+        model.addAttribute("message", message);
+        return "addProduct";
+    }
+
     @RequestMapping(value = { "/addProductProcess" }, method = { RequestMethod.POST })
-    public String addProduct(Model model, @ModelAttribute("Product") Product product) {
+    public String addProduct(Model model, @ModelAttribute("Product") Product product ,@PathParam("message") String message) {
         try {
             dao1.addProduct(product);
             System.out.println(product);
             System.out.println("Thêm thành công");
+             model.addAttribute("message", message);
+            
+            
+            
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Thêm thất bại");
@@ -171,4 +223,7 @@ public class DemoController {
         System.out.println(list); 
         return "category";
     }
+
+    //add to cart
+  
 }

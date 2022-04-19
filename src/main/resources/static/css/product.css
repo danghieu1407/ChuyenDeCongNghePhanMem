@@ -1,10 +1,12 @@
 #imageIndexMain{
   width: 200px;
-  height: 300px;
+  height: 280px;
+  margin: 12px -10px;
 }
 #addProductForm{ 
   width: 300px;
 }
+
 
 #listgroup{
   height: 100%;

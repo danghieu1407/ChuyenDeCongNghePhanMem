@@ -117,32 +117,46 @@
                         <body>
                             <div id="addProductForm"  class="row">
                                 <h1>Add Product</h1>
-                            <form action="/addProductProcess" method="POST" modelAttribute="Product">
+
+                                <form method="POST" action="/upload" enctype="multipart/form-data">
+                                    <input type="file" name="file" />
+                                     <input type="submit" value="Submit" />
+                                </form>
+                                <div>
+                                    <h1>
+
+                                        <% String message=(String)request.getAttribute("message");
+                                            if(message!=null){ out.print(message); } %>
+                                    </h1>
+                                </div>
+                            <form action="/addProductProcess" method="POST" modelAttribute="Product" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="productID">Product ID</label>
-                                    <input name="productID" path="productID" type="text" class="form-control" id="productID" placeholder="Product ID">
+                                    <input name="productID" path="productID" type="text" class="form-control" id="productID" placeholder="Product ID" required>
                                   </div>
                                 <div class="form-group">
                                   <label for="Name">Name</label>
-                                  <input name="Name" path="name" type="text" class="form-control" id="Name" placeholder="Name">
+                                  <input name="Name" path="name" type="text" class="form-control" id="Name" placeholder="Name" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Category">Category</label>
-                                    <input name="Category" path="category" type="text" class="form-control" id="Category" placeholder="Category">
+                                    <input name="Category" path="category" type="text" class="form-control" id="Category" placeholder="Category" required>
                                   </div>
                                   <div class="form-group">
                                     <label for="Price">Price</label>
-                                    <input name="Price" path="price" type="text" class="form-control" id="Price" placeholder="Price">
+                                    <input name="Price" path="price" type="text" class="form-control" id="Price" placeholder="Price" required>
                                   </div>
                                   <div class="form-group">
                                     <label for="Amount">Amount</label>
-                                    <input name="Amount" path="amount" type="text" class="form-control" id="Amount" placeholder="Amount">
+                                    <input name="Amount" path="amount" type="text" class="form-control" id="Amount" placeholder="Amount" required>
                                   </div>
                                   <div class="form-group">
                                     <label for="Image">Image</label>
-                                    <input name="Image" path="image" type="text" class="form-control" id="Image" placeholder="Image">
+                                    <input name="image" path="image" type="file" class="form-control" id="Image" placeholder="Image" required>
                                   </div>
+
+                             
                                   <div class="form-group">
                                     <label for="Detail">Detail</label>
                                     <input name="detail" path="detail" type="text" class="form-control" id="Detail" placeholder="Detail">
@@ -150,10 +164,12 @@
                              
                                 <button type="submit" class="btn btn-success">Submit</button>
                               </form>
+
+                             
                             </div>
                         </body>
                         
-
+                      
                         <!-- section footer end -->
                         <footer>
                             <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
