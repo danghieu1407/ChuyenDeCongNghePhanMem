@@ -42,88 +42,103 @@
                         e.stopPropagation();
                     });</script>
 
-            </head>
-            <!-- body -->
+</head>
+<!-- body -->
 
-            <body class="main-layout">
-                <!-- header reponsive -->
+<body class="main-layout">
+    <!-- header reponsive -->
 
-                <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
-                    %>
-                    <div>
-                        <header>
-                            <nav id='cssmenu'>
+    <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
+        %>
+        <div>
+            <header>
+                <nav id='cssmenu'>
 
-                                <ul style="height:15px">
+                    <ul style="height:15px">
 
-                                    <li class='active'><a href='/indexmain'>HOME</a></li>
-                                    <li><a href='#'>ABOUT</a></li>
-                                    <li><a href='#'>PRODUCTS</a>
-                                        <ul>
-                                            <li><a href='#'>Product 1</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='#'>BIO</a></li>
-                                    <li><a href='#'>VIDEO</a></li>
-                                    <li><a href='#'>GALLERY</a></li>
-                                    <li><a href='#'>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-
+                        <li class='active'><a href='/indexmain'>HOME</a></li>
+                        <li><a href='#'>ABOUT</a></li>
+                        <li><a href='#'>PRODUCTS</a>
+                            <ul>
+                                <li><a href='#'>Product 1</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='#'>Product 2</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>BIO</a></li>
+                        <li><a href='#'>VIDEO</a></li>
+                        <li><a href='#'>GALLERY</a></li>
+                        <li><a href='#'>CONTACT</a></li>
+               
 
 
 
-                                    <li><a id="namefromheader" href='#'><img src="/images/user.jpg" width="16"
-                                                height="16">
-                                            <% String username=(String)session.getAttribute("tendangnhap");
-                                                if(session!=null){ out.print(username); } %>
-                                        </a>
-                                        <ul>
-                                            <li><a href='/managementProduct'>Quản lí sản phẩm</a>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='/logout'>Đăng xuất</a>
-                                        </ul>
-                                    </li>
+
+                        <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                    width="16" height="16">
+                                <% String username=(String)session.getAttribute("tendangnhap");
+                                    if(session!=null){ out.print(username); } %>
+                            </a>
+                            <ul>
+                                <li><a href='/managementProduct'>Quản lí sản phẩm</a>
+                                </li>
+                                <li><a href='#'>Product 2</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='/logout'>Đăng xuất</a>
+                            </ul>
+                        </li>
 
 
-                        </header>
+            </header>
                         
                    
-                        <div class="row">
-                            <div id="listgroup" class="list-group">
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Tubers">Tubers</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Leaves">Leaves</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Seed">Seed</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Fruit">Fruit</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Mushroom">Mushroom</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Spice">Spice</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Orther">Orther</a>
-                                
-                            </div>
-                            <c:forEach var="product1" items="${Listproduct}">
-                                <div class="product-box col-lg-3" id="productbox">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div id="listgroup" class="list-group">
+                        <h1>Category</h1>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Tubers">Tubers</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Leaves">Leaves</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Seed">Seed</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Fruit">Fruit</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Mushroom">Mushroom</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Spice">Spice</a>
+                        <a class="list-group-item font-weight-bold" id="listitem"
+                            href="/category?category=Orther">Orther</a>
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-10">
+
+
+                    <div class="row">
+                        <c:forEach var="product1" items="${Listproduct}">
+                            <div class="product-box col-lg-3" id="productbox">
                                 <form action="/productDetail?id=${product1.productID}" method="post">
 
-                                    <div class="product-item ">
+                                    <div id="imageIndexMain" class="product-item ">
                                         <div class="product-item-image">
-                                            <img id="imageIndexMain" src="/images/${product1.image}"  alt="">
+                                            <img src="/images/${product1.image}" alt="">
                                             <div class="product-item-image-hover">
                                             </div>
                                         </div>
@@ -135,25 +150,18 @@
                                             <div class="product-item-price">
                                                 ${product1.price} $
                                             </div>
-                                             <button type="submit" class="button-pill">
+                                            <button type="submit" class="button-pill">
                                                 <span>Shop Now</span>
                                             </button>
-                                        </form>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-
-
-                            </c:forEach>
-
-                        </div>
-
-
+                                </form>
+                            </div>
+                        </c:forEach>
                     </div>
+                </div>
 
-                    </div>
-
+            </div>
 
                     <!-- section footer end -->
                     <footer>
@@ -161,36 +169,6 @@
                     </footer>
 
 
-                    <script>(function ($) {
-                            $(function () {
-
-                                //  open and close nav 
-                                $('#navbar-toggle').click(function () {
-                                    $('nav ul').slideToggle();
-                                });
-
-
-                                // Hamburger toggle
-                                $('#navbar-toggle').on('click', function () {
-                                    this.classList.toggle('active');
-                                });
-
-
-                                // If a link has a dropdown, add sub menu toggle.
-                                $('nav ul li a:not(:only-child)').click(function (e) {
-                                    $(this).siblings('.navbar-dropdown').slideToggle("slow");
-
-                                    // Close dropdown when select another dropdown
-                                    $('.navbar-dropdown').not($(this).siblings()).hide("slow");
-                                    e.stopPropagation();
-                                });
-
-
-                                // Click outside the dropdown will remove the dropdown class
-                                $('html').click(function () {
-                                    $('.navbar-dropdown').hide();
-                                });
-                            });
-                        })(jQuery); </script>
+         
 
             </html>

@@ -13,7 +13,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
                 <!-- site metas -->
-                <title>Index    </title>
+                <title>Index </title>
                 <meta name="keywords" content="">
                 <meta name="description" content="">
                 <meta name="author" content="">
@@ -78,14 +78,13 @@
                                     <li><a href='#'>VIDEO</a></li>
                                     <li><a href='#'>GALLERY</a></li>
                                     <li><a href='#'>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
+                           
 
 
 
 
-                                    <li><a id="namefromheader" href='#'><img src="/images/user.jpg" width="16"
-                                                height="16">
+                                    <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                                width="16" height="16">
                                             <% String username=(String)session.getAttribute("tendangnhap");
                                                 if(session!=null){ out.print(username); } %>
                                         </a>
@@ -104,94 +103,108 @@
 
 
                         </header>
-                        
-                   
                         <div class="row">
-                            <div  id="listgroup" class="list-group">
-                                <h1>Category</h1>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Tubers">Tubers</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Leaves">Leaves</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Seed">Seed</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Fruit">Fruit</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Mushroom">Mushroom</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Spice">Spice</a>
-                                <a class="list-group-item font-weight-bold" id="listitem" href="/category?category=Orther">Orther</a>
-                                
-                            </div>
-                            <c:forEach var="product1" items="${Listproduct}">
-                                <div class="product-box col-lg-3" id="productbox">
-                                <form action="/productDetail?id=${product1.productID}" method="post">
+                            <div class="col-lg-2">
+                                <div id="listgroup" class="list-group">
+                                    <h1>Category</h1>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Tubers">Tubers</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Leaves">Leaves</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Seed">Seed</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Fruit">Fruit</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Mushroom">Mushroom</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Spice">Spice</a>
+                                    <a class="list-group-item font-weight-bold" id="listitem"
+                                        href="/category?category=Orther">Orther</a>
 
-                                    <div class="product-item ">
-                                        <div class="product-item-image">
-                                            <img id="imageIndexMain" src="/images/${product1.image}"  alt="">
-                                            <div class="product-item-image-hover">
-                                            </div>
-                                        </div>
-                                        <div class="product-item-content">
-
-                                            <div class="product-item-title">
-                                                ${product1.name}
-                                            </div>
-                                            <div class="product-item-price">
-                                                ${product1.price} $
-                                            </div>
-                                             <button type="submit" class="button-pill">
-                                                <span>Shop Now</span>
-                                            </button>
-                                        </form>
-                                        </div>
-                                    </div>
                                 </div>
-                        
+                            </div>
 
 
-                            </c:forEach>
+                            <div class="col-lg-10">
+                                <div id="slideshow">
+                                    <div class="slide-wrapper">
+                                      <div class="slide"> <img class="slide-number" src="/images/image5.jpg"></div>
+                                      <div class="slide"><img class="slide-number" src="/images/image2.jpg" alt=""></div>
+                                      <div class="slide"><img class="slide-number" src="/images/image4.jpg" alt=""></div>
+                                      
+                             
+                             
+                                    </div>
+                                  </div>
+                                <div class="row">
+                                    
+                                    <c:forEach var="product1" items="${Listproduct}">
+                                        <div class="product-box col-lg-3" id="productbox">
+                                            <form action="/productDetail?id=${product1.productID}" method="post">
+
+                                                <div id="imageIndexMain" class="product-item ">
+                                                    <div class="product-item-image">
+                                                        <img src="/images/${product1.image}" alt="">
+                                                        <div class="product-item-image-hover">
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-item-content">
+
+                                                        <div class="product-item-title">
+                                                            ${product1.name}
+                                                        </div>
+                                                        <div class="product-item-price">
+                                                            ${product1.price} $
+                                                        </div>
+                                                        <button type="submit" class="button-pill">
+                                                            <span>Shop Now</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
 
                         </div>
 
 
-                    </div>
-
-                    </div>
-
-
+                
                     <!-- section footer end -->
                     <footer>
                         <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
                     </footer>
 
 
-                    <script>(function ($) {
-                            $(function () {
-
-                                //  open and close nav 
-                                $('#navbar-toggle').click(function () {
-                                    $('nav ul').slideToggle();
-                                });
-
-
-                                // Hamburger toggle
-                                $('#navbar-toggle').on('click', function () {
-                                    this.classList.toggle('active');
-                                });
-
-
-                                // If a link has a dropdown, add sub menu toggle.
-                                $('nav ul li a:not(:only-child)').click(function (e) {
-                                    $(this).siblings('.navbar-dropdown').slideToggle("slow");
-
-                                    // Close dropdown when select another dropdown
-                                    $('.navbar-dropdown').not($(this).siblings()).hide("slow");
-                                    e.stopPropagation();
-                                });
-
-
-                                // Click outside the dropdown will remove the dropdown class
-                                $('html').click(function () {
-                                    $('.navbar-dropdown').hide();
-                                });
-                            });
-                        })(jQuery); </script>
+                    <script>
+                        let slideIndex = 1;
+                        showSlides(slideIndex);
+                        
+                        function plusSlides(n) {
+                          showSlides(slideIndex += n);
+                        }
+                        
+                        function currentSlide(n) {
+                          showSlides(slideIndex = n);
+                        }
+                        
+                        function showSlides(n) {
+                          let i;
+                          let slides = document.getElementsByClassName("mySlides");
+                          let dots = document.getElementsByClassName("dot");
+                          if (n > slides.length) {slideIndex = 1}    
+                          if (n < 1) {slideIndex = slides.length}
+                          for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";  
+                          }
+                          for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                          }
+                          slides[slideIndex-1].style.display = "block";  
+                          dots[slideIndex-1].className += " active";
+                        }
+                        </script>
 
             </html>

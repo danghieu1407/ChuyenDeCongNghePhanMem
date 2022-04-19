@@ -45,70 +45,67 @@
                         e.stopPropagation();
                     });</script>
 
-            </head>
-            <!-- body -->
+</head>
+<!-- body -->
 
-            <body class="main-layout">
-                <!-- header reponsive -->
+<body class="main-layout">
+    <!-- header reponsive -->
 
-                <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
-                    %>
-                    <div>
-                        <header>
-                            <nav id='cssmenu'>
+    <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
+        %>
+        <div>
+            <header>
+                <nav id='cssmenu'>
 
-                                <ul style="height:15px">
+                    <ul style="height:15px">
 
-                                    <li class='active'><a href='#'>HOME</a></li>
-                                    <li><a href='#'>ABOUT</a></li>
-                                    <li><a href='#'>PRODUCTS</a>
-                                        <ul>
-                                            <li><a href='#'>Product 1</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='#'>BIO</a></li>
-                                    <li><a href='#'>VIDEO</a></li>
-                                    <li><a href='#'>GALLERY</a></li>
-                                    <li><a href='#'>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-
-
-
-
-                                    <li><a id="namefromheader" href='#'><img src="/images/user.jpg" width="16"
-                                                height="16">
-                                            <% String username=(String)session.getAttribute("tendangnhap");
-                                                if(session!=null){ out.print(username); } %>
-                                        </a>
-                                        <ul>
-                                            <li><a href='#'>Quản lí sản phẩm</a>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='/logout'>Đăng xuất</a>
-                                        </ul>
-                                    </li>
+                        <li class='active'><a href='/indexmain'>HOME</a></li>
+                        <li><a href='#'>ABOUT</a></li>
+                        <li><a href='#'>PRODUCTS</a>
+                            <ul>
+                                <li><a href='#'>Product 1</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='#'>Product 2</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#'>BIO</a></li>
+                        <li><a href='#'>VIDEO</a></li>
+                        <li><a href='#'>GALLERY</a></li>
+                        <li><a href='#'>CONTACT</a></li>
+               
 
 
 
 
-                        </header>
+                        <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                    width="16" height="16">
+                                <% String username=(String)session.getAttribute("tendangnhap");
+                                    if(session!=null){ out.print(username); } %>
+                            </a>
+                            <ul>
+                                <li><a href='/managementProduct'>Quản lí sản phẩm</a>
+                                </li>
+                                <li><a href='#'>Product 2</a>
+                                    <ul>
+                                        <li><a href='#'>Sub Product</a></li>
+                                        <li><a href='#'>Sub Product</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='/logout'>Đăng xuất</a>
+                            </ul>
+                        </li>
+
+
+            </header>
 
                      <!-- chi tiet san pham  o day ne -->
                         <body class="main-layout">
