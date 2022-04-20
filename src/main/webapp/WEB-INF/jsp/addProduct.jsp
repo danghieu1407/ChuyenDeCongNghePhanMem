@@ -19,7 +19,7 @@
                 <meta name="description" content="">
                 <meta name="author" content="">
 
-                
+
                 <link rel="stylesheet" href="/css/table.css">
 
                 <link rel="stylesheet" href="/css/dropdown.css">
@@ -38,6 +38,7 @@
                 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
                 <!-- owl stylesheets -->
                 <link rel="stylesheet" href="css/owl.carousel.min.css">
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
@@ -115,65 +116,114 @@
 
 
                         <body>
-                            <div id="addProductForm"  class="row">
+                            <div id="addProductForm" class="row">
                                 <h1>Add Product</h1>
 
-                                <form method="POST" action="/upload" enctype="multipart/form-data" >
+                                <form method="POST" action="/upload" enctype="multipart/form-data">
                                     <input type="file" name="file" />
-                                     <input type="submit" value="Submit" />
+                                    <input type="submit" value="Submit" />
                                 </form>
                                 <div>
                                     <h1>
 
-                                        <% String message=(String)request.getAttribute("message");
-                                            if(message!=null){ out.print(message); } %>
+                                        <% String message=(String)request.getAttribute("message"); if(message!=null){
+                                            out.print(message); } %>
                                     </h1>
                                 </div>
-                            <form action="/addProductProcess" method="POST" modelAttribute="Product" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label for="productID">Product ID</label>
-                                    <input name="productID" path="productID" type="text" class="form-control" id="productID" placeholder="Product ID" required>
-                                  </div>
-                                <div class="form-group">
-                                  <label for="Name">Name</label>
-                                  <input name="Name" path="name" type="text" class="form-control" id="Name" placeholder="Name" required>
-                                </div>
+                                <form action="/addProductProcess" method="POST" modelAttribute="Product"
+                                    enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="productID">Product ID</label>
+                                        <input name="productID" path="productID" type="text" class="form-control"
+                                            id="productID" placeholder="Product ID" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">Name</label>
+                                        <input name="Name" path="name" type="text" class="form-control" id="Name"
+                                            placeholder="Name" required>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="Category">Category</label>
-                                    <input name="Category" path="category" type="text" class="form-control" id="Category" placeholder="Category" required>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="Price">Price</label>
-                                    <input name="Price" path="price" type="text" class="form-control" id="Price" placeholder="Price" required>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="Amount">Amount</label>
-                                    <input name="Amount" path="amount" type="text" class="form-control" id="Amount" placeholder="Amount" required>
-                                  </div>
-                                  <div class="form-group">
-                                    <!-- //get getAttribute for imagename from controller -->
+                                    <div class="form-group">
+                                        <label for="Category">Category</label>
+                                        <input name="Category" path="category" type="text" class="form-control"
+                                            id="Category" placeholder="Category" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Price">Price</label>
+                                        <input name="Price" path="price" type="text" class="form-control" id="Price"
+                                            placeholder="Price" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Amount">Amount</label>
+                                        <input name="Amount" path="amount" type="text" class="form-control" id="Amount"
+                                            placeholder="Amount" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- //get getAttribute for imagename from controller -->
 
-                                    
 
-                                    <label for="Image">Image</label>
-                                    <input name="image" path="image" type="text" class="form-control" id="Image" placeholder=""  value="${param.imagename}" hidden>
-                                  </div>
 
-                             
-                                  <div class="form-group">
-                                    <label for="Detail">Detail</label>
-                                    <input name="detail" path="detail" type="text" class="form-control" id="Detail" placeholder="Detail">
-                                  </div>
-                             
-                                <button type="submit" class="btn btn-success">Submit</button>
-                              </form>
+                                        <label for="Image">Image</label>
+                                        <input name="image" path="image" type="text" class="form-control" id="Image"
+                                            placeholder="" value="${param.imagename}">
+                                    </div>
 
-                             
+
+                                    <div class="form-group">
+                                        <label for="Detail">Detail</label>
+                                        <input name="detail" path="detail" type="text" class="form-control" id="Detail"
+                                            placeholder="Detail">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </form>
+
+
                             </div>
+
+                           
+                            <script type="text/javascript">
+                                function getIdDetails() {
+                                    var urlParams;
+                                    (window.onpopstate = function () {
+                                        var match,
+                                            pl = /\+/g, // Regex for replacing addition symbol with a space
+                                            search = /([^&=]+)=?([^&]*)/g,
+                                            decode = function (s) {
+                                                return decodeURIComponent(s.replace(pl, " "));
+                                            },
+                                            query = window.location.search.substring(1);
+
+                                        urlParams = {};
+                                        while ((match = search.exec(query)))
+                                            urlParams[decode(match[1])] = decode(match[2]);
+                                    })();
+                                    return urlParams;
+                                }
+                                if (getIdDetails().message == "Success") {
+                                    swal({
+                                        title: "SUCCESS",
+                                        text: "Thêm ảnh thành công",
+                                        icon: "success",
+                                        buttons: true,
+                                        dangerMode: true,
+                                    })
+                                }
+                                else if(getIdDetails().message == "File was empty or not found"){
+                                    swal({
+                                        title: "ERROR",
+                                        text: "Thêm ảnh thất bại",
+                                        icon: "error",
+                                        buttons: true,
+                                        dangerMode: true,
+                                    })
+                                }
+
+                            </script>
+
                         </body>
-                        
-                      
+
+
                         <!-- section footer end -->
                         <footer>
                             <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>

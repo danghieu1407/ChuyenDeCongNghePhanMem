@@ -125,7 +125,7 @@ public class DemoController {
     @RequestMapping(value = { "/deleteProduct" }, method = { RequestMethod.POST })
     public String deleteProduct(Model model, @RequestParam(name = "id") String id) {
         dao1.DeletebyID(id);
-        return "redirect:/managementProduct";
+        return "redirect:/managementProduct?message=Delete Success";
     }
 
     //Add Product
@@ -193,7 +193,7 @@ public class DemoController {
 
         }
 
-        return "redirect:/managementProduct";
+        return "redirect:/managementProduct?message=Add Success";
     }
 
   //UPDATE Product

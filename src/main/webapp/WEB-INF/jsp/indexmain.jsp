@@ -81,7 +81,7 @@
                            
 
 
-
+                                    
 
                                     <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
                                                 width="16" height="16">
@@ -100,10 +100,13 @@
                                             <li><a href='/logout'>Đăng xuất</a>
                                         </ul>
                                     </li>
+                                </ul>
 
 
                         </header>
+                        <br>
                         <div id="row"  class="row">
+                            
                             <div class="col-lg-2">
                                 <div id="listgroup" class="list-group">
                                     <h1>Category</h1>
@@ -121,10 +124,18 @@
                                         href="/category?category=Spice">Spice</a>
                                     <a class="list-group-item font-weight-bold" id="listitem"
                                         href="/category?category=Orther">Orther</a>
-
+                                    <br>
+                                    <br>
+                                    <!-- <img src="https://media.giphy.com/media/WAQiH273h7nTChAbHu/giphy.gif" alt=""> -->
+                                 
+                                    <br>
+                                        <a  id="cartsticker"class="list-group-item font-weight-bold" id="listitem"
+                                        href="/cart">    <img id="imgpanda" src="https://media.giphy.com/media/875phkG4DRgNdskUXL/giphy.gif" alt="">CHECK OUT</a>
+                                      
                                 </div>
+                            
                             </div>
-
+                            
 
                             <div class="col-lg-10">
                                 <div id="slideshow">
@@ -167,6 +178,8 @@
                                     </c:forEach>
                                 </div>
                             </div>
+
+                            
 
                         </div>
 

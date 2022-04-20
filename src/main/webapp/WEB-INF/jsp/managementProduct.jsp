@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
         <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script src="/Js/dropdown.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -266,7 +267,45 @@
                   </tbody>
                 </table>
 
-                <!-- Modal -->
+                <script type="text/javascript">
+                  function getIdDetails() {
+                      var urlParams;
+                      (window.onpopstate = function () {
+                          var match,
+                              pl = /\+/g, // Regex for replacing addition symbol with a space
+                              search = /([^&=]+)=?([^&]*)/g,
+                              decode = function (s) {
+                                  return decodeURIComponent(s.replace(pl, " "));
+                              },
+                              query = window.location.search.substring(1);
+
+                          urlParams = {};
+                          while ((match = search.exec(query)))
+                              urlParams[decode(match[1])] = decode(match[2]);
+                      })();
+                      return urlParams;
+                  }
+                  if (getIdDetails().message == "Add Success") {
+                      swal({
+                          title: "SUCCESS",
+                          text: "Add Product Success",
+                          icon: "success",
+                          buttons: false,
+                          dangerMode: false,
+                      })
+                  }
+                  if (getIdDetails().message == "Delete Success") {
+                      swal({
+                          title: "SUCCESS",
+                          text: "Success Delete Product",
+                          icon: "success",
+                          buttons: false,
+                          dangerMode: false,
+                      })
+                  }
+                  
+
+              </script>
                 
             </body>
 

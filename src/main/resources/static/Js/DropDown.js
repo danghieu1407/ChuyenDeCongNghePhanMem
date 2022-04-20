@@ -15,3 +15,5 @@ document.querySelectorAll('.dropdown-toggle').forEach(item => {
 setTimeout(function(){ 
   document.getElementById("loading").classList.add("none");
 }, 3000);
+
+
