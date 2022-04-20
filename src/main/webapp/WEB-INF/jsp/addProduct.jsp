@@ -118,7 +118,7 @@
                             <div id="addProductForm"  class="row">
                                 <h1>Add Product</h1>
 
-                                <form method="POST" action="/upload" enctype="multipart/form-data">
+                                <form method="POST" action="/upload" enctype="multipart/form-data" >
                                     <input type="file" name="file" />
                                      <input type="submit" value="Submit" />
                                 </form>
@@ -152,8 +152,12 @@
                                     <input name="Amount" path="amount" type="text" class="form-control" id="Amount" placeholder="Amount" required>
                                   </div>
                                   <div class="form-group">
+                                    <!-- //get getAttribute for imagename from controller -->
+
+                                    
+
                                     <label for="Image">Image</label>
-                                    <input name="image" path="image" type="file" class="form-control" id="Image" placeholder="Image" required>
+                                    <input name="image" path="image" type="text" class="form-control" id="Image" placeholder=""  value="${param.imagename}" hidden>
                                   </div>
 
                              

@@ -146,10 +146,12 @@ public class DemoController {
     }
 
 	@RequestMapping(value = { "/upload" }, method = { RequestMethod.POST })
-	public String fileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-
+	public String fileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,Model model) {
+        String fileName = file.getOriginalFilename();
+       
+       
 		if (file.isEmpty()) {
-			return "redirect:/addProduct?message=File was empty or not found"; 
+			return "redirect:/addProduct?message=File was empty or not found "; 
 		}
 
 		try {
@@ -165,7 +167,7 @@ public class DemoController {
 
 		}
 
-		return "redirect:/addProduct?message=Success";
+		return "redirect:/addProduct?message=Success&imagename="+fileName;
 	}
 
     @RequestMapping(value = { "/addProduct" }, method = { RequestMethod.GET })
