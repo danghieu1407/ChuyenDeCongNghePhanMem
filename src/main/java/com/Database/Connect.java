@@ -24,4 +24,8 @@ public class Connect {
         return null;
 
     }
+
+    public static Connection getConnection() {
+        return null;
+    }
 }

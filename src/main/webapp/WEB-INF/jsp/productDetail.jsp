@@ -39,11 +39,8 @@
                     href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
-                <script src="/Js/dropdown.js"></script>
-           
-                <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
-                        e.stopPropagation();
-                    });</script>
+              
+            
 
 </head>
 <!-- body -->
@@ -103,14 +100,13 @@
                                 <li><a href='/logout'>Đăng xuất</a>
                             </ul>
                         </li>
-
-
+                      
             </header>
-
+            <form action="/addToCart?id=${ProductDetail.productID}&name=${tendangnhap}" method="post">
                      <!-- chi tiet san pham  o day ne -->
+                      
                         <body class="main-layout">
                             <!-- <h1>Chi tiết sản phẩm</h1>  -->
-                        
                             <div class = "card-wrapper">
                                 <div class = "card">
                                   <!-- card left -->
@@ -126,6 +122,8 @@
                                   <!-- card right -->
                                   <div class = "product-content">
                                     <h2 class = "product-title">${ProductDetail.name}</h2>
+                                  
+
                            
                                     <div class = "product-rating">
                                       <i class = "fas fa-star"></i>
@@ -153,25 +151,32 @@
                                         <li>Shipping Fee: <span>Free</span></li>
                                       </ul> -->
                                     </div>
+                                    <input type="text" name="email" value= "${tendangnhap}" hidden >
+
+                                    <input type="text" name="image" value= "${ProductDetail.image}" hidden >
+                                    <input type="text" name="price" value= "${ProductDetail.price}"  hidden>
+
+                                    
+
                               
                                     <div class = "purchase-info">
-                                      <input type = "number" min = "0" value = "1">
-                                      <button type = "button" class = "btn">
+                                      <input name="amount" type = "number" min = "0" value = "1">
+                                      <button type = "submit" class = "add-cart btn">
                                         Add to Cart <i class = "fas fa-shopping-cart"></i>
                                       </button>
-                                      <button type = "button" class = "btn">Compare</button>
                                     </div>
-                              
+                                  </form>
                                    
                                   </div>
                                 </div>
                               </div>
+
+                     
                         </body>
                             
                     </div>
 
                     </div>
-
 
                     <!-- section footer end -->
                     <footer>

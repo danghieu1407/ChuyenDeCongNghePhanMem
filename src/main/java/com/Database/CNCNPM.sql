@@ -16,14 +16,27 @@ create table _Product
 (
 	
 	_productID nchar(100) primary key,
-	_name nchar(100) not null,
-	_category nchar(100) not null,
-	_price int not null,
+	_name nchar(100),
+	_category nchar(100),
+	_price int,
 	_amount int default 0,
-	_image TEXT not null,
-	_detail text not null
+	_image TEXT,
+	_detail text
 )
 
+
+create table _Cart
+(
+	_email nchar(100),
+	_productID nchar(100),
+	_name nchar(100) ,
+	_category nchar(100),
+	_price int ,
+	_amount int default 0,
+	_image TEXT ,
+	_detail text 
+)
+insert into _Cart values('Nguyen Dang Hieu','DB1','2 ','3 ','4 ',' 55','6 ','7 ')
 
 
 insert into _User values ('Cao Bảo Thái', 'cbt@gmail.com','123456','Admin','0972707663','An Giang','0')

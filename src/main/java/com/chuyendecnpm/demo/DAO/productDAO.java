@@ -8,8 +8,7 @@ import java.util.List;
 import javax.swing.text.html.HTMLDocument.HTMLReader.TagAction;
 
 import com.Database.Connect;
-
-
+import com.chuyendecnpm.demo.Model.Cart;
 import com.chuyendecnpm.demo.Model.Product;
 
 import org.apache.catalina.Session;
@@ -172,5 +171,10 @@ public class ProductDAO{
             e.printStackTrace();
         }
         return list;
+    }
+
+
+    public List<Cart> getCart(String email) {
+        return null;
     }
 }

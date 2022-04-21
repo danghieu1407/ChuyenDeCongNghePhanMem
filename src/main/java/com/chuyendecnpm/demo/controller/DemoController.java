@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import com.chuyendecnpm.demo.DAO.UserDAO;
+import com.chuyendecnpm.demo.DAO.CartDAO;
 import com.chuyendecnpm.demo.DAO.ProductDAO;
 import com.chuyendecnpm.demo.Model.User;
+import com.chuyendecnpm.demo.Model.Cart;
 import com.chuyendecnpm.demo.Model.Product;
 
 import org.springframework.stereotype.Controller;
@@ -34,6 +36,7 @@ public class DemoController {
 
     private UserDAO dao = new UserDAO();
     private ProductDAO dao1 = new ProductDAO();
+    private CartDAO dao2 = new CartDAO();
 
     @RequestMapping({ "/", "/index" })
     public String index() {
@@ -104,7 +107,8 @@ public class DemoController {
         return "redirect:/login";
     }
 
-    @RequestMapping({ "/productDetail" })
+    
+    @RequestMapping(value = { "/productDetail" }, method = { RequestMethod.POST })
     public String productDetail(Model model, @RequestParam(name = "id") String id) {
         System.out.println(dao1.findProductById("CCB").getName());
         Product product = dao1.findProductById(id);
@@ -112,6 +116,8 @@ public class DemoController {
         System.out.println(product.getName());
         return "productDetail";
     }
+
+  
 
       @RequestMapping(value = { "/managementProduct" }, method = { RequestMethod.GET })
     public String managementProduct(Model model) {
@@ -226,6 +232,37 @@ public class DemoController {
         return "category";
     }
 
-    //add to cart
-  
+    //cart
+    @RequestMapping(value = { "/cart" }, method = { RequestMethod.GET })
+    public String cart(Model model ,@RequestParam(name = "name") String name){
+       
+        List<Cart> getCart = dao2.getCart(name);
+        model.addAttribute("Listcart", getCart);
+        //print list cart get name
+        int a = dao2.totalPrice(name);
+        model.addAttribute("totalprice", a);
+        System.out.println(getCart);
+        
+
+        
+        return "cart";
+    }
+
+    // add to cart
+    @RequestMapping(value = { "/addToCart" }, method = { RequestMethod.POST })
+    public String addToCart(Model model, @RequestParam(name = "id") String id,@RequestParam(name = "name") String name ,@ModelAttribute("Cart") Cart cart,HttpSession session) {
+      
+        //insert to cart
+        try {
+            dao2.addCart(cart);
+            System.out.println("Thêm thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Thêm thất bại");
+
+        }
+        
+        
+        return "redirect:/cart?message=Add to cart success&name="+name;
+    }
 }
