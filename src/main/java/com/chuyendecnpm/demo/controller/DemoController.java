@@ -250,7 +250,7 @@ public class DemoController {
 
     // add to cart
     @RequestMapping(value = { "/addToCart" }, method = { RequestMethod.POST })
-    public String addToCart(Model model, @RequestParam(name = "id") String id,@RequestParam(name = "name") String name ,@ModelAttribute("Cart") Cart cart,HttpSession session) {
+    public String addToCart(Model model, @RequestParam(name = "id") String id,@RequestParam(name = "name") String name ,@RequestParam(name = "email") String email ,@ModelAttribute("Cart") Cart cart,HttpSession session) {
       
         //insert to cart
         try {
@@ -263,6 +263,40 @@ public class DemoController {
         }
         
         
-        return "redirect:/cart?message=Add to cart success&name="+name;
+        return "redirect:/cart?message=Add to cart success&name="+email ;
+    }
+
+    // delete item by productID
+    @RequestMapping(value = { "/deleteCart" }, method = { RequestMethod.POST })
+    public String deleteCart(Model model, @RequestParam(name = "productID") String id,@RequestParam(name = "name") String name) {
+        try {
+            dao2.deleteCart(id);
+            System.out.println("Xóa thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Xóa thất bại");
+
+        }
+
+        return "redirect:/cart?message=Delete Success&name="+name;
+    }
+    
+
+    //update quantity cart
+
+    @RequestMapping(value = { "/updateCart" }, method = { RequestMethod.POST })
+    public String updateCart(Model model, @RequestParam(name = "productID") String id,@ModelAttribute("quantity") Cart cart ,@RequestParam(name = "name") String name) {
+        try {
+            dao2.findCart(id);
+            dao2.updateCart(cart);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/cart?message=Update fail&name="+name;
+
+        }
+
+        return "redirect:/cart?message=Update Success&name="+name;
     }
 }

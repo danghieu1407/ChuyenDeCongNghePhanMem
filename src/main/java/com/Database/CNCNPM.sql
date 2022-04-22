@@ -26,7 +26,8 @@ create table _Product
 
 
 create table _Cart
-(
+(	
+	_ID int primary key identity(1,1),
 	_email nchar(100),
 	_productID nchar(100),
 	_name nchar(100) ,

@@ -37,7 +37,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
         <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 
@@ -107,7 +111,7 @@
 
 
             <body>
-
+ 
 
             <h1>${totalprice}</h1>
 
@@ -116,8 +120,8 @@
 
               <c:forEach var="product1" items="${Listcart}">
                 <h1>${product1.email}</h1>
-                <table class="table table-striped">
-                  <thead>
+                <table class="table">
+              
                     <tr>
                       <th></th>
                       <th>Product Name</th>
@@ -130,8 +134,8 @@
                         Action
                       </th>
                     </tr>
-                  </thead>
-                  <tbody>
+               
+              
                     <tr>
                       <td>
                         <div class="product">
@@ -152,24 +156,48 @@
                         ${product1.amount}
                       </td>
                       <td>
-                     
+                        <form action="/deleteCart?productID=${product1.productID}&name=${tendangnhap}" method="post">
                           <button class="btn btn-danger">
                             Remove
                           </button>
-                          <button class="btn btn-warning">
+                        </form>
+                          <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
                             Change Quantity
                           </button>
+                         
                         </div>
                       </td>
                     
                     </tr>
 
-                  </tbody>
+                
                 </table>
+       <!-- Modal -->
+       <form action="/updateCart?productID=${product1.productID}&quantity=&name=${tendangnhap}" method="post" modelAttribute="quantity">
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change Quantity</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="number" id="quantity" name="amount" min="1" max="100" value="1">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-
-
+              </c:forEach>
+       
+              
+       
 
 
 
@@ -191,14 +219,17 @@
                   <div class="totals-item totals-item-total">
                     <label>Grand Total</label>
                     <div class="totals-value" id="cart-total">90.57</div>
+                <button class="btn btn-success">Checkout</button>
+
                   </div>
+
                 </div>
 
-                <button class="checkout">Checkout</button>
 
           </div>
 
-          </c:forEach>
+
+          
 
           
 
@@ -226,6 +257,24 @@
               swal({
                 title: "SUCCESS",
                 text: "Add to Cart Success",
+                icon: "success",
+                buttons: false,
+                dangerMode: true,
+              })
+            }
+            else if(getIdDetails().message == "Delete Success"){
+              swal({
+                title: "SUCCESS",
+                text: "Delete Success",
+                icon: "success",
+                buttons: false,
+                dangerMode: true,
+              })
+            }
+            else if(getIdDetails().message == "Update Success"){
+              swal({
+                title: "SUCCESS",
+                text: "Update Success",
                 icon: "success",
                 buttons: false,
                 dangerMode: true,

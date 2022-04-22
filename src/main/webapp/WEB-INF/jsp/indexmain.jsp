@@ -130,7 +130,7 @@
                                  
                                     <br>
                                         <a  id="cartsticker"class="list-group-item font-weight-bold" id="listitem"
-                                        href="/cart">    <img id="imgpanda" src="https://media.giphy.com/media/875phkG4DRgNdskUXL/giphy.gif" alt="">CHECK OUT</a>
+                                        href="/cart?name=${tendangnhap}">    <img id="imgpanda" src="https://media.giphy.com/media/875phkG4DRgNdskUXL/giphy.gif" alt="">CART</a>
                                       
                                 </div>
                             

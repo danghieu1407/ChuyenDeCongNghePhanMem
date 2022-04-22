@@ -10,6 +10,7 @@ import com.Database.Connect;
 import com.chuyendecnpm.demo.Model.Cart;
 import com.chuyendecnpm.demo.Model.Product;
 import com.chuyendecnpm.demo.Model.User;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 public class CartDAO {
     // add Cart
@@ -83,5 +84,67 @@ public class CartDAO {
         return total;
     }
    
-    
+
+    // delete Cart item by productID
+    public static boolean deleteCart(String productID) {
+        boolean check = false;
+        String sql = "DELETE FROM _cart WHERE _productID = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, productID);
+            int rs = stm.executeUpdate();
+            if (rs > 0) {
+                check = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    //find card by productID
+    public static Cart findCart(String productID) {
+        Cart cart = new Cart();
+        String sql = "SELECT * FROM _cart WHERE _productID = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, productID);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                cart.setEmail(rs.getString("_email"));
+                cart.setProductID(rs.getString("_productID"));
+                cart.setName(rs.getString("_name"));
+                cart.setCategory(rs.getString("_category"));
+                cart.setPrice(rs.getInt("_price"));
+                cart.setAmount(rs.getInt("_amount"));
+                cart.setImage(rs.getString("_image"));
+                cart.setDetail(rs.getString("_detail"));
+            }
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cart;
+    }
+
+    //update quantity of cart item
+    public static boolean updateCart(Cart cart) {
+        boolean check = false;
+        String sql = "UPDATE _cart SET _amount = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, cart.getAmount());
+            int rs = stm.executeUpdate();
+            if (rs > 0) {
+                check = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
 }
