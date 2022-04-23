@@ -159,6 +159,10 @@ public class DemoController {
 		if (file.isEmpty()) {
 			return "redirect:/addProduct?message=File was empty or not found "; 
 		}
+        //check size
+        if (file.getSize() > 1000000) {
+            return "redirect:/addProduct?message=File was empty or not found ";
+        }
 
 		try {
 			// read and write the file to the slelected location-
@@ -168,8 +172,9 @@ public class DemoController {
             
 
 		} catch (IOException e) {
-			e.printStackTrace();
-		
+			
+            return "redirect:/addProduct?message=File too large "; 
+
 
 		}
 
@@ -209,6 +214,7 @@ public class DemoController {
     @RequestMapping(value = { "/editProductProcess" }, method = { RequestMethod.POST })
     public String updateProduct(Model model, @RequestParam(name = "id") String id, @ModelAttribute("Product1") Product product) {
         try {
+            
             dao1.findProductById(id);
             dao1.updateProduct(product);
             System.out.println(dao1.updateProduct(product));
@@ -255,6 +261,8 @@ public class DemoController {
         //insert to cart
         try {
             dao2.addCart(cart);
+            //update quantity product
+        
             System.out.println("Thêm thành công");
         } catch (Exception e) {
             e.printStackTrace();
@@ -299,4 +307,29 @@ public class DemoController {
 
         return "redirect:/cart?message=Update Success&name="+name;
     }
+    
+    @RequestMapping(value = { "/uploadFromEdit" }, method = { RequestMethod.POST })
+	public String fileUploadEditCart(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,Model model) {
+        String fileName = file.getOriginalFilename();
+       
+       
+		if (file.isEmpty()) {
+			return "redirect:/managementProduct?message=File was empty or not found "; 
+		}
+
+		try {
+			// read and write the file to the slelected location-
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(UPLOAD_FOLDER + file.getOriginalFilename());
+			Files.write(path, bytes);
+            
+
+		} catch (IOException e) {
+			e.printStackTrace();
+            
+            return "redirect:/managementProduct?message=LargeImage";
+		}
+
+		return "redirect:/managementProduct?message=SuccesUploadImage&imagename="+fileName;
+	}
 }

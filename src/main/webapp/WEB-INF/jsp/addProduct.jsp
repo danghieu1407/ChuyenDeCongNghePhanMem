@@ -120,8 +120,8 @@
                                 <h1>Add Product</h1>
 
                                 <form method="POST" action="/upload" enctype="multipart/form-data">
-                                    <input type="file" name="file" />
-                                    <input type="submit" value="Submit" />
+                                    <input type="file" name="file" id="file" />
+                                    <input type="submit" value="Submit" onclick="Upload()" />
                                 </form>
                                 <div>
                                     <h1>
@@ -183,6 +183,20 @@
 
                            
                             <script type="text/javascript">
+                                var uploadField = document.getElementById("file");
+
+                                uploadField.onchange = function() {
+                                    if(this.files[0].size >= 1048574){
+                                        swal({
+                                        title: "FAIL",
+                                        text: "Image too big",
+                                        icon: "error",
+                                        buttons: false,
+                                        dangerMode: true,
+                                    })
+                                    this.value = "";
+                                    };
+                                };
                                 function getIdDetails() {
                                     var urlParams;
                                     (window.onpopstate = function () {
@@ -220,8 +234,7 @@
                                 }
 
                             </script>
-
-                        </body>
+             </body>
 
 
                         <!-- section footer end -->

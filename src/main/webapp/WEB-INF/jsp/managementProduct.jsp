@@ -174,6 +174,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
+                               
                                   <form action="/editProductProcess?id=${Product.productID}" method="post" modelAttribute="Product1">
                                     <div class="form-group">
                                     
@@ -189,15 +190,15 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="recipient-name" class="col-form-label">Price</label>
-                                      <input name="price" type="text" class="form-control"  placeholder=" ${Product.price}">
+                                      <input name="price" type="number" class="form-control"  placeholder=" ${Product.price}">
                                     </div>
                                     <div class="form-group">
                                       <label for="recipient-name" class="col-form-label">Amount</label>
-                                      <input name="amount" type="text" class="form-control"  placeholder=" ${Product.amount}">
+                                      <input name="amount" type="number" class="form-control"  placeholder=" ${Product.amount}">
                                     </div>
                                     <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Image</label>
-                                      <input name="image" type="text" class="form-control"  placeholder=" ${Product.image}">
+                                      <!-- <label for="recipient-name" class="col-form-label">Image</label> -->
+                                      <input name="image" type="text" class="form-control"  value="${param.imagename}" hidden>
                                     </div>
                                     <div class="form-group">
                                       <label for="recipient-name" class="col-form-label">Detail</label>
@@ -217,6 +218,33 @@
                             </div>
                           </div>
 
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">Upload Image For Edit</button>
+                          <!-- modal edit -->
+                          <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h3 class="modal-title" id="exampleModalLabel">Edit ${Product.productID}</h3>
+                                
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form method="POST" action="/uploadFromEdit" enctype="multipart/form-data">
+                                    <input type="file" name="file" />
+                                  
+                               
+                                   
+                               
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  
+                                  <button class="btn btn-success" type="submit">Confirm</button>
+                                  </form>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
 
                             <!-- open modal delete -->
@@ -298,6 +326,15 @@
                       swal({
                           title: "SUCCESS",
                           text: "Success Delete Product",
+                          icon: "success",
+                          buttons: false,
+                          dangerMode: false,
+                      })
+                  }
+                  if (getIdDetails().message == "SuccesUploadImage") {
+                      swal({
+                          title: "SUCCESS",
+                          text: "Upload Image Success, Please go to edit",
                           icon: "success",
                           buttons: false,
                           dangerMode: false,
