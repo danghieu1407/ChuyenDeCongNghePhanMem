@@ -263,7 +263,7 @@ public class DemoController {
         }
         
         
-        return "redirect:/cart?message=Add to cart success&name="+email ;
+        return "redirect:/indexmain?message=Add to cart success&name="+email ;
     }
 
     // delete item by productID

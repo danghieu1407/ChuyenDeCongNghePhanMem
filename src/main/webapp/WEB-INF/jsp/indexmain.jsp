@@ -41,6 +41,7 @@
                 <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
                         e.stopPropagation();
                     });</script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
             </head>
             <!-- body -->
@@ -105,6 +106,9 @@
 
                         </header>
                         <br>
+                        <>
+                            
+                    
                         <div id="row"  class="row">
                             
                             <div class="col-lg-2">
@@ -183,8 +187,38 @@
 
                         </div>
 
+                         <script type="text/javascript">
+            function getIdDetails() {
+              var urlParams;
+              (window.onpopstate = function () {
+                var match,
+                  pl = /\+/g, // Regex for replacing addition symbol with a space
+                  search = /([^&=]+)=?([^&]*)/g,
+                  decode = function (s) {
+                    return decodeURIComponent(s.replace(pl, " "));
+                  },
+                  query = window.location.search.substring(1);
 
-                
+                urlParams = {};
+                while ((match = search.exec(query)))
+                  urlParams[decode(match[1])] = decode(match[2]);
+              })();
+              return urlParams;
+            }
+            if (getIdDetails().message == "Add to cart success") {
+              swal({
+                title: "SUCCESS",
+                text: "Add to Cart Success",
+                icon: "success",
+                buttons: false,
+                dangerMode: true,
+              })
+            }
+          
+
+
+          </script>
+                    </body>
                     <!-- section footer end -->
                     <footer>
                         <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
