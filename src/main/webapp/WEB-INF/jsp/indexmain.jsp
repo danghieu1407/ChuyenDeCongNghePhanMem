@@ -59,26 +59,11 @@
 
                                     <li class='active'><a href='/indexmain'>HOME</a></li>
                                     <li><a href='#'>ABOUT</a></li>
-                                    <li><a href='#'>PRODUCTS</a>
-                                        <ul>
-                                            <li><a href='#'>Product 1</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='#'>BIO</a></li>
-                                    <li><a href='#'>VIDEO</a></li>
-                                    <li><a href='#'>GALLERY</a></li>
-                                    <li><a href='#'>CONTACT</a></li>
+                                    <li><form action="/searchProduct" method="post">
+                                        <input type="text" name="search" placeholder="Search..">
+                                    </form></li>
+                                 
+                                    
                            
 
 

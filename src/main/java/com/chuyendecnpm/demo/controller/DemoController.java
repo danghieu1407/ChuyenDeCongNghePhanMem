@@ -332,4 +332,20 @@ public class DemoController {
 
 		return "redirect:/managementProduct?message=SuccesUploadImage&imagename="+fileName;
 	}
+
+    //search product
+    @RequestMapping(value = { "/searchProduct" }, method = { RequestMethod.POST })
+    public String searchProduct(Model model, @RequestParam(name = "search") String search) {
+        List<Product> list = dao1.searchProduct(search);
+        model.addAttribute("Listproduct", list);
+        System.out.println(list); 
+        return "searchProduct";
+    }
+
+    @RequestMapping(value = { "/searchProduct" }, method = { RequestMethod.GET })
+        public String searchProductget(Model model) {
+            
+            return "searchProduct";
+        
+    }
 }
