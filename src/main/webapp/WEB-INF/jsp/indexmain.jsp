@@ -80,8 +80,11 @@
                                         
                                                 <% if(session.getAttribute("role").equals("1")){ %>
                                                     <li><a href='/management'>Quan ly hoa don</a></li>
-                                                    <li><a href='/logout'>Logout</a></li>
+                                                    <li><a href='/logout'></a></li>
+                                                    
                                                 <% }%>
+
+
                                          
                                             <li><a href='#'>Product 2</a>
                                                 <ul>
