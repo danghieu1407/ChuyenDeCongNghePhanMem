@@ -77,13 +77,19 @@
                                         <ul>
                                             <li><a href='/managementProduct'>Quản lí sản phẩm</a>
                                             </li>
+                                        
+                                                <% if(session.getAttribute("role").equals("1")){ %>
+                                                    <li><a href='/management'>Quan ly hoa don</a></li>
+                                                    <li><a href='/logout'>Logout</a></li>
+                                                <% }%>
+                                         
                                             <li><a href='#'>Product 2</a>
                                                 <ul>
                                                     <li><a href='#'>Sub Product</a></li>
                                                     <li><a href='#'>Sub Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href='/logout'>Đăng xuất</a>
+                                            <li><a href='/logout'>Đăng xuất</a> 
                                         </ul>
                                     </li>
                                 </ul>
@@ -147,7 +153,7 @@
 
                                                 <div id="imageIndexMain" class="product-item ">
                                                     <div class="product-item-image">
-                                                        <img src="/images/${product1.image}" alt="">
+                                                        <img id="imageIndex" src="/images/${product1.image}" alt="">
                                                         <div class="product-item-image-hover">
                                                         </div>
                                                     </div>

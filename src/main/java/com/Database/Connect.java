@@ -9,8 +9,8 @@ public class Connect {
 
     public static Connection connectSQL() throws SQLException {
         try {
-            String username = "hb";
-            String pass = "123";
+            String username = "sa";
+            String pass = "123456";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost;database=CDCNPM";
             Connection con = DriverManager.getConnection(connectionUrl, username, pass);

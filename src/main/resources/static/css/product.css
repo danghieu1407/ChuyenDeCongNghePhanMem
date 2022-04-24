@@ -3,6 +3,11 @@
   height: 280px;
   margin: 12px -10px;
 }
+
+#imageIndex{
+  width: 131px;
+  height: 100px;
+}
 #addProductForm{ 
   width: 500px;
   align-items: center;

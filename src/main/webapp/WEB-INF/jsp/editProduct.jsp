@@ -26,8 +26,8 @@
                 <!-- bootstrap css -->
                 <link rel="stylesheet" href="css/bootstrap.min.css">
                 <!-- style css -->
-                <link rel="stylesheet" href="/css/product.css">
-                <link rel="stylesheet" href="/css/productDetail.css">
+                <link rel="stylesheet" href="css/product.css">
+                <link rel="stylesheet" href="css/productDetail.css">
                 <!-- Responsive-->
                 <link rel="stylesheet" href="css/responsive.css">
                 <!-- fevicon -->
@@ -122,9 +122,9 @@
 
 
                                 
-                                <h1>Add Product</h1>
-                                
-                                <form method="POST" action="/upload" enctype="multipart/form-data">
+                                <h1>Edit Product 1 ${Product.productID}</h1>
+                       
+                                <form method="POST" action="/uploadFromEdit?productid=${param.productid}" enctype="multipart/form-data">
 
                                     <input type="file" name="file" id="file" />
                                     <input class="btn btn-success rounded " type="submit" value="Submit" onclick="Upload()" />
@@ -136,19 +136,16 @@
                                             out.print(message); } %>
                                     </h1>
                                 </div>
-                                <form action="/addProductProcess" method="POST" modelAttribute="Product"
-                                    enctype="multipart/form-data">
+                              
+                                <form action="/editProductProcess?id=${Product.productID}" method="post" modelAttribute="Product1">
                                     <div class="form-group">
-                                        <label for="productID"class="font-weight-bold">Product ID</label>
-                                        <input name="productID" path="productID" type="text" class="form-control rounded"
-                                            id="productID" placeholder="Product ID" required>
+                                    
+                                      <input name="productID" type="text" class="form-control" value="${param.productid}" hidden>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Name"class="font-weight-bold">Name</label>
-                                        <input name="Name" path="name" type="text" class="form-control rounded" id="Name"
-                                            placeholder="Name" required>
+                                      <label for="recipient-name" class="col-form-label">Name</label>
+                                      <input name="name" type="text" class="form-control"  placeholder="  ${Product.name}" required>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="Category"class="font-weight-bold">Category</label>
                                         <select name="Category" path="category" type="text" class="form-control rounded"
@@ -162,33 +159,25 @@
                                                 <option value="Other">Other</option>
                                               </select>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="Price"class="font-weight-bold">Price</label>
-                                        <input name="Price" path="price" type="text" class="form-control rounded" id="Price"
-                                            placeholder="Price" required>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Price</label>
+                                      <input name="price" type="number" class="form-control"  placeholder=" ${Product.price}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Amount"class="font-weight-bold">Amount</label>
-                                        <input name="Amount" path="amount" type="text" class="form-control rounded" id="Amount"
-                                            placeholder="Amount" required>
+                                      <label for="recipient-name" class="col-form-label">Amount</label>
+                                      <input name="amount" type="number" class="form-control"  placeholder=" ${Product.amount}" required>
                                     </div>
                                     <div class="form-group">
-                                        
-
-
-
-                                        <label for="Image">Image</label>
-                                        <input name="image" path="image" type="text" class="form-control" id="Image"
-                                            placeholder="" value="${param.imagename}" hidden>
-                                    </div> 
-
-
-                                    <div class="form-group">
-                                        <label for="Detail" class="font-weight-bold">Detail</label>
-                                        <input name="detail" path="detail" type="text" class="form-control rounded " id="Detail"
-                                            placeholder="Detail">
+                                      <!-- <label for="recipient-name" class="col-form-label">Image</label> -->
+                                      <input name="image" type="text" class="form-control"  value="${param.imagenameforedit}" hidden >
                                     </div>
+                                    <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Detail</label>
+                                      <input name="detail" type="text" class="form-control"  placeholder="${Product.detail}">
+                                    </div>
+                          
 
+                                  
                                     <button type="submit" class="btn btn-success rounded">Submit</button>
                                 </form>
 
@@ -229,7 +218,7 @@
                                     })();
                                     return urlParams;
                                 }
-                                if (getIdDetails().message == "Success") {
+                                if (getIdDetails().message == "SuccesUploadImage") {
                                     swal({
                                         title: "SUCCESS",
                                         text: "Thêm ảnh thành công",
@@ -241,7 +230,7 @@
                                 else if(getIdDetails().message == "File was empty or not found"){
                                     swal({
                                         title: "ERROR",
-                                        text: "Thêm ảnh thất bại",
+                                        text: "Empty Image, Please try again",
                                         icon: "error",
                                         buttons: true,
                                         dangerMode: true,

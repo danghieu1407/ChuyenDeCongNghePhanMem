@@ -224,7 +224,17 @@
                   </div>
 
                 </div>
+           
 
+
+                // javascipt print page when check out
+                <script>
+                  var totalprice = document.getElementById('cart-total').innerHTML;
+                  var totalprice = parseInt(totalprice);
+                  var totalprice = totalprice.toFixed(2);
+                  document.getElementById('cart-total').innerHTML = totalprice;
+                </script>
+              
 
           </div>
 

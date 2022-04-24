@@ -68,7 +68,9 @@ public class DemoController {
             if (user.getEmail() != null) {
                 // Tạo session chỗ này để lưu lại user đã đăng nhập
                 session.setAttribute("tendangnhap", username);
-
+                //set role cho user 
+                session.setAttribute("role", user.getRole());
+                System.out.print(user.getRole());
                 return "redirect:/indexmain";
 
             }
@@ -211,6 +213,17 @@ public class DemoController {
 
 
     //update Product
+    @RequestMapping(value = { "/editProduct" }, method = { RequestMethod.POST })
+    public String updateProduct(Model model) {
+   
+        return "editProduct";
+    }
+    @RequestMapping(value = { "/editProduct" }, method = { RequestMethod.GET })
+    public String updateProduct1(Model model) {
+   
+        return "editProduct";
+    }
+ 
     @RequestMapping(value = { "/editProductProcess" }, method = { RequestMethod.POST })
     public String updateProduct(Model model, @RequestParam(name = "id") String id, @ModelAttribute("Product1") Product product) {
         try {
@@ -309,12 +322,12 @@ public class DemoController {
     }
     
     @RequestMapping(value = { "/uploadFromEdit" }, method = { RequestMethod.POST })
-	public String fileUploadEditCart(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,Model model) {
+	public String fileUploadEditCart(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,Model model, @RequestParam("productid") String productid) {
         String fileName = file.getOriginalFilename();
        
        
 		if (file.isEmpty()) {
-			return "redirect:/managementProduct?message=File was empty or not found "; 
+			return "redirect:/editProduct?message=File was empty or not found "; 
 		}
 
 		try {
@@ -327,10 +340,10 @@ public class DemoController {
 		} catch (IOException e) {
 			e.printStackTrace();
             
-            return "redirect:/managementProduct?message=LargeImage";
+            return "redirect:/editProduct?message=LargeImage";
 		}
 
-		return "redirect:/managementProduct?message=SuccesUploadImage&imagename="+fileName;
+		return "redirect:/editProduct?message=SuccesUploadImage&imagenameforedit="+fileName+"&productid="+productid;
 	}
 
     //search product
@@ -348,4 +361,7 @@ public class DemoController {
             return "searchProduct";
         
     }
+
+    //check out 
+
 }

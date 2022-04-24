@@ -177,8 +177,6 @@ public class ProductDAO {
         return null;
     }
 
-<<<<<<< HEAD
-=======
 
     //search product
     public List<Product> searchProduct(String name) {
@@ -208,5 +206,4 @@ public class ProductDAO {
         }
         return list;
     }
->>>>>>> 09c7cbf802238ed6f8cafc8852fb632567a7aec3
 }

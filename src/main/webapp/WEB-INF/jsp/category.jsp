@@ -138,7 +138,7 @@
 
                                     <div id="imageIndexMain" class="product-item ">
                                         <div class="product-item-image">
-                                            <img src="/images/${product1.image}" alt="">
+                                            <img id="imageIndex" src="/images/${product1.image}" alt="">
                                             <div class="product-item-image-hover">
                                             </div>
                                         </div>

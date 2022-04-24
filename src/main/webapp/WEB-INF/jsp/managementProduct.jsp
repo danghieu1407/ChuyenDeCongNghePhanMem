@@ -96,7 +96,11 @@
                                 <% String username=(String)session.getAttribute("tendangnhap");
                                     if(session!=null){ out.print(username); } %>
                             </a>
+                       
                             <ul>
+                              
+                          
+                                
                                 <li><a href='/managementProduct'>Quản lí sản phẩm</a>
                                 </li>
                                 <li><a href='#'>Product 2</a>
@@ -162,119 +166,17 @@
                         </td>
                         <td>
                         
-
-                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
-                          <!-- modal edit -->
-                          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h3 class="modal-title" id="exampleModalLabel">Edit ${Product.productID}</h3>
-                                
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                               
-                                  <form action="/editProductProcess?id=${Product.productID}" method="post" modelAttribute="Product1">
-                                    <div class="form-group">
-                                    
-                                      <input name="productID" type="text" class="form-control"  placeholder=" ${Product.productID}" value="${Product.productID}" hidden>
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Name</label>
-                                      <input name="name" type="text" class="form-control"  placeholder="  ${Product.name}">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Category</label>
-                                      <input name="category" type="text" class="form-control"  placeholder=" ${Product.category}">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Price</label>
-                                      <input name="price" type="number" class="form-control"  placeholder=" ${Product.price}">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Amount</label>
-                                      <input name="amount" type="number" class="form-control"  placeholder=" ${Product.amount}">
-                                    </div>
-                                    <div class="form-group">
-                                      <!-- <label for="recipient-name" class="col-form-label">Image</label> -->
-                                      <input name="image" type="text" class="form-control"  value="${param.imagename}" hidden>
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">Detail</label>
-                                      <input name="detail" type="text" class="form-control"  placeholder=" ${Product.detail}">
-                                    </div>
-                                   
-                                   
-                               
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  
-                                  <button class="btn btn-success" type="submit">Confirm</button>
-                                  </form>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">Upload Image For Edit</button>
-                          <!-- modal edit -->
-                          <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h3 class="modal-title" id="exampleModalLabel">Edit ${Product.productID}</h3>
-                                
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                  <form method="POST" action="/uploadFromEdit" enctype="multipart/form-data">
-                                    <input type="file" name="file" />
-                                  
-                               
-                                   
-                               
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  
-                                  <button class="btn btn-success" type="submit">Confirm</button>
-                                  </form>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-                            <!-- open modal delete -->
-                            <button class="btn btn-danger" type="button" data-toggle="modal"
-                              data-target="#myModal">Delete</button>
-                              <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog">
-              
-                                  <!-- Modal content-->
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal"></button>
-                                      <h4 class="modal-title">Delete</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>Are you sure to delete this product</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                   
-                                    <form action="/deleteProduct?id=${Product.productID}" method="post">
-                                      <button class="btn btn-success " type="submit">Confirm</button>
-              
-                                    </form>
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-              
-                                </div>
-                              </div>
-                         
+                          <form action="/editProduct?productid=${Product.productID}" method="post">
+                          <button type="submit" class="btn btn-warning" >Edit</button>
+                        
+                          
+                        </td>
+                        <td>
+                        </form>
+                        <form action="/deleteProduct?id=${Product.productID}&message=Delete Success" method="post">
+                          <button class="btn btn-danger " type="submit">Delete</button>
+  
+                        </form>
                         </td>
 
                         
