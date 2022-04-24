@@ -177,4 +177,36 @@ public class ProductDAO {
         return null;
     }
 
+<<<<<<< HEAD
+=======
+
+    //search product
+    public List<Product> searchProduct(String name) {
+        List<Product> list = new ArrayList<>();
+        String sql = " Select * from _Product WHERE _name LIKE '%"+ name +"%'";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+
+                product.setProductID(rs.getString("_productID"));
+                product.setName(rs.getString("_name"));
+                product.setCategory(rs.getString("_category"));
+                product.setPrice(rs.getInt("_price"));
+                product.setAmount(rs.getInt("_amount"));
+                product.setImage(rs.getString("_image"));
+                product.setDetail(rs.getString("_detail"));
+                list.add(product);
+            }
+            con.close();
+            stm.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+>>>>>>> 09c7cbf802238ed6f8cafc8852fb632567a7aec3
 }
