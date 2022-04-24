@@ -1,4 +1,5 @@
 package com.chuyendecnpm.demo.DAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +14,8 @@ import com.chuyendecnpm.demo.Model.Product;
 
 import org.apache.catalina.Session;
 
-public class ProductDAO{
-    public List<Product> getAll(){
+public class ProductDAO {
+    public List<Product> getAll() {
         List<Product> list = new ArrayList<>();
         String sql = " Select * from _Product";
         try {
@@ -42,13 +43,12 @@ public class ProductDAO{
         return list;
     }
 
- 
     public Product findProductById(String _productId) {
 
         List<Product> list = new ArrayList<>();
         Product product = new Product();
 
-        String sql = " Select * from _Product WHERE _productID = '"+ _productId +"'";
+        String sql = " Select * from _Product WHERE _productID = '" + _productId + "'";
         try {
             Connection con = Connect.connectSQL();
             PreparedStatement stm = con.prepareStatement(sql);
@@ -63,12 +63,12 @@ public class ProductDAO{
                 product.setAmount(rs.getInt("_amount"));
                 product.setImage(rs.getString("_image"));
                 product.setDetail(rs.getString("_detail"));
-              
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return product;
     }
 
@@ -76,7 +76,7 @@ public class ProductDAO{
         List<Product> list = new ArrayList<>();
         Product product = new Product();
 
-        String sql = " DELETE FROM _Product WHERE _productID = '"+ _productId +"'";
+        String sql = " DELETE FROM _Product WHERE _productID = '" + _productId + "'";
         try {
             Connection con = Connect.connectSQL();
             PreparedStatement stm = con.prepareStatement(sql);
@@ -87,20 +87,20 @@ public class ProductDAO{
                 product.setProductID(rs.getString("_productID"));
                 product.setName(rs.getString("_name"));
                 product.setCategory(rs.getString("_category"));
-                product.setPrice(rs.getInt( "_price"));
+                product.setPrice(rs.getInt("_price"));
                 product.setAmount(rs.getInt("_amount"));
                 product.setImage(rs.getString("_image"));
                 product.setDetail(rs.getString("_detail"));
-              
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return product;
     }
 
-    //add Product
+    // add Product
     public boolean addProduct(Product product) {
         boolean check = false;
         String sql = "INSERT INTO _Product(_productID,_name,_category,_price,_amount,_image,_detail) VALUES(?,?,?,?,?,?,?)";
@@ -122,9 +122,9 @@ public class ProductDAO{
         return check;
     }
 
-    //update Product
+    // update Product
     public Product updateProduct(Product product) {
-        
+
         String sql = "UPDATE _Product SET  _name = ?,_category = ?,_price = ?,_amount = ?,_image = ?,_detail = ? WHERE _productID = ?";
         try {
             Connection con = Connect.connectSQL();
@@ -137,17 +137,17 @@ public class ProductDAO{
             stm.setString(6, product.getDetail());
             stm.setString(7, product.getProductID());
             stm.executeUpdate();
-          
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return product;
     }
 
-    //Select product where category = ?
+    // Select product where category = ?
     public List<Product> getProductByCategory(String category) {
         List<Product> list = new ArrayList<>();
-        String sql = " Select * from _Product WHERE _category = '"+ category +"'";
+        String sql = " Select * from _Product WHERE _category = '" + category + "'";
         try {
             Connection con = Connect.connectSQL();
             PreparedStatement stm = con.prepareStatement(sql);
@@ -173,11 +173,8 @@ public class ProductDAO{
         return list;
     }
 
-
     public List<Cart> getCart(String email) {
         return null;
     }
-
-
 
 }

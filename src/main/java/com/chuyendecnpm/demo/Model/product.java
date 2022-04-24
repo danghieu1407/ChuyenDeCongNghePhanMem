@@ -12,8 +12,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productID, String name, String category, int price, int amount, String image, String detail)
-     {
+    public Product(String productID, String name, String category, int price, int amount, String image, String detail) {
         this.productID = productID;
         this.name = name;
         this.category = category;
@@ -79,7 +78,6 @@ public class Product {
         this.detail = detail;
     }
 
-
     @Override
     public String toString() {
         return "Product{" +
@@ -92,7 +90,5 @@ public class Product {
                 ", detail='" + detail + '\'' +
                 '}';
     }
-
-
 
 }

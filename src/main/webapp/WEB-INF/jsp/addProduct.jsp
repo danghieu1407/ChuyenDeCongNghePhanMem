@@ -45,9 +45,7 @@
 
                 <script src="/Js/dropdown.js"></script>
 
-                <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
-                        e.stopPropagation();
-                    });</script>
+
 
             </head>
             <!-- body -->
@@ -115,13 +113,21 @@
                         </header>
 
 
-                        <body>
-                            <div id="addProductForm" class="row">
-                                <h1>Add Product</h1>
+                        <body id="addProduct">
+                            <div class="container justify-content-center" >
 
+                            
+                            <div id="addProductForm" class="row justify-content-center rounded">
+                                <div class="justify-content-center ">
+
+
+                                
+                                <h1>Add Product</h1>
+                                
                                 <form method="POST" action="/upload" enctype="multipart/form-data">
+
                                     <input type="file" name="file" id="file" />
-                                    <input type="submit" value="Submit" onclick="Upload()" />
+                                    <input class="btn btn-success rounded " type="submit" value="Submit" onclick="Upload()" />
                                 </form>
                                 <div>
                                     <h1>
@@ -133,52 +139,61 @@
                                 <form action="/addProductProcess" method="POST" modelAttribute="Product"
                                     enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="productID">Product ID</label>
-                                        <input name="productID" path="productID" type="text" class="form-control"
+                                        <label for="productID"class="font-weight-bold">Product ID</label>
+                                        <input name="productID" path="productID" type="text" class="form-control rounded"
                                             id="productID" placeholder="Product ID" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Name">Name</label>
-                                        <input name="Name" path="name" type="text" class="form-control" id="Name"
+                                        <label for="Name"class="font-weight-bold">Name</label>
+                                        <input name="Name" path="name" type="text" class="form-control rounded" id="Name"
                                             placeholder="Name" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="Category">Category</label>
-                                        <input name="Category" path="category" type="text" class="form-control"
+                                        <label for="Category"class="font-weight-bold">Category</label>
+                                        <select name="Category" path="category" type="text" class="form-control rounded"
                                             id="Category" placeholder="Category" required>
+                                                <option value="Tubers">Tubers</option>
+                                                <option value="Leaves">Leaves</option>
+                                                <option value="Seed">Seed</option>
+                                                <option value="Fruit">Fruit</option>
+                                                <option value="Mushroom">Mushroom</option>
+                                                <option value="Spice">Spice</option>
+                                                <option value="Other">Other</option>
+                                              </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="Price">Price</label>
-                                        <input name="Price" path="price" type="text" class="form-control" id="Price"
+                                    <div class="form-group ">
+                                        <label for="Price"class="font-weight-bold">Price</label>
+                                        <input name="Price" path="price" type="text" class="form-control rounded" id="Price"
                                             placeholder="Price" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Amount">Amount</label>
-                                        <input name="Amount" path="amount" type="text" class="form-control" id="Amount"
+                                        <label for="Amount"class="font-weight-bold">Amount</label>
+                                        <input name="Amount" path="amount" type="text" class="form-control rounded" id="Amount"
                                             placeholder="Amount" required>
                                     </div>
-                                    <div class="form-group">
-                                        <!-- //get getAttribute for imagename from controller -->
+                                    <!-- <div class="form-group">
+                                        
 
 
 
                                         <label for="Image">Image</label>
                                         <input name="image" path="image" type="text" class="form-control" id="Image"
                                             placeholder="" value="${param.imagename}">
-                                    </div>
+                                    </div> -->
 
 
                                     <div class="form-group">
-                                        <label for="Detail">Detail</label>
-                                        <input name="detail" path="detail" type="text" class="form-control" id="Detail"
+                                        <label for="Detail" class="font-weight-bold">Detail</label>
+                                        <input name="detail" path="detail" type="text" class="form-control rounded " id="Detail"
                                             placeholder="Detail">
                                     </div>
 
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success rounded">Submit</button>
                                 </form>
 
-
+                            </div>
+                        </div>
                             </div>
 
                            
@@ -186,7 +201,7 @@
                                 var uploadField = document.getElementById("file");
 
                                 uploadField.onchange = function() {
-                                    if(this.files[0].size >= 1048574){
+                                    if(this.files[0].size > 1048574){
                                         swal({
                                         title: "FAIL",
                                         text: "Image too big",
