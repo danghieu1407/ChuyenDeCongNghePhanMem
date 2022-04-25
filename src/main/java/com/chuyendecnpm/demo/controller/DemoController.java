@@ -106,16 +106,22 @@ public class DemoController {
     @RequestMapping(value = { "/logout" }, method = { RequestMethod.GET })
     public String backtologin(HttpSession session) {
         session.invalidate(); 
+       
         return "redirect:/login";
     }
 
     
     @RequestMapping(value = { "/productDetail" }, method = { RequestMethod.POST })
-    public String productDetail(Model model, @RequestParam(name = "id") String id) {
+    public String productDetail(Model model, @RequestParam(name = "id") String id, @RequestParam(name = "category") String category) {
         System.out.println(dao1.findProductById("CCB").getName());
         Product product = dao1.findProductById(id);
         model.addAttribute("ProductDetail", product);
         System.out.println(product.getName());
+         //select random product
+         List<Product> list = dao1.getProductByCategory4ProductDetail(category);
+         model.addAttribute("productrelative", list);
+
+
         return "productDetail";
     }
 
