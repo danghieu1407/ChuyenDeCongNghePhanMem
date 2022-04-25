@@ -179,7 +179,7 @@
 
                                         <label for="Image">Image</label>
                                         <input name="image" path="image" type="text" class="form-control" id="Image"
-                                            placeholder="${param.imagename}" value="${param.imagename}" hidden >
+                                            placeholder="" value="${param.imagename}" hidden>
                                     </div> 
 
 

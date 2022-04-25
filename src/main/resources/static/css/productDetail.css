@@ -184,7 +184,7 @@ body{
         grid-gap: 1.5rem;
     }
     .card-wrapper{
-        /* height: 100vh; */
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -197,15 +197,4 @@ body{
     .product-content{
         padding-top: 0;
     }
-}
-.same-product{
-    position: absolute;
-    bottom: 100px;
-    margin-top: 50px;
-    display: flex;
-   max-width: 1700px;
-   overflow:auto;
-   left: 50%;
-   overflow-x: hidden;
-   transform: translateX(-50%);
 }

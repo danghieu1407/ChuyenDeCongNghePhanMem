@@ -206,8 +206,6 @@ public class ProductDAO {
         }
         return list;
     }
-
-    //select top4 product by category
     public List<Product> getProductByCategory4ProductDetail(String category) {
         List<Product> list = new ArrayList<>();
         // String sql = " Select * from _Product WHERE _category = '" + category + "'LIMIT'" + page + ",8";
@@ -237,6 +235,4 @@ public class ProductDAO {
         }
         return list;
     }
-  
-    
 }
