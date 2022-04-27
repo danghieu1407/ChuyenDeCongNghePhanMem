@@ -6,7 +6,7 @@ create table _User
 	_name text not null,
 	_email nchar(100) primary key,
 	_password nchar(100) not null,
-	_role int default '3',
+	_role int default '1',
 	_phone nchar(100) not null,
 	_address nvarchar(200) not null,
 	_wallet int default 0

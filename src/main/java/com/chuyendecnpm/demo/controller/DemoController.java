@@ -377,8 +377,68 @@ public class DemoController {
         return "managementAccount";
     }
 
+    //delete account by email
+    @RequestMapping(value = { "/deleteAccount" }, method = { RequestMethod.POST })
+    public String deleteAccount(Model model, @RequestParam(name = "email") String email) {
+        try {
+            dao.deleteAccount(email);
+            System.out.println("Xóa thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Xóa thất bại");
+
+        }
+
+        return "redirect:/managementAccount?message=Delete Success";
+    }
+
+    //update role to admin
+    @RequestMapping(value = { "/updateRoleToAdmin" }, method = { RequestMethod.POST })
+    public String updateRole(Model model, @RequestParam(name = "email") String email) {
+        try {
+            dao.updateAccountToAdmin(email);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementAccount?message=Update fail";
+
+        }
+
+        return "redirect:/managementAccount?message=Update Success";
+    }
 
 
-    
+    //update role to staff
+    @RequestMapping(value = { "/updateRoleToStaff" }, method = { RequestMethod.POST })
+    public String updateRoleToStaff(Model model, @RequestParam(name = "email") String email) {
+        try {
+            dao.updateAccountToStaff(email);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementAccount?message=Update fail";
+
+        }
+
+        return "redirect:/managementAccount?message=Update Success";
+    }
+
+    //update role to user
+    @RequestMapping(value = { "/updateRoleToUser" }, method = { RequestMethod.POST })
+    public String updateRoleToUser(Model model, @RequestParam(name = "email") String email) {
+        try {
+            dao.updateAccountToUser(email);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementAccount?message=Update fail";
+
+        }
+
+        return "redirect:/managementAccount?message=Update Success";
+    }
 
 }

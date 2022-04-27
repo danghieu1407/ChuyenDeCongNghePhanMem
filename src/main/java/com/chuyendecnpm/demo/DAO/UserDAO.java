@@ -115,6 +115,60 @@ public class UserDAO {
         return user;
     }
 
+    //delete account by email
+    public void deleteAccount(String email) {
+        String sql = "delete from _User where _email = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, email);
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //update account to role admin
+    public void updateAccountToAdmin(String email) {
+        String sql = "update _User set _role = '3' where _email = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, email);
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
    
 
+    //update role to staff
+    public void updateAccountToStaff(String email) {
+        String sql = "update _User set _role = '2' where _email = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, email);
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //update role to user
+    public void updateAccountToUser(String email) {
+        String sql = "update _User set _role = '1' where _email = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, email);
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
