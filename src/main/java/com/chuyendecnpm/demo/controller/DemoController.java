@@ -185,7 +185,7 @@ public class DemoController {
 
 
 		}
-
+        
 		return "redirect:/addProduct?message=Success&imagename="+fileName;
 	}
 
@@ -368,6 +368,7 @@ public class DemoController {
         
     }
 
-    //check out 
+    //management account 
+    
 
 }

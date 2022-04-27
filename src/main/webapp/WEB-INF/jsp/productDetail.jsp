@@ -171,7 +171,9 @@
 
           </div>
           </div>
+          
           </div>
+        </div>
 
           <div class="same-product">
             <c:forEach var="product1"

@@ -79,7 +79,7 @@
                                             </li>
                                         
                                                 <% if(session.getAttribute("role").equals("1")){ %>
-                                                    <li><a href='/management'>Quan ly hoa don</a></li>
+                                                    <li><a href='/managementAccount'>Management Account</a></li>
                                                     <li><a href='/logout'></a></li>
                                                     
                                                 <% }%>
