@@ -70,13 +70,13 @@ public class UserDAO {
             while (rs.next()) {
                 User user = new User();
 
-                user.setName(rs.getString("name"));
-                user.setEmail(rs.getString("email"));
-                user.setPassword(rs.getString("password"));
-                user.setRole(rs.getString("role"));
-                user.setPhone(rs.getString("phone"));
-                user.setAddress(rs.getString("address"));
-                user.setWallet(rs.getInt("wallet"));
+                user.setName(rs.getString("_name"));
+                user.setEmail(rs.getString("_email"));
+                user.setPassword(rs.getString("_password"));
+                user.setRole(rs.getString("_role"));
+                user.setPhone(rs.getString("_phone"));
+                user.setAddress(rs.getString("_address"));
+                user.setWallet(rs.getInt("_wallet"));
 
                 list.add(user);
             }
@@ -114,5 +114,7 @@ public class UserDAO {
         }
         return user;
     }
+
+   
 
 }

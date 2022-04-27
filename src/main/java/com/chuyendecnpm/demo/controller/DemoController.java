@@ -91,7 +91,7 @@ public class DemoController {
 
         }
 
-        return "redirect:/login";
+        return "redirect:/login?message=Register Success";
     }
 
     @RequestMapping(value = { "/indexmain" }, method = { RequestMethod.GET })
@@ -369,6 +369,16 @@ public class DemoController {
     }
 
     //management account 
+    @RequestMapping(value = { "/managementAccount" }, method = { RequestMethod.GET })
+    public String managementAccount(Model model) {
+        List<User> list = dao.getAll();
+        model.addAttribute("Listaccount", list);
+        System.out.println(list); 
+        return "managementAccount";
+    }
+
+
+
     
 
 }
