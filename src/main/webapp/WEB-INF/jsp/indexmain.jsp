@@ -78,7 +78,7 @@
                                             <li><a href='/managementProduct'>Quản lí sản phẩm</a>
                                             </li>
                                         
-                                                <% if(session.getAttribute("role").equals("1")){ %>
+                                                <% if(session.getAttribute("role").equals("3")){ %>
                                                     <li><a href='/managementAccount'>Management Account</a></li>
 
                                                     

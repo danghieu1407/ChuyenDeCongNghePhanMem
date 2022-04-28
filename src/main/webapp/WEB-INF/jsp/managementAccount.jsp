@@ -124,12 +124,13 @@
                   <tbody>
                     <tr>
 
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Password</th>
-                      <th>Role</th>
-                      <th>Phone</th>
-                      <th>Address</th>
+                      <th >Name</th>
+                      <th >Email</th>
+                  
+                      <th >Role</th>
+                      <th >Phone</th>
+                      <th >Address</th>
+                      <th colspan="5" style="text-align: center;" >Action</th>
 
 
 
@@ -143,10 +144,7 @@
                           ${Account.email}
 
                         </td>
-                        <td>
-                          ${Account.password}
-
-                        </td>
+                  
                         <td>
                           ${Account.role}
 
@@ -159,10 +157,7 @@
                           ${Account.address}
 
                         </td>
-                        <td>
-
-
-                        </td>
+                
                         <td>
 
                           <form action="/updateRoleToAdmin?email=${Account.email}" method="post">
@@ -201,9 +196,9 @@
                     </c:forEach>
 
                     <tr>
-                      <td colspan="8" style="text-align: center;">
-                        <form action="/addProduct" method="post">
-                          <button class="btn btn-success" type="submit">Add Product</button>
+                      <td colspan="9" style="text-align: center;">
+                        <form action="/addAccount " method="post">
+                          <button class="btn btn-success" type="submit">Add Account</button>
                         </form>
                       </td>
                     </tr>

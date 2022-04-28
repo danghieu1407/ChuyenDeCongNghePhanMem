@@ -171,4 +171,24 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    //add new account
+    public void addAccount(User user) {
+        String sql = "insert into _User(_name,_email,_password,_phone,_address,_role,_wallet) values (?,?,?,?,?,?,?)";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, user.getName());
+            stm.setString(2, user.getEmail());
+            stm.setString(3, user.getPassword());
+            stm.setString(4, user.getPhone());
+            stm.setString(5, user.getAddress());
+            stm.setString(6, user.getRole());
+            stm.setInt(7, user.getWallet());
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

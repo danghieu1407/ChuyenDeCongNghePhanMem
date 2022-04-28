@@ -440,5 +440,33 @@ public class DemoController {
 
         return "redirect:/managementAccount?message=Update Success";
     }
+   
+
+    //add account method POST
+    @RequestMapping(value = { "/addAccount" }, method = { RequestMethod.POST })
+    public String addAccountget(Model model) {
+        return "addAccount";
+    }
+    
+
+    //add accountProcess
+    @RequestMapping(value = { "/addAccountProcess" }, method = { RequestMethod.POST })
+    public String addAccountProcess(Model model, @ModelAttribute("Account") User user) {
+        try {
+            dao.addAccount(user);
+            System.out.println("Thêm thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Thêm thất bại");
+            return "redirect:/managementAccount?message=Add Account Fail";
+
+        }
+
+        return "redirect:/managementAccount?message=Add Account Success";
+    }
+    
+
+
+   
 
 }
