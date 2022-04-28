@@ -6,115 +6,103 @@
       <!DOCTYPE html>
       <html lang="en">
 
-      <head>
-        <!-- basic -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- mobile metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        <!-- site metas -->
-        <title>Management Product</title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="stylesheet" href="/css/table.css">
+        <head>
+          <!-- basic -->
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <!-- mobile metas -->
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+          <!-- site metas -->
+          <title>Product</title>
+          <meta name="keywords" content="">
+          <meta name="description" content="">
+          <meta name="author" content="">
 
-        <link rel="stylesheet" href="/css/dropdown.css">
-        <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- style css -->
-        <link rel="stylesheet" href="css/product.css">
-        <link rel="stylesheet" href="css/productDetail.css">
-        <!-- Responsive-->
-        <link rel="stylesheet" href="css/responsive.css">
-        <!-- fevicon -->
-        <link rel="icon" href="images/fevicon.png" type="image/gif" />
-        <!-- Scrollbar Custom CSS -->
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-        <!-- Tweaks for older IEs-->
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-        <!-- owl stylesheets -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-        <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+          <link rel="stylesheet" href="/css/table.css">
 
-        <script src="/Js/dropdown.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="/css/dropdown.css">
+          <!-- bootstrap css -->
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+          <!-- style css -->
+          <link rel="stylesheet" href="/css/product.css">
+          <link rel="stylesheet" href="/css/productDetail.css">
+          <!-- Responsive-->
+          <link rel="stylesheet" href="css/responsive.css">
+          <!-- fevicon -->
+          <link rel="icon" href="images/fevicon.png" type="image/gif" />
+          <!-- Scrollbar Custom CSS -->
+          <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+          <!-- Tweaks for older IEs-->
+          <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+          <!-- owl stylesheets -->
+          <link rel="stylesheet" href="css/owl.carousel.min.css">
+          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+          <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-        <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
-            e.stopPropagation();
-          });</script>
+          <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 
-</head>
+          <script src="/Js/dropdown.js"></script>
+
+
+
+      </head>
 <!-- body -->
 
 <body class="main-layout">
-    <!-- header reponsive -->
+  <!-- header reponsive -->
 
-    <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
-        %>
-        <div>
-            <header>
-                <nav id='cssmenu'>
+  <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
+      %>
+      <div>
+          <header>
+              <nav id='cssmenu'>
 
-                    <ul style="height:15px">
+                  <ul style="height:15px">
 
-                        <li class='active'><a href='/indexmain'>HOME</a></li>
-                        <li><a href='#'>ABOUT</a></li>
-                        <li><a href='#'>PRODUCTS</a>
-                            <ul>
-                                <li><a href='#'>Product 1</a>
-                                    <ul>
-                                        <li><a href='#'>Sub Product</a></li>
-                                        <li><a href='#'>Sub Product</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href='#'>Product 2</a>
-                                    <ul>
-                                        <li><a href='#'>Sub Product</a></li>
-                                        <li><a href='#'>Sub Product</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href='#'>BIO</a></li>
-                        <li><a href='#'>VIDEO</a></li>
-                        <li><a href='#'>GALLERY</a></li>
-                        <li><a href='#'>CONTACT</a></li>
-               
+                      <li class='active'><a href='/indexmain'>HOME</a></li>
+                      <li><a href='#'>ABOUT</a></li>
+                      <li><form action="/searchProduct" method="post">
+                          <input type="text" name="search" id="search"placeholder="Search..">
+                      </form></li>
+                   
+                      
+             
 
 
+                      
 
-
-                        <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
-                                    width="16" height="16">
-                                <% String username=(String)session.getAttribute("tendangnhap");
-                                    if(session!=null){ out.print(username); } %>
-                            </a>
-                       
-                            <ul>
-                              
+                      <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                  width="16" height="16">
+                              <% String username=(String)session.getAttribute("tendangnhap");
+                                  if(session!=null){ out.print(username); } %>
+                          </a>
+                          <ul>
+                              <li><a href='/managementProduct'>Management Product</a>
+                              </li>
                           
-                                
-                                <li><a href='/managementProduct'>Quản lí sản phẩm</a>
-                                </li>
-                                <li><a href='#'>Product 2</a>
-                                    <ul>
-                                        <li><a href='#'>Sub Product</a></li>
-                                        <li><a href='#'>Sub Product</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href='/logout'>Đăng xuất</a>
-                            </ul>
-                        </li>
+                                  <% if(session.getAttribute("role").equals("3")){ %>
+                                      <li><a href='/managementAccount'>Management Account</a></li>
+
+                                      
+                                  <% }%>
 
 
-            </header>
+                           
+                              <li><a href='#'>Product 2</a>
+                                  <ul>
+                                      <li><a href='#'>Sub Product</a></li>
+                                      <li><a href='#'>Sub Product</a></li>
+                                  </ul>
+                              </li>
+                              <li><a href='/logout'>Đăng xuất</a> 
+                          </ul>
+                      </li>
+                  </ul>
+
+
+          </header>
 
 
             <body>
@@ -131,7 +119,7 @@
                       <th>Amount</th>
                       <th>Image</th>
                       <th>Detail</th>
-                      <th>Action</th>
+                      <th colspan="2">Action</th>
 
 
                     </tr>
@@ -186,7 +174,7 @@
                     </c:forEach>
 
                     <tr>
-                      <td colspan="8" style="text-align: center;">
+                      <td colspan="9" style="text-align: center;">
                         <form action="/addProduct" method="post">
                           <button class="btn btn-success" type="submit">Add Product</button>
                         </form>
@@ -252,7 +240,7 @@
 
             <!-- section footer end -->
             <footer>
-              <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
+              <div id="footer"  > Dang Hieu - Bao Thai - Hoai Bao </div>
             </footer>
 
 

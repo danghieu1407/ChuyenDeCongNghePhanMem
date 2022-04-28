@@ -506,7 +506,18 @@ body {
 }
 
 
+#footer{
+  width: 100%;
+  float: left;
+  font-size: 12pt;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0px;
+  background-color: #ff4e5b;
+  font-family: Poppins;
 
+  position:absolute;
+}
 .copyright {
     width: 100%;
     float: left;

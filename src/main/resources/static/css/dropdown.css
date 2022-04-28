@@ -2,6 +2,11 @@
     
     -webkit-animation: colorchange 5s infinite alternate;
 }
+#search{
+  padding: 12px;
+  margin: 5px 10px;
+  border-radius: 5px
+}
 @-webkit-keyframes colorchange {
     0% {
       color: rgb(255, 0, 200);

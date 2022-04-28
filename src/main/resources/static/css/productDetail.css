@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
 *{
@@ -9,6 +10,11 @@
 }
 body{
     line-height: 1.5;
+}
+#imageProductDetail{
+    height: 402.75px;
+    width: 537px;
+    border-radius: 12px;
 }
 .card-wrapper{
     max-width: 1100px;
@@ -187,7 +193,8 @@ body{
         height: 100vh;
         display: flex;
         justify-content: center;
-        align-items: center;
+
+        align-items: baseline;
     }
     .product-imgs{
         display: flex;

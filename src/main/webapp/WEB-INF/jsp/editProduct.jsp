@@ -6,48 +6,48 @@
             <!DOCTYPE html>
             <html lang="en">
 
-            <head>
-                <!-- basic -->
-                <meta charset="utf-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <!-- mobile metas -->
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-                <!-- site metas -->
-                <title>Product</title>
-                <meta name="keywords" content="">
-                <meta name="description" content="">
-                <meta name="author" content="">
-
-
-                <link rel="stylesheet" href="/css/table.css">
-
-                <link rel="stylesheet" href="/css/dropdown.css">
-                <!-- bootstrap css -->
-                <link rel="stylesheet" href="css/bootstrap.min.css">
-                <!-- style css -->
-                <link rel="stylesheet" href="css/product.css">
-                <link rel="stylesheet" href="css/productDetail.css">
-                <!-- Responsive-->
-                <link rel="stylesheet" href="css/responsive.css">
-                <!-- fevicon -->
-                <link rel="icon" href="images/fevicon.png" type="image/gif" />
-                <!-- Scrollbar Custom CSS -->
-                <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-                <!-- Tweaks for older IEs-->
-                <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-                <!-- owl stylesheets -->
-                <link rel="stylesheet" href="css/owl.carousel.min.css">
-                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-                <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-
-                <script src="/Js/dropdown.js"></script>
-
-
-
-            </head>
+                <head>
+                    <!-- basic -->
+                    <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <!-- mobile metas -->
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+                    <!-- site metas -->
+                    <title>Product</title>
+                    <meta name="keywords" content="">
+                    <meta name="description" content="">
+                    <meta name="author" content="">
+    
+    
+                    <link rel="stylesheet" href="/css/table.css">
+    
+                    <link rel="stylesheet" href="/css/dropdown.css">
+                    <!-- bootstrap css -->
+                    <link rel="stylesheet" href="css/bootstrap.min.css">
+                    <!-- style css -->
+                    <link rel="stylesheet" href="/css/product.css">
+                    <link rel="stylesheet" href="/css/productDetail.css">
+                    <!-- Responsive-->
+                    <link rel="stylesheet" href="css/responsive.css">
+                    <!-- fevicon -->
+                    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+                    <!-- Scrollbar Custom CSS -->
+                    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+                    <!-- Tweaks for older IEs-->
+                    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+                    <!-- owl stylesheets -->
+                    <link rel="stylesheet" href="css/owl.carousel.min.css">
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    
+                    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    
+                    <script src="/Js/dropdown.js"></script>
+    
+    
+    
+                </head>
             <!-- body -->
 
             <body class="main-layout">
@@ -61,53 +61,45 @@
 
                                 <ul style="height:15px">
 
-                                    <li class='active'><a href='#'>HOME</a></li>
+                                    <li class='active'><a href='/indexmain'>HOME</a></li>
                                     <li><a href='#'>ABOUT</a></li>
-                                    <li><a href='#'>PRODUCTS</a>
-                                        <ul>
-                                            <li><a href='#'>Product 1</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='#'>BIO</a></li>
-                                    <li><a href='#'>VIDEO</a></li>
-                                    <li><a href='#'>GALLERY</a></li>
-                                    <li><a href='#'>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
-                                    <li><a href='#' hidden>CONTACT</a></li>
+                                    <li><form action="/searchProduct" method="post">
+                                        <input type="text" name="search" id="search"placeholder="Search..">
+                                    </form></li>
+                                 
+                                    
+                           
 
 
+                                    
 
-
-                                    <li><a id="namefromheader" href='#'><img src="/images/user.jpg" width="16"
-                                                height="16">
+                                    <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                                width="16" height="16">
                                             <% String username=(String)session.getAttribute("tendangnhap");
                                                 if(session!=null){ out.print(username); } %>
                                         </a>
                                         <ul>
-                                            <li><a href='/managementProduct'>Quản lí sản phẩm</a>
+                                            <li><a href='/managementProduct'>Management Product</a>
                                             </li>
+                                        
+                                                <% if(session.getAttribute("role").equals("3")){ %>
+                                                    <li><a href='/managementAccount'>Management Account</a></li>
+
+                                                    
+                                                <% }%>
+
+
+                                         
                                             <li><a href='#'>Product 2</a>
                                                 <ul>
                                                     <li><a href='#'>Sub Product</a></li>
                                                     <li><a href='#'>Sub Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href='/logout'>Đăng xuất</a>
+                                            <li><a href='/logout'>Logout</a> 
                                         </ul>
                                     </li>
-
-
+                                </ul>
 
 
                         </header>
