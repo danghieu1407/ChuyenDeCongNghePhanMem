@@ -275,12 +275,18 @@ public class DemoController {
 
     // add to cart
     @RequestMapping(value = { "/addToCart" }, method = { RequestMethod.POST })
-    public String addToCart(Model model, @RequestParam(name = "id") String id,@RequestParam(name = "name") String name ,@RequestParam(name = "email") String email ,@ModelAttribute("Cart") Cart cart,HttpSession session) {
+    public String addToCart(Model model, @RequestParam(name = "id") String id,@RequestParam(name = "name") String name ,@RequestParam(name = "email") String email ,@ModelAttribute("Cart") Cart cart,HttpSession session,@RequestParam(name = "amount") int amount) {
       
         //insert to cart
         try {
+            //check product in cart or not
+            if(dao2.checkProduct(id,name)==true){
+                dao2.updateAmount(id,amount);
+            }else{
             dao2.addCart(cart);
-            //update quantity product
+            }
+           
+           
         
             System.out.println("Thêm thành công");
         } catch (Exception e) {

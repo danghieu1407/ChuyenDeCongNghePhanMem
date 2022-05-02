@@ -146,6 +146,48 @@ public class CartDAO {
         }
         return check;
     }
+
+
+    public boolean checkProduct(String id, String name) {
+        //check product duplicate in database
+        boolean check = false;
+        String sql = "SELECT * FROM _cart WHERE _productID = ? AND _name = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, id);
+            stm.setString(2, name);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    //update amount of product in cart
+    public static boolean updateAmount(String productID, int amount) {
+        boolean check = false;
+        String sql = "UPDATE _cart SET _amount = ? WHERE _productID = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, amount);
+            stm.setString(2, productID);
+            int rs = stm.executeUpdate();
+            if (rs > 0) {
+                check = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+    
+
     
 
 
