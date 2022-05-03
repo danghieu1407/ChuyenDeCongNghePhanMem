@@ -318,10 +318,13 @@ public class DemoController {
     //update quantity cart
 
     @RequestMapping(value = { "/updateCart" }, method = { RequestMethod.POST })
-    public String updateCart(Model model, @RequestParam(name = "productID") String id,@ModelAttribute("quantity") Cart cart ,@RequestParam(name = "name") String name) {
+    public String updateCart(Model model, @RequestParam(name = "productID") String id,@ModelAttribute("quantity") Cart cart ,@RequestParam(name = "name") String name , @RequestParam (name = "amount") int amount) {
         try {
-            dao2.findCart(id);
-            dao2.updateCart(cart);
+            dao2.updateCart(id,amount);
+            System.out.print("day la dang hieu");
+
+            System.out.print(id);
+
             System.out.println("Update thành công");
         } catch (Exception e) {
             e.printStackTrace();

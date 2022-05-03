@@ -129,14 +129,15 @@ public class CartDAO {
         return cart;
     }
 
-    //update quantity of cart item
-    public static boolean updateCart(Cart cart) {
+    //update quantity of cart item by productID
+    public static boolean updateCart(String productID, int amount) {
         boolean check = false;
-        String sql = "UPDATE _cart SET _amount = ?";
+        String sql = "UPDATE _cart SET _amount = ? WHERE _productID = ?";
         try {
             Connection con = Connect.connectSQL();
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, cart.getAmount());
+            stm.setInt(1, amount);
+            stm.setString(2, productID);
             int rs = stm.executeUpdate();
             if (rs > 0) {
                 check = true;

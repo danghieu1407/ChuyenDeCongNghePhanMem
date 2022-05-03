@@ -41,6 +41,13 @@
           <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
           <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
           <script src="/Js/dropdown.js"></script>
 
@@ -107,88 +114,93 @@
             <body>
  
 
-            <h1>${totalprice}</h1>
 
+           
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>
+                      Quantity
 
-
-
-              <c:forEach var="product1" items="${Listcart}">
-                <h1>${product1.email}</h1>
-                <table class="table">
-              
-                    <tr>
-                      <th></th>
-                      <th>Product Name</th>
-                      <th>Price</th>
-                      <th>
-                        Quantity
-
-                      </th>
-                      <th >
-                        Action
-                      </th>
-                    </tr>
-               
-              
-                    <tr>
-                      <td>
-                        <div class="product">
-                          <div class="product-image">
-                            <img src="/images/${product1.image}">
-                          </div>
-                      </td>
-                      <td style="float: left;">
-
-                        ${product1.name}
-
-                      </td>
-                      <td>
-                        <div class="product-price">  ${product1.price}</div>
-                        
-                      </td>
-                      <td>
-                        ${product1.amount}
-                      </td>
-                      <td>
-                        <form action="/deleteCart?productID=${product1.productID}&name=${tendangnhap}" method="post">
-                          <button class="btn btn-danger">
-                            Remove
-                          </button>
-                        </form>
-                          <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                            Change Quantity
-                          </button>
-                         
-                        </div>
-                      </td>
-                    
-                    </tr>
-
-                
-                </table>
-       <!-- Modal -->
-       <form action="/updateCart?productID=${product1.productID}&quantity=&name=${tendangnhap}" method="post" modelAttribute="quantity">
-       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Change Quantity</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <input type="number" id="quantity" name="amount" min="1" max="100" value="1">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </th>
+                    <th >
+                      Action
+                    </th>
+                  </tr>
+            <c:forEach var="product1" items="${Listcart}">
              
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </form>
-            </div>
+            
+                  <tr>
+                    <td>
+                      <div class="product">
+                    
+                          <img src="/images/${product1.image}" style="width: 100px; height: 100px;">
+                        </div>
+                    </td>
+                    <td>
+
+                      <div class="product-price" style="font-size: 15px;">   ${product1.name}</div>
+
+                    </td>
+                    <td>
+                      <div class="product-price"style="font-size: 15px;">  $${product1.price}</div>
+                      
+                    </td>
+                    <td>
+                      <div class="product-price" style="font-size: 15px;"> ${product1.amount}</div>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning" data-toggle="modal" data-target="#${product1.productID}" data-whatever="@mdo"  style="width: 150px; height: 38px;">
+                        Change Quantity
+                      </button>
+                      <form action="/deleteCart?productID=${product1.productID}&name=${tendangnhap}" method="post">
+                        <button class="btn btn-danger" style="width: 150px; height: 38px;">
+                          Remove
+                        </button>
+                      </form>
+                     
+                       
+                     
+                    </td>
+                  
+                  </tr>
+    </c:forEach>
+                
+                </tbody>
+              </table>
+     <!-- Modal -->
+     <c:forEach var="product1" items="${Listcart}">
+
+     <form action="/updateCart?productID=${product1.productID}&quantity=&name=${tendangnhap}" method="post" modelAttribute="quantity">
+
+     <div class="modal fade" id="${product1.productID}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Quantity</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="number" id="quantity" name="amount" min="1" max="100" value="1">
+       
+          </div>
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+           
+            <button type="submit" class="btn btn-success">Save changes</button>
+          </form>
+
           </div>
         </div>
       </div>
+    </div>
+  </c:forEach>
 
-              </c:forEach>
+     
        
               
        
@@ -198,21 +210,10 @@
 
 
                 <div class="totals">
-                  <div class="totals-item">
-                    <label>Subtotal</label>
-                    <div class="totals-value" id="cart-subtotal">71.97</div>
-                  </div>
-                  <div class="totals-item">
-                    <label>Tax (5%)</label>
-                    <div class="totals-value" id="cart-tax">3.60</div>
-                  </div>
-                  <div class="totals-item">
-                    <label>Shipping</label>
-                    <div class="totals-value" id="cart-shipping">15.00</div>
-                  </div>
+          
                   <div class="totals-item totals-item-total">
                     <label>Grand Total</label>
-                    <div class="totals-value" id="cart-total">90.57</div>
+                    <div class="totals-value" id="cart-total">${totalprice}</div>
                 <button class="btn btn-success">Checkout</button>
 
                   </div>
@@ -221,13 +222,8 @@
            
 
 
-                // javascipt print page when check out
-                <script>
-                  var totalprice = document.getElementById('cart-total').innerHTML;
-                  var totalprice = parseInt(totalprice);
-                  var totalprice = totalprice.toFixed(2);
-                  document.getElementById('cart-total').innerHTML = totalprice;
-                </script>
+           
+           
               
 
           </div>
@@ -292,7 +288,7 @@
 
       <!-- section footer end -->
       <footer>
-        <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
+        <div id="footer" > Dang Hieu - Bao Thai - Hoai Bao </div>
       </footer>
 
 
