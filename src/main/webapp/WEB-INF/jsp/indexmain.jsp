@@ -84,6 +84,12 @@
                                                     
                                                 <% }%>
 
+                                                <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                                    <li><a href='/managementReceipt'>Management Receipt</a></li>
+
+                                                    
+                                                <% }%>
+
 
                                          
                                             <li><a href='#'>Product 2</a>

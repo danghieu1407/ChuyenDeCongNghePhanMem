@@ -26,6 +26,20 @@
   width: 100px;
   border-radius: 12px
 }
+#totals{
+  float: left;
+  margin: 200px 1000px;
+  position: fixed;
+  top: 0;
+}
+
+#totaildiv{ 
+  width: 400px;
+  align-items: center;
+
+  align-content: center;
+  padding: 50px;
+}
 
 
 @import "compass/css3";

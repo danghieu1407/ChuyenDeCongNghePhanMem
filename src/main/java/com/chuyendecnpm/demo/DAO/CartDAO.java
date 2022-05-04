@@ -187,7 +187,23 @@ public class CartDAO {
         }
         return check;
     }
-    
+    //delete cart item by email
+    public static boolean deleteCartByEmail(String email) {
+        boolean check = false;
+        String sql = "DELETE FROM _cart WHERE _email = ?";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, email);
+            int rs = stm.executeUpdate();
+            if (rs > 0) {
+                check = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
 
     
 

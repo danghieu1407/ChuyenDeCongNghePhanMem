@@ -37,6 +37,25 @@ create table _Cart
 	_image TEXT ,
 	_detail text 
 )
+
+create table _Receipt
+
+(	
+	_ID int primary key identity(1,1),
+	_email nchar(100),
+	_productID nchar(100),
+	_name nchar(100),
+	_phone nchar(100),
+	_category nchar(100),
+	_price int ,
+	_amount int default 0,
+	_image TEXT ,
+	_detail text, 
+	_address text,
+	_date datetime default getdate();
+	_status int default 0
+)
+
 insert into _Cart values('Nguyen Dang Hieu','DB1','2 ','3 ','4 ',' 55','6 ','7 ')
 
 

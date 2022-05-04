@@ -15,9 +15,11 @@ import javax.websocket.server.PathParam;
 import com.chuyendecnpm.demo.DAO.UserDAO;
 import com.chuyendecnpm.demo.DAO.CartDAO;
 import com.chuyendecnpm.demo.DAO.ProductDAO;
+import com.chuyendecnpm.demo.DAO.ReceiptDAO;
 import com.chuyendecnpm.demo.Model.User;
 import com.chuyendecnpm.demo.Model.Cart;
 import com.chuyendecnpm.demo.Model.Product;
+import com.chuyendecnpm.demo.Model.Receipt;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +39,8 @@ public class DemoController {
     private UserDAO dao = new UserDAO();
     private ProductDAO dao1 = new ProductDAO();
     private CartDAO dao2 = new CartDAO();
+    private ReceiptDAO dao3 = new ReceiptDAO();
+
 
     @RequestMapping({ "/", "/index" })
     public String index() {
@@ -475,7 +479,36 @@ public class DemoController {
     }
     
 
+   //insert into receipt
+    @RequestMapping(value = { "/order" }, method = { RequestMethod.POST })
+    public String insertReceipt(Model model, @ModelAttribute("Receipt") Receipt receipt, @RequestParam(name = "name") String name) {
+        try {
+            dao3.Add(receipt);
+            dao2.deleteCartByEmail(name);
+            System.out.print(receipt);
+            System.out.println("Thêm thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Thêm thất bại");
+            System.out.print(receipt);
 
+            return "redirect:/cart?message=Something wrong&name="+name;
+
+        }
+
+        return "redirect:/cart?message=Pending Order Staff will contact you soon&name="+name;
+    }
+
+    //management receipt
+    @RequestMapping(value = { "/managementReceipt" }, method = { RequestMethod.GET })
+    public String managementReceipt(Model model) throws Exception {
+        List<Receipt> list = dao3.getAllReceipt();
+        model.addAttribute("Listreceipt", list);
+        System.out.println(list); 
+        return "managementReceipt";
+    }
+
+   
    
 
 }
