@@ -52,8 +52,8 @@ create table _Receipt
 	_image TEXT ,
 	_detail text, 
 	_address text,
-	_date datetime default getdate();
-	_status int default 0
+	_date datetime default getdate(),
+	_status text default 'Waiting'
 )
 
 insert into _Cart values('Nguyen Dang Hieu','DB1','2 ','3 ','4 ',' 55','6 ','7 ')

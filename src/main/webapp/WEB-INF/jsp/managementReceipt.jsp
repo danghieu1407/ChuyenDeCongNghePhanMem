@@ -115,42 +115,50 @@
                     <tr>
 
                       <th >Name</th>
-                      <th >Email</th>
+                      <th >Phone Number</th>
                   
-                      <th >Role</th>
-                      <th >Phone</th>
                       <th >Address</th>
+                      <th >Detail (Name, Price, Amount)</th>
+                      <th >Price</th>
+                      <th >Status</th>
+
                       <th colspan="5" style="text-align: center;" >Action</th>
 
 
 
                     </tr>
-                    <c:forEach var="Account" items="${Listaccount}">
+                    <c:forEach var="list" items="${Listreceipt}">
                       <tr>
                         <td>
-                          ${Account.name}
+                          ${list.name}
                         </td>
                         <td>
-                          ${Account.email}
+                          ${list.phone}
 
                         </td>
                   
                         <td>
-                          ${Account.role}
+                          ${list.address}
 
                         </td>
                         <td>
-                          ${Account.phone}
+                          ${list.detail}
 
                         </td>
                         <td>
-                          ${Account.address}
+                          ${list.price}
 
                         </td>
+
+                        <td>
+                            
+                            <span class="label label-info">${list.status}</span>
+
+                          </td>
                 
                         <td>
 
-                          <form action="/updateRol  eToAdmin?email=${Account.email}" method="post">
+                          <form action="/updateRoleToAdmin?email=${Account.email}" method="post">
                             <button type="submit" class="btn btn-warning">Update role to Admin</button>
 
 
@@ -170,11 +178,7 @@
                         </form>
                       </td>
                         <td>
-                          </form>
-                          <form action="/deleteAccount?email=${Account.email}" method="post">
-                            <button class="btn btn-danger " type="submit">Delete</button>
-
-                          </form>
+                        
                         </td>
 
 
@@ -185,19 +189,15 @@
 
                     </c:forEach>
 
-                    <tr>
-                      <td colspan="9" style="text-align: center;">
-                        <form action="/addAccount " method="post">
-                          <button class="btn btn-success" type="submit">Add Account</button>
-                        </form>
-                      </td>
-                    </tr>
+           
 
 
                   </tbody>
                 </table>
 
                 <script type="text/javascript">
+           
+
                   function getIdDetails() {
                     var urlParams;
                     (window.onpopstate = function () {
@@ -262,7 +262,7 @@
 
             <!-- section footer end -->
             <footer>
-              <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
+              <div id="footer"> Dang Hieu - Bao Thai - Hoai Bao </div>
             </footer>
 
 

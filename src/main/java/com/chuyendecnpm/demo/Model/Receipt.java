@@ -11,7 +11,7 @@ public class Receipt {
     private String detail;
     private String phone;
     private String address;
-    private int status;
+    private String status;
 
     public Receipt() {
     }
@@ -109,11 +109,11 @@ public class Receipt {
         this.address = address;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -130,7 +130,7 @@ public class Receipt {
                 ", detail='" + detail + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", status=" + status +
+                ", status='" + status + '\'' +
                 '}';
     }
 

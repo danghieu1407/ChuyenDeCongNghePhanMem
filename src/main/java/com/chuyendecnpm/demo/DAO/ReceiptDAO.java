@@ -12,7 +12,7 @@ public class ReceiptDAO {
     //insert into receipt(_email,_productID,_name,_category,_price,_amount,_image,_detail,_phone,_date) values (?,?,?,?,?,?,?,?,?,?)
 
     public void Add(Receipt receipt) throws Exception {
-        String sql = "insert into _Receipt(_email,_productID,_name,_category,_price,_amount,_image,_detail,_phone,_address) values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into _Receipt(_email,_productID,_name,_category,_price,_amount,_image,_detail,_phone,_address,_status) values (?,?,?,?,?,?,?,?,?,?,?)";
         try (
                 Connection con = Connect.connectSQL();
                 PreparedStatement stm = con.prepareStatement(sql);) {
@@ -26,6 +26,7 @@ public class ReceiptDAO {
             stm.setString(8, receipt.getDetail());
             stm.setString(9, receipt.getPhone());
             stm.setString(10, receipt.getAddress());
+            stm.setString(11, receipt.getStatus());
     
             stm.executeUpdate();
             stm.close();
@@ -52,6 +53,7 @@ public class ReceiptDAO {
                 receipt.setDetail(rs.getString("_detail"));
                 receipt.setPhone(rs.getString("_phone"));
                 receipt.setAddress(rs.getString("_address"));
+                receipt.setStatus(rs.getString("_status"));
                 list.add(receipt);
             }
         }
