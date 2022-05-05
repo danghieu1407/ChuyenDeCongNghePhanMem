@@ -79,11 +79,18 @@
                                                 if(session!=null){ out.print(username); } %>
                                         </a>
                                         <ul>
-                                            <li><a href='/managementProduct'>Management Product</a>
-                                            </li>
+                                           
                                         
                                                 <% if(session.getAttribute("role").equals("3")){ %>
                                                     <li><a href='/managementAccount'>Management Account</a></li>
+                                                    <li><a href='/managementProduct'>Management Product</a>
+                                                    </li>
+
+                                                    
+                                                <% }%>
+
+                                                <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                                    <li><a href='/managementReceipt'>Management Receipt</a></li>
 
                                                     
                                                 <% }%>
@@ -123,17 +130,17 @@
                                     <div class="form-group">
                                         <label for="name"class="font-weight-bold">Name</label>
                                         <input name="name" path="productID" type="text" class="form-control rounded"
-                                            id="productID" placeholder="Product ID" required>
+                                            id="productID" placeholder="Name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="email"class="font-weight-bold">Email</label>
                                         <input name="email" path="email" type="text" class="form-control rounded" id="Name"
-                                            placeholder="Name" required>
+                                            placeholder="Email" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="password"class="font-weight-bold">Password</label>
                                         <input name="password" path="password" type="text" class="form-control rounded" id="Name"
-                                            placeholder="Name" required>
+                                            placeholder="Password" required>
                                     </div>
 
                                     <div class="form-group">

@@ -78,11 +78,18 @@
                                     if(session!=null){ out.print(username); } %>
                             </a>
                             <ul>
-                                <li><a href='/managementProduct'>Management Product</a>
-                                </li>
+                               
                             
                                     <% if(session.getAttribute("role").equals("3")){ %>
                                         <li><a href='/managementAccount'>Management Account</a></li>
+                                        <li><a href='/managementProduct'>Management Product</a>
+                                        </li>
+
+                                        
+                                    <% }%>
+
+                                    <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                        <li><a href='/managementReceipt'>Management Receipt</a></li>
 
                                         
                                     <% }%>
@@ -95,7 +102,7 @@
                                         <li><a href='#'>Sub Product</a></li>
                                     </ul>
                                 </li>
-                                <li><a href='/logout'>:ogout</a> 
+                                <li><a href='/logout'>Logout</a> 
                             </ul>
                         </li>
                     </ul>

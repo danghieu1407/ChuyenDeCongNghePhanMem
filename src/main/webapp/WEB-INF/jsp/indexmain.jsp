@@ -42,6 +42,7 @@
                         e.stopPropagation();
                     });</script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
 
             </head>
             <!-- body -->
@@ -75,11 +76,12 @@
                                                 if(session!=null){ out.print(username); } %>
                                         </a>
                                         <ul>
-                                            <li><a href='/managementProduct'>Management Product</a>
-                                            </li>
+                                           
                                         
                                                 <% if(session.getAttribute("role").equals("3")){ %>
                                                     <li><a href='/managementAccount'>Management Account</a></li>
+                                                    <li><a href='/managementProduct'>Management Product</a>
+                                                    </li>
 
                                                     
                                                 <% }%>

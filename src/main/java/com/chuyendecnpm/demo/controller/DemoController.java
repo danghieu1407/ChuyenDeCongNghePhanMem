@@ -526,7 +526,7 @@ public class DemoController {
  
         }
 
-        return "redirect:/managementReceipt?message=Update Success";
+        return "redirect:/managementReceipt?message=change status to shipped";
     }
 
     //changeStatusToDone
@@ -542,7 +542,7 @@ public class DemoController {
 
         }
 
-        return "redirect:/managementReceipt?message=Update Success";
+        return "redirect:/managementReceipt?message=change status to done";
     }
 
    

@@ -80,8 +80,7 @@
                             <li class='active'><a href='/indexmain'>HOME</a></li>
                             <li><a href='#'>ABOUT</a></li>
                             <li><form action="/searchProduct" method="post">
-                                <input type="text" name="search" id="search"placeholder="Search.." style="height: 30px;
-                                margin: 6px;">
+                                <input type="text" name="search" id="search"placeholder="Search..">
                             </form></li>
                          
                             
@@ -96,11 +95,18 @@
                                         if(session!=null){ out.print(username); } %>
                                 </a>
                                 <ul>
-                                    <li><a href='/managementProduct'>Management Product</a>
-                                    </li>
+                                   
                                 
                                         <% if(session.getAttribute("role").equals("3")){ %>
                                             <li><a href='/managementAccount'>Management Account</a></li>
+                                            <li><a href='/managementProduct'>Management Product</a>
+                                            </li>
+
+                                            
+                                        <% }%>
+
+                                        <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                            <li><a href='/managementReceipt'>Management Receipt</a></li>
 
                                             
                                         <% }%>
@@ -254,15 +260,48 @@
                     })
                   }
 
-                  if (getIdDetails().message == "Update Success") {
+                  if (getIdDetails().message == "Update fail") {
+                    swal({
+                      title: "FAIL",
+                      text: "Something wrong, Please try again",
+                      icon: "error",
+                      buttons: false,
+                      dangerMode: false,
+                    })
+                  }
+
+                  
+                  if (getIdDetails().message == "change status to shipped") {
                     swal({
                       title: "SUCCESS",
-                      text: "Update Role Success",
+                      text: "Change Status to Shipped Success",
                       icon: "success",
                       buttons: false,
                       dangerMode: false,
                     })
                   }
+
+                   
+                  if (getIdDetails().message == "change status to shipped") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Change Status to Shipped Success",
+                      icon: "success",
+                      buttons: false,
+                      dangerMode: false,
+                    })
+                  }
+
+                  if (getIdDetails().message == "change status to done") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Change Status to Done Success",
+                      icon: "success",
+                      buttons: false,
+                      dangerMode: false,
+                    })
+                  }
+
 
 
                 </script>
