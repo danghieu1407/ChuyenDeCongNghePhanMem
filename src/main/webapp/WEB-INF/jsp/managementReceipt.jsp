@@ -45,7 +45,22 @@
 
           <script src="/Js/dropdown.js"></script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+          <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 
 
       </head>
@@ -65,7 +80,8 @@
                             <li class='active'><a href='/indexmain'>HOME</a></li>
                             <li><a href='#'>ABOUT</a></li>
                             <li><form action="/searchProduct" method="post">
-                                <input type="text" name="search" id="search"placeholder="Search..">
+                                <input type="text" name="search" id="search"placeholder="Search.." style="height: 30px;
+                                margin: 6px;">
                             </form></li>
                          
                             
@@ -119,7 +135,7 @@
                   
                       <th >Address</th>
                       <th >Detail (Name, Price, Amount)</th>
-                      <th >Price</th>
+                      <th >Total Price</th>
                       <th >Status</th>
 
                       <th colspan="5" style="text-align: center;" >Action</th>
@@ -152,34 +168,25 @@
 
                         <td>
                             
-                            <span class="label label-info">${list.status}</span>
+                            <span id="labelstatus" class="label label-danger" style="width:100px ; align-items: center; margin: auto;" >${list.status}</span>
 
                           </td>
                 
                         <td>
 
-                          <form action="/updateRoleToAdmin?email=${Account.email}" method="post">
-                            <button type="submit" class="btn btn-warning">Update role to Admin</button>
+                          <form action="/changeStatusReceiptToShipped?phoneNumber=${list.phone}&address=${list.address}" method="post">
+                            <button type="submit" class="btn btn-warning"> Change to Shipping</button>
 
 
                         </td>
                         <td>
                           </form>
-                          <form action="/updateRoleToStaff?email=${Account.email}" method="post">
-                            <button class="btn btn-primary " type="submit">Update role to Staff</button>
+                          <form action="/changeStatusReceiptToDone?phoneNumber=${list.phone}&address=${list.address}" method="post">
+                            <button class="btn btn-primary " type="submit">Chang to Done</button>
 
                           </form>
                         </td>
-                        <td>
-                        </form>
-                        <form action="/updateRoleToUser?email=${Account.email}" method="post">
-                          <button class="btn btn-info " type="submit">Update role to User</button>
-
-                        </form>
-                      </td>
-                        <td>
-                        
-                        </td>
+               
 
 
 
@@ -196,6 +203,10 @@
                 </table>
 
                 <script type="text/javascript">
+
+           
+
+
            
 
                   function getIdDetails() {

@@ -1,5 +1,7 @@
 package com.chuyendecnpm.demo.Model;
 
+import java.sql.Date;
+
 public class Receipt {
     private String email;
     private String productID;
@@ -12,6 +14,7 @@ public class Receipt {
     private String phone;
     private String address;
     private String status;
+    private String date;
 
     public Receipt() {
     }
@@ -115,6 +118,14 @@ public class Receipt {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override

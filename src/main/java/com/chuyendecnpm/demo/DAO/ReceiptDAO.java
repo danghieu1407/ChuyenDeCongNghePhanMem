@@ -54,10 +54,42 @@ public class ReceiptDAO {
                 receipt.setPhone(rs.getString("_phone"));
                 receipt.setAddress(rs.getString("_address"));
                 receipt.setStatus(rs.getString("_status"));
+
+
+
+                
                 list.add(receipt);
             }
         }
         return list;
     }
+
+    //change status to "Shipped" by phone
+    public static boolean changeStatusToShipped(String phone) throws Exception {
+        String sql = "UPDATE _Receipt SET _status = 'Shipping' WHERE _phone = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, phone);
+            stm.executeUpdate();
+            stm.close();
+            return true;
+        }
+    }
+
+    //change status to "done" by phone
+    public static boolean changeStatusToDone(String phone) throws Exception {
+        String sql = "UPDATE _Receipt SET _status = 'Done' WHERE _phone = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, phone);
+            stm.executeUpdate();
+            stm.close();
+            return true;
+        }
+    }
     
+
+
 }

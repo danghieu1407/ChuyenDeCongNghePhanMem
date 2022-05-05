@@ -238,12 +238,15 @@
                 </c:forEach>
                 <input name="price" type="text" value="${totalprice}" style="width: 100px;" hidden>
                 <input name="status" type="text" value="Waiting" style="width: 100px;" hidden>
-                
+               
                 <label for="phonenumber">Phone Number</label>
                 <input name ="phone" id="phonenumber" type="text"  style="width: 100px;">
                 <label for="Address">Address</label>
                 <input name="address" id="Address" type="text"  style="width: 100px;">
                 <button type="submit" class="btn btn-success">Order</button>
+             
+
+
               </form>
             </div>
 

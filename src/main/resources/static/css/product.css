@@ -535,6 +535,7 @@ body {
   padding: 10px 0px;
   background-color: #ff4e5b;
   font-family: Poppins;
+  bottom: 0;
 
   position:absolute;
 }

@@ -503,11 +503,49 @@ public class DemoController {
     @RequestMapping(value = { "/managementReceipt" }, method = { RequestMethod.GET })
     public String managementReceipt(Model model) throws Exception {
         List<Receipt> list = dao3.getAllReceipt();
+      
+
         model.addAttribute("Listreceipt", list);
         System.out.println(list); 
         return "managementReceipt";
     }
 
+    //chang status receipt
+    @RequestMapping(value = { "/changeStatusReceiptToShipped" }, method = { RequestMethod.POST })
+    public String changeStatusReceiptToShipped(Model model, @RequestParam(name = "phoneNumber") String phonenumber) {
+        try {
+            System.out.print( "day la so dien thoai" + phonenumber);
+            ReceiptDAO.changeStatusToShipped(phonenumber);
+     
+
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementReceipt?message=Update fail";
+ 
+        }
+
+        return "redirect:/managementReceipt?message=Update Success";
+    }
+
+    //changeStatusToDone
+    @RequestMapping(value = { "/changeStatusReceiptToDone" }, method = { RequestMethod.POST })
+    public String changeStatusReceiptToDone(Model model, @RequestParam(name = "phoneNumber") String phonenumber) {
+        try {
+            ReceiptDAO.changeStatusToDone(phonenumber);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementReceipt?message=Update fail";
+
+        }
+
+        return "redirect:/managementReceipt?message=Update Success";
+    }
+
+   
    
    
 
