@@ -94,12 +94,12 @@
 
 
                                          
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
+                                                <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                                    <li><a href='/Statistical'>Statistical
+                                                    </a></li>
+
+                                                    
+                                                <% }%>
                                             <li><a href='/logout'>Logout</a> 
                                         </ul>
                                     </li>
@@ -187,37 +187,91 @@
                                 </div>
                             </div>
 
+                            <!-- <nav aria-label="...">
+                                <ul class="pagination pagination-lg">
+                                  <li class="page-item active" aria-current="page">
+                                    <span class="page-link">1</span>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                </ul>
+                              </nav> -->
+                              <script>
                             
+                    
+                         
+                                    
+
+
+                                //   [] toongr, itemperpage: 3, số trang = tổng / itemperpage
+                                //   console.log(Listproduct);
+                                //   trang 1: start = 0, end: 3, start = 4 = (start + end ) * (trangsau - 1trang truoc)  +1 ; end = start + itemperpage 
+                                    
+
+                                   
+                                   
+                                    //get data from Listproduct 
+
+                                  const arr = [{name: "0"},{name: "1"}, {name: "2"}, {name: "3"}, {name: "4"}, {name: "5"}, {name: "6"},{name: "7"}, {name: "8"},  {name: "9"}, {name: "10"} ]
+
+                                    const itemperpage = 5
+
+                                    const renderPage = (start, end) => {
+                                        let newArr = []
+                                        for (let i = start - 1; i <= end - 1; i++) {
+                                            newArr.push(arr[i])
+                                        }
+                                        return newArr;
+                                    }
+
+                                    // oldend = 3, oldstart = 1; prew = 1, next = 3, start = 7, end = 9 item = 3
+
+                                    const countStartEnd = (oldStart, oldEnd, nextPage) => {
+                                        const newStart = (oldStart + itemperpage - 1) * (nextPage - 1) + 1;
+                                        const newEnd = newStart + itemperpage - 1;
+
+                                        return {
+                                            newStart,
+                                            newEnd
+                                        }
+                                    }
+
+                                    const { newStart, newEnd } = countStartEnd(1, 3, 2);
+                                    const newArr = renderPage(newStart, newEnd);
+                                    console.log(arr)
+                                    console.log(newArr)
+
+                                  </script>
 
                         </div>
 
                          <script type="text/javascript">
-            function getIdDetails() {
-              var urlParams;
-              (window.onpopstate = function () {
-                var match,
-                  pl = /\+/g, // Regex for replacing addition symbol with a space
-                  search = /([^&=]+)=?([^&]*)/g,
-                  decode = function (s) {
-                    return decodeURIComponent(s.replace(pl, " "));
-                  },
-                  query = window.location.search.substring(1);
+                            function getIdDetails() {
+                            var urlParams;
+                            (window.onpopstate = function () {
+                                var match,
+                                pl = /\+/g, // Regex for replacing addition symbol with a space
+                                search = /([^&=]+)=?([^&]*)/g,
+                                decode = function (s) {
+                                    return decodeURIComponent(s.replace(pl, " "));
+                                },
+                                query = window.location.search.substring(1);
 
-                urlParams = {};
-                while ((match = search.exec(query)))
-                  urlParams[decode(match[1])] = decode(match[2]);
-              })();
-              return urlParams;
-            }
-            if (getIdDetails().message == "Add to cart success") {
-              swal({
-                title: "SUCCESS",
-                text: "Add to Cart Success",
-                icon: "success",
-                buttons: false,
-                dangerMode: true,
-              })
-            }
+                                urlParams = {};
+                                while ((match = search.exec(query)))
+                                urlParams[decode(match[1])] = decode(match[2]);
+                            })();
+                            return urlParams;
+                            }
+                            if (getIdDetails().message == "Add to cart success") {
+                            swal({
+                                title: "SUCCESS",
+                                text: "Add to Cart Success",
+                                icon: "success",
+                                buttons: false,
+                                dangerMode: true,
+                            })
+                            }
           
 
 

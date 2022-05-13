@@ -1,5 +1,6 @@
 package com.chuyendecnpm.demo.controller;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -102,6 +103,7 @@ public class DemoController {
     public String indexmain(Model model) {
         List<Product> list = dao1.getAll();
         model.addAttribute("Listproduct", list);
+
 
         return "indexmain";
     }
