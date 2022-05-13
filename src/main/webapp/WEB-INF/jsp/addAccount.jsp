@@ -113,7 +113,7 @@
 
 
                         <body id="addProduct">
-                            <div class="container justify-content-center" >
+                            <div id="formaddproduct" >
 
                             
                             <div id="addProductForm" class="row justify-content-center rounded">
@@ -128,23 +128,23 @@
                                 <form action="/addAccountProcess" method="POST" modelAttribute="Account"
                                     enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label for="name"class="font-weight-bold">Name</label>
+                                        <label for="name"class="font-weight-bold" style="float:left;">Name</label>
                                         <input name="name" path="productID" type="text" class="form-control rounded"
-                                            id="productID" placeholder="Name" required>
+                                            id="productID" placeholder="Enter your name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email"class="font-weight-bold">Email</label>
+                                        <label for="email"class="font-weight-bold" style="float:left;">Email</label>
                                         <input name="email" path="email" type="text" class="form-control rounded" id="Name"
-                                            placeholder="Email" required>
+                                            placeholder="Enter your Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password"class="font-weight-bold">Password</label>
+                                        <label for="password"class="font-weight-bold" style="float:left;">Password</label>
                                         <input name="password" path="password" type="text" class="form-control rounded" id="Name"
-                                            placeholder="Password" required>
+                                            placeholder="Enter your password" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="Role"class="font-weight-bold">Role</label>
+                                        <label for="Role"class="font-weight-bold" style="float:left;">Role</label>
                                         <select name="role" path="role" type="text" class="form-control rounded"
                                             id="role" placeholder="Role" required>
                                                 <option value="1">User</option>
@@ -153,17 +153,21 @@
                                           
                                               </select>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="phone"class="font-weight-bold">Phone</label>
+                                    <div class="form-group">
+                                        <label for="phone"class="font-weight-bold" style="float:left;">Phone</label>
                                         <input name="phone" path="phone" type="text" class="form-control rounded" id="Price"
-                                            placeholder="Phone" required>
+                                            placeholder="Enter your phone number" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="address"class="font-weight-bold">Address</label>
+                                        <label for="address"class="font-weight-bold" style="float:left;">Address</label>
                                         <input name="address" path="address" type="text" class="form-control rounded" id="address"
-                                            placeholder="Address" required>
+                                            placeholder="Enter your address" required>
                                     </div>
                                     
+                                    <br>
+                                    <br>
+                                    <br>
+                    
 
                                     <button type="submit" class="btn btn-success rounded">Submit</button>
                                 </form>
@@ -230,7 +234,7 @@
 
                         <!-- section footer end -->
                         <footer>
-                            <div class="copyright"> Dang Hieu - Bao Thai - Hoai Bao </div>
+                            <div id="footer"> Dang Hieu - Bao Thai - Hoai Bao </div>
                         </footer>
 
 

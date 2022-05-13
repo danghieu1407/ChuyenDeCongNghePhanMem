@@ -170,7 +170,7 @@
                 
                 </div>
 
-                <div id="tableStatiscal" class="col-lg-10" style="position: absolute; float: right;">
+                <div id="tableStatistical" class="col-lg-10" style="position: absolute; float: right;">
         
           
                 <table class="rwd-table" >
