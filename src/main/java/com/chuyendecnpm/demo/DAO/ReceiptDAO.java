@@ -89,7 +89,67 @@ public class ReceiptDAO {
             return true;
         }
     }
-    
+
+    // get all receipt 
+    public List<Receipt> getAllReceiptForStatistical() throws Exception {
+        List<Receipt> list = new ArrayList<>();
+        String sql = "SELECT * FROM _Receipt";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();) {
+            while (rs.next()) {
+                Receipt receipt = new Receipt();
+                receipt.setEmail(rs.getString("_email"));
+                receipt.setProductID(rs.getString("_productID"));
+                receipt.setName(rs.getString("_name"));
+                receipt.setCategory(rs.getString("_category"));
+                receipt.setPrice(rs.getInt("_price"));
+                receipt.setAmount(rs.getInt("_amount"));
+                receipt.setImage(rs.getString("_image"));
+                receipt.setDetail(rs.getString("_detail"));
+                receipt.setPhone(rs.getString("_phone"));
+                receipt.setAddress(rs.getString("_address"));
+        
+                receipt.setStatus(rs.getString("_date"));
+
+
+
+
+
+                
+                list.add(receipt);
+            }
+        }
+        return list;
+    }
+
+    //get all receipt sort by month
+    public List<Receipt> getAllReceiptForStatisticalByMonth(String month) throws Exception {
+        List<Receipt> list = new ArrayList<>();
+        String sql = "SELECT * FROM _Receipt WHERE MONTH(_date) LIKE '%"+month+"%'";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();) {
+            while (rs.next()) {
+                Receipt receipt = new Receipt();
+                receipt.setEmail(rs.getString("_email"));
+                receipt.setProductID(rs.getString("_productID"));
+                receipt.setName(rs.getString("_name"));
+                receipt.setCategory(rs.getString("_category"));
+                receipt.setPrice(rs.getInt("_price"));
+                receipt.setAmount(rs.getInt("_amount"));
+                receipt.setImage(rs.getString("_image"));
+                receipt.setDetail(rs.getString("_detail"));
+                receipt.setPhone(rs.getString("_phone"));
+                receipt.setAddress(rs.getString("_address"));
+                receipt.setStatus(rs.getString("_date"));
+                list.add(receipt);
+            }
+        }
+        return list;
+    }
 
 
 }

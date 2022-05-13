@@ -94,7 +94,7 @@
 
 
                                          
-                                                <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                                <% if(session.getAttribute("role").equals("3")){ %>
                                                     <li><a href='/Statistical'>Statistical
                                                     </a></li>
 

@@ -538,7 +538,7 @@ public class DemoController {
             ReceiptDAO.changeStatusToDone(phonenumber);
             System.out.println("Update thành công");
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();    
             System.out.println("Update thất bại");
             return "redirect:/managementReceipt?message=Update fail";
 
@@ -546,6 +546,24 @@ public class DemoController {
 
         return "redirect:/managementReceipt?message=change status to done";
     }
+
+    //Statistical
+    @RequestMapping(value = { "/Statistical" }, method = { RequestMethod.GET })
+    public String statistical(Model model) throws Exception{
+        List<Receipt> list = dao3.getAllReceiptForStatistical();
+        model.addAttribute("ListStatiscal", list);
+        return "statistical";
+    }
+
+   // StatisticalByMonth
+    @RequestMapping(value = { "/StatisticalByMonth" }, method = { RequestMethod.GET })
+    public String statisticalByMonth(Model model , @RequestParam(name = "month") String month) throws Exception{
+        List<Receipt> list = dao3.getAllReceiptForStatisticalByMonth(month);
+        model.addAttribute("ListStatiscal", list);
+        return "statistical";
+    }
+
+  
 
    
    
