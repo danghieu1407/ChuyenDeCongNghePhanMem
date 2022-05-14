@@ -44,7 +44,11 @@
                     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     
                     <script src="/Js/dropdown.js"></script>
-    
+                    <style>
+                        *{
+                            font-family: cursive;
+                        }
+                    </style>
     
     
                 </head>

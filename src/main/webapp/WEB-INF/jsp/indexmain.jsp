@@ -117,7 +117,7 @@
                             
                             <div class="col-lg-2">
                                 <div id="listgroup" class="list-group">
-                                    <h1>Category</h1>
+                                    <h1 style="font-family: cursive;">Category</h1>
                                     <a class="list-group-item font-weight-bold" id="listitem"
                                         href="/category?category=Tubers">Tubers</a>
                                     <a class="list-group-item font-weight-bold" id="listitem"

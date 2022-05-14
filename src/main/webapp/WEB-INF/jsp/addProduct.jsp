@@ -45,7 +45,11 @@
     
                     <script src="/Js/dropdown.js"></script>
     
-    
+                    <style>
+                        *{
+                            font-family: cursive;
+                        }
+                    </style>
     
                 </head>
             <!-- body -->

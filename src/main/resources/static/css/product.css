@@ -1,3 +1,6 @@
+*{
+  font-family: cursive;
+}
 #imageIndexMain{
   width: 200px;
   height: 280px;
@@ -551,6 +554,7 @@ body {
 
 
 #footer{
+  font-family: cursive;
   width: 100%;
   float: left;
   font-size: 12pt;
@@ -564,6 +568,7 @@ body {
   position:absolute;
 }
 .copyright {
+  font-family: cursive;
     width: 100%;
     float: left;
     font-size: 12pt;
