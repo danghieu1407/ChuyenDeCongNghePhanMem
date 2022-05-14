@@ -121,12 +121,12 @@
                             <div class="container justify-content-center" >
 
                             
-                            <div id="addProductForm" class="row justify-content-center rounded">
+                            <div id="addProductFormInProduct" class="row justify-content-center rounded">
                                 <div class="justify-content-center ">
 
 
                                 
-                                <h1>Edit Product 1 ${Product.productID}</h1>
+                                <h1>Edit Product ${param.productid}</h1>
                        
                                 <form method="POST" action="/uploadFromEdit?productid=${param.productid}" enctype="multipart/form-data">
 
