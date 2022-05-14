@@ -4,8 +4,9 @@
 }
 #search{
   padding: 12px;
-  margin: 5px 10px;
-  border-radius: 5px
+  margin: 8px;
+  border-radius: 5px;
+  height: 30px;
 }
 @-webkit-keyframes colorchange {
     0% {

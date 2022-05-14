@@ -25,6 +25,19 @@
 
   
 }
+
+#addProductFormInProduct{
+  width: 500px;
+  height: 800px;
+  align-items: center;
+  background-color:white;
+  position: absolute;
+  padding: 12px 50px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: rgb(219, 210, 210) 0px 0px 50px 0px;
+  left: 700px;
+}
 #formaddproduct{
   align-items: center;
   padding : 12px ;

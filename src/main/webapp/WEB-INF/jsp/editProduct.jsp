@@ -51,7 +51,8 @@
                         }
                     </style>
     
-                </head>
+              
+            </head>
             <!-- body -->
 
             <body class="main-layout">
@@ -101,12 +102,12 @@
 
 
                                          
-                                            <li><a href='#'>Product 2</a>
-                                                <ul>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                    <li><a href='#'>Sub Product</a></li>
-                                                </ul>
-                                            </li>
+                                                <% if(session.getAttribute("role").equals("3")){ %>
+                                                    <li><a href='/Statistical'>Statistical
+                                                    </a></li>
+
+                                                    
+                                                <% }%>
                                             <li><a href='/logout'>Logout</a> 
                                         </ul>
                                     </li>

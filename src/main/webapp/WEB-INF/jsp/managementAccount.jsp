@@ -65,70 +65,69 @@
         </style>
 
 
-      </head>
-      <!-- body -->
+</head>
+<!-- body -->
 
-      <body class="main-layout">
-        <!-- header reponsive -->
+<body class="main-layout">
+    <!-- header reponsive -->
 
-        <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
-            %>
-            <div>
-                <header>
-                    <nav id='cssmenu'>
+    <% if(session.getAttribute("tendangnhap")==null || session==null) { response.sendRedirect("/login"); }
+        %>
+        <div>
+            <header>
+                <nav id='cssmenu'>
 
-                        <ul style="height:15px">
+                    <ul style="height:15px">
 
-                            <li class='active'><a href='/indexmain'>HOME</a></li>
-                            <li><a href='#'>ABOUT</a></li>
-                            <li><form action="/searchProduct" method="post">
-                                <input type="text" name="search" id="search"placeholder="Search..">
-                            </form></li>
-                         
+                        <li class='active'><a href='/indexmain'>HOME</a></li>
+                        <li><a href='#'>ABOUT</a></li>
+                        <li><form action="/searchProduct" method="post">
+                            <input type="text" name="search" id="search"placeholder="Search..">
+                        </form></li>
+                     
+                        
+               
+
+
+                        
+
+                        <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
+                                    width="16" height="16">
+                                <% String username=(String)session.getAttribute("tendangnhap");
+                                    if(session!=null){ out.print(username); } %>
+                            </a>
+                            <ul>
+                               
                             
-                   
+                                    <% if(session.getAttribute("role").equals("3")){ %>
+                                        <li><a href='/managementAccount'>Management Account</a></li>
+                                        <li><a href='/managementProduct'>Management Product</a>
+                                        </li>
+
+                                        
+                                    <% }%>
+
+                                    <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                                        <li><a href='/managementReceipt'>Management Receipt</a></li>
+
+                                        
+                                    <% }%>
 
 
-                            
+                             
+                                    <% if(session.getAttribute("role").equals("3")){ %>
+                                        <li><a href='/Statistical'>Statistical
+                                        </a></li>
 
-                            <li class="nav_name"><a id="namefromheader" href='#'><img src="/images/user.jpg"
-                                        width="16" height="16">
-                                    <% String username=(String)session.getAttribute("tendangnhap");
-                                        if(session!=null){ out.print(username); } %>
-                                </a>
-                                <ul>
-                                   
-                                
-                                        <% if(session.getAttribute("role").equals("3")){ %>
-                                            <li><a href='/managementAccount'>Management Account</a></li>
-                                            <li><a href='/managementProduct'>Management Product</a>
-                                            </li>
-
-                                            
-                                        <% }%>
-
-                                        <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
-                                            <li><a href='/managementReceipt'>Management Receipt</a></li>
-
-                                            
-                                        <% }%>
+                                        
+                                    <% }%>
+                                <li><a href='/logout'>Logout</a> 
+                            </ul>
+                        </li>
+                    </ul>
 
 
-                                 
-                                    <li><a href='#'>Product 2</a>
-                                        <ul>
-                                            <li><a href='#'>Sub Product</a></li>
-                                            <li><a href='#'>Sub Product</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='/logout'>Logout</a> 
-                                </ul>
-                            </li>
-                        </ul>
-
-
-                </header>
-
+            </header>
 
             <body>
 
