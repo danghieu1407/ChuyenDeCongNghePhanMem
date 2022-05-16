@@ -24,6 +24,8 @@
                 <link rel="stylesheet" href="css/product.css">
                 <!-- Responsive-->
                 <link rel="stylesheet" href="css/responsive.css">
+       
+
                 <!-- fevicon -->
                 <link rel="icon" href="images/fevicon.png" type="image/gif" />
                 <!-- Scrollbar Custom CSS -->
@@ -36,6 +38,9 @@
                 <link rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
                 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+                
 
                 <script src="/Js/dropdown.js"></script>
                 <script>$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
@@ -152,10 +157,11 @@
                                       <div class="slide"><img class="slide-number" src="/images/image2.jpg" alt=""></div>
                                       <div class="slide"><img class="slide-number" src="/images/image4.jpg" alt=""></div>
                                       
-                             
-                             
+                                        
+                                        
                                     </div>
                                   </div>
+                                 
                                 <div class="row">
                                     
                                     <c:forEach var="product1" items="${Listproduct}">
@@ -186,7 +192,7 @@
                                     </c:forEach>
                                 </div>
                             </div>
-
+                            
                             <!-- <nav aria-label="...">
                                 <ul class="pagination pagination-lg">
                                   <li class="page-item active" aria-current="page">
@@ -276,6 +282,14 @@
 
 
           </script>
+     
+
+          
+    
+        
+    <script src="/Js/main.js"></script>
+
+    <a href="/index.html"><img id="chaticon" src="https://media.giphy.com/media/f8bqewFQottcFemWHS/giphy.gif" alt=""> </a>
                     </body>
                     <!-- section footer end -->
                     <footer>

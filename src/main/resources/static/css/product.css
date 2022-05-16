@@ -1,6 +1,20 @@
 *{
   font-family: cursive;
 }
+#chaticon{
+  width: 150px;
+  height: 150px;
+  right: 0;
+  bottom: 250px;
+  /* padding: 12px; */
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  align-items: baseline;
+  align-content: flex-end;
+  float: right;
+  
+}
 #imageIndexMain{
   width: 200px;
   height: 280px;
