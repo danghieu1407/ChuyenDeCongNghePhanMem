@@ -262,9 +262,7 @@
 
 
             <!-- section footer end -->
-            <footer>
-              <div id="footer"  > Dang Hieu - Bao Thai - Hoai Bao </div>
-            </footer>
+        
 
 
       </html>

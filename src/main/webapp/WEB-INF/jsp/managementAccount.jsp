@@ -284,7 +284,7 @@
                       text: "Email exist",
                       icon: "error",
                       button: true,
-                      dangerMode: true,
+                      dangerMode: false,
                     })
                   }
 
