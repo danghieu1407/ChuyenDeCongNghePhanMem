@@ -176,6 +176,8 @@
                           ${list.price}
 
                         </td>
+                  
+                     
 
                         <td>
                             
@@ -205,8 +207,29 @@
 
                         </form>
                       </td>
-               
 
+                      <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                        <td>
+                      
+                        <form action="/editReceipt?nameedit=${list.name}&phoneedit=${list.phone}&price=${list.price}" method="post">
+                          <button class="btn btn-outline-warning" type="submit">Edit</button>
+
+                        </form>
+                      </td>
+                        <% }%>
+               
+                      <% if(session.getAttribute("role").equals("3")){ %>
+                        <td>
+                     
+                        <form action="/deleteReceipt?name=${list.name}&phone=${list.phone}&price=${list.price}" method="post">
+                          <button class="btn btn-outline-danger" type="submit">Delete</button>
+
+                        </form>
+                      </td>
+                        <% }%>
+
+                   
+                    
 
 
 
@@ -214,9 +237,15 @@
                       </tr>
 
                     </c:forEach>
-
-           
-
+                    <% if(session.getAttribute("role").equals("3") || session.getAttribute("role").equals("2")){ %>
+                    <tr>
+                      <td colspan="11" style="text-align: center;">
+                        <form action="/addReceipt " method="post">
+                          <button class="btn btn-success" type="submit">Add Receipt</button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% }%>
 
                   </tbody>
                 </table>
@@ -315,6 +344,39 @@
                     })
                   }
 
+                  if (getIdDetails().message == "Delete success") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Delete success",
+                      icon: "success",
+                      buttons: false,
+                      dangerMode: false,
+                    })
+                  }
+
+                  if (getIdDetails().message == "Add Receipt Success") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Add Receipt Success",
+                      icon: "success",
+                      button: true,
+                      dangerMode: false,
+                    })
+                  }
+                
+
+                  if (getIdDetails().message == "Edit Receipt Success") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Edit Receipt Success",
+                      icon: "success",
+                      button: true,
+                      dangerMode: false,
+                    })
+                  }
+
+
+                 
 
 
                 </script>

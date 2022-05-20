@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
@@ -618,6 +619,93 @@ public class DemoController {
         return "statistical";
     }
 
+    //delete receipt by name phone and price
+    @RequestMapping(value = { "/deleteReceipt" }, method = { RequestMethod.POST })
+    public String deleteReceipt(Model model, @RequestParam(name = "name") String name, @RequestParam(name = "phone") String phonenumber, @RequestParam(name = "price") String price) {
+        try {
+            ReceiptDAO.deleteReceipt(name, phonenumber, price);
+            System.out.println("Delete thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Delete thất bại");
+            return "redirect:/managementReceipt?message=Delete fail";
+
+        }
+
+        return "redirect:/managementReceipt?message=Delete success";
+    }
+
+    //add receipt method GET
+    @RequestMapping(value = { "/addReceipt" }, method = { RequestMethod.GET })
+    public String addReceipt(Model model) {
+        return "addReceipt";
+    }
+
+    @RequestMapping(value = { "/addReceipt" }, method = { RequestMethod.POST })
+    public String addReceiptPOST(Model model) {
+        return "addReceipt";
+    }
+
+    //addReceiptProcess 
+    @RequestMapping(value = { "/addReceiptProcess" }, method = { RequestMethod.POST })
+    public String addReceiptProcess(Model model, @ModelAttribute("Receipt") Receipt receipt) {
+        try {
+            dao3.Add(receipt);
+            System.out.print(receipt);
+            System.out.println("Thêm thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Thêm thất bại");
+            System.out.print(receipt);
+
+            return "redirect:/managementReceipt?message=Something wrong";
+
+        }
+
+        return "redirect:/managementReceipt?message=Add Receipt Success";
+    }
+
+    //edit receipt method GET
+    @RequestMapping(value = { "/editReceipt" }, method = { RequestMethod.GET })
+    public String editReceipt(Model model, @RequestParam(name = "nameedit") String name, @RequestParam(name = "phoneedit") String phonenumber, @RequestParam(name = "price") String price) {
+     
+        return "editReceipt";
+    }
+
+    @RequestMapping(value = { "/editReceipt" }, method = { RequestMethod.POST })
+    public String editReceiptPOST(Model model , @RequestParam(name = "nameedit") String name, @RequestParam(name = "phoneedit") String phonenumber, @RequestParam(name = "price") String price) {
+    
+        System.out.println("day la name" + name);
+        System.out.println("day la phone" + phonenumber);
+        System.out.println("day la price" + price);
+        return "editReceipt";
+    }
+
+    //editReceiptProcess by name phone and price
+    @RequestMapping(value = { "/editReceiptProcess" }, method = { RequestMethod.POST })
+    public String editReceiptProcess(Model model, @ModelAttribute("ReceiptEdit") Receipt receipt,@RequestParam(name = "nameEdit") String name, @RequestParam(name = "phoneedit") String phonenumber, @RequestParam(name = "price") String price) {
+        try {
+            System.out.println("day ne day ne");
+            System.out.println(name);
+            System.out.println(phonenumber);
+
+
+
+            dao3.findReceiptByNamePhonePrice(name, phonenumber);
+            dao3.updateReceipt(receipt,name);
+            System.out.print(receipt);
+            System.out.println("Sửa thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Sửa thất bại");
+            System.out.print(receipt);
+
+            return "redirect:/managementReceipt?message=Something wrong";
+
+        }
+
+        return "redirect:/managementReceipt?message=Edit Receipt Success";
+    }
 
 
 

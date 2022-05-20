@@ -1,3 +1,4 @@
+
 package com.chuyendecnpm.demo.Model;
 
 import java.sql.Date;
@@ -16,10 +17,11 @@ public class Receipt {
     private String status;
     private String date;
 
+
     public Receipt() {
     }
 
-    public Receipt(String email, String productID, String name, String category, int price, int amount, String image, String detail, String phone) {
+    public Receipt(String email, String productID, String name, String category, int price, int amount, String image, String detail, String phone,String status) {
         this.email = email;
         this.productID = productID;
         this.name = name;
@@ -29,6 +31,8 @@ public class Receipt {
         this.image = image;
         this.detail = detail;
         this.phone = phone;
+        this.status = status;
+    
     }
 
     public String getEmail() {
