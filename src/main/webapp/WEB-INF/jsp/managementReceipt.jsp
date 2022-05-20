@@ -197,6 +197,14 @@
 
                           </form>
                         </td>
+
+                        <td>
+                        </form>
+                        <form action="/changeStatusReceiptToCancel?phoneNumber=${list.phone}&address=${list.address}" method="post">
+                          <button class="btn btn-danger " type="submit">Chang to cancel</button>
+
+                        </form>
+                      </td>
                
 
 

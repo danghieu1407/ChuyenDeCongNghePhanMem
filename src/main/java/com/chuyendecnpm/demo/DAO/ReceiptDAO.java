@@ -36,7 +36,7 @@ public class ReceiptDAO {
     //get all receipt
     public List<Receipt> getAllReceipt() throws Exception {
         List<Receipt> list = new ArrayList<>();
-        String sql = "SELECT * FROM _Receipt";
+        String sql = "SELECT * FROM _Receipt ORDER BY _id DESC";
         try (
                 Connection con = Connect.connectSQL();
                 PreparedStatement stm = con.prepareStatement(sql);
@@ -63,7 +63,6 @@ public class ReceiptDAO {
         }
         return list;
     }
-
     //change status to "Shipped" by phone
     public static boolean changeStatusToShipped(String phone) throws Exception {
         String sql = "UPDATE _Receipt SET _status = 'Shipping' WHERE _phone = ?";
@@ -90,11 +89,25 @@ public class ReceiptDAO {
         }
     }
 
+
+    //change status to cancel
+    public static boolean changeStatusToCancel(String phone) throws Exception {
+        String sql = "UPDATE _Receipt SET _status = 'Cancel' WHERE _phone = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, phone);
+            stm.executeUpdate();
+            stm.close();
+            return true;
+        }
+    }
+
     // get all receipt 
     public List<Receipt> getAllReceiptForStatistical() throws Exception {
         List<Receipt> list = new ArrayList<>();
 
-        String sql = "SELECT * FROM _Receipt WHERE _status = 'Done'";
+        String sql = "SELECT * FROM _Receipt WHERE _status = 'Done' ORDER BY _date DESC";
         try (
                 Connection con = Connect.connectSQL();
                 PreparedStatement stm = con.prepareStatement(sql);
@@ -151,6 +164,8 @@ public class ReceiptDAO {
         }
         return list;
     }
+
+    
 
 
 }

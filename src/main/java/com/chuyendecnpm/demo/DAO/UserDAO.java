@@ -192,25 +192,24 @@ public class UserDAO {
         }
     }
 
-    //get email 
-    public String getEmail() {
-        String id = "";
-        String sql = "SELECT _email FROM _User";
-        try {
-            Connection con = Connect.connectSQL();
-            PreparedStatement stm = con.prepareStatement(sql);
+
+     //check duplicate email
+    public boolean checkDuplicateEmail(String email) {
+        String sql = "select * from _User where _email = ?";
+        try (
+                Connection con = Connect.connectSQL();
+                PreparedStatement stm = con.prepareStatement(sql);) {
+            stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                id = rs.getString("_email");
+            if (rs.next()) {
+                return true;
             }
-            con.close();
             stm.close();
             rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return id;
+        return false;
     }
-
 
 }

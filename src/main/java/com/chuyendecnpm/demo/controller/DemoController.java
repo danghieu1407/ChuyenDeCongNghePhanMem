@@ -93,6 +93,7 @@ public class DemoController {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Đăng ký thất bại");
+            return "redirect:/login?message=Account Exist";
 
         }
 
@@ -220,17 +221,24 @@ public class DemoController {
 
     @RequestMapping(value = { "/addProductProcess" }, method = { RequestMethod.POST })
     public String addProduct(Model model, @ModelAttribute("Product") Product product ,@PathParam("message") String message) {
-        //check duplicate ID 
-        if (dao1.getIDProduct() != null) {
-            return "redirect:/addProduct?message=ID already exists";
-        }
+        
+  
 
         try {
+
+            if(dao1.checkDuplicateProductID(product.getProductID())==true)
+            {
+                return "redirect:/managementProduct?message=ProductID Exist";
+            }
+            else
+            {
             dao1.addProduct(product);
             System.out.println(product);
             System.out.println("Thêm thành công");
              model.addAttribute("message", message);
             
+            }
+         
             
             
         } catch (Exception e) {
@@ -271,7 +279,7 @@ public class DemoController {
 
         }
 
-        return "redirect:/managementProduct";
+        return "redirect:/managementProduct?message=Edit Product Success";
     }
  
 
@@ -490,12 +498,18 @@ public class DemoController {
     public String addAccountProcess(Model model, @ModelAttribute("Account") User user) {
 
         //check email exist
-        if (dao.getEmail() != null) {
-            return "redirect:/managementAccount?message=Email exist";
-        }
+        
+       
         try {
-            dao.addAccount(user);
-            System.out.println("Thêm thành công");
+           
+            if (dao.checkDuplicateEmail(user.getEmail())) {
+                return "redirect:/managementAccount?message=Email exist";
+            }
+            else{
+                dao.addAccount(user);
+                System.out.println("Thêm thành công");
+            }
+          
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Thêm thất bại");
@@ -571,6 +585,21 @@ public class DemoController {
         }
 
         return "redirect:/managementReceipt?message=change status to done";
+    }
+    //change Status to cancel
+    @RequestMapping(value = { "/changeStatusReceiptToCancel" }, method = { RequestMethod.POST })
+    public String changeStatusReceiptToCancel(Model model, @RequestParam(name = "phoneNumber") String phonenumber) {
+        try {
+            ReceiptDAO.changeStatusToCancel(phonenumber);
+            System.out.println("Update thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Update thất bại");
+            return "redirect:/managementReceipt?message=Update fail";
+
+        }
+
+        return "redirect:/managementReceipt?message=change status to cancel";
     }
 
     //Statistical

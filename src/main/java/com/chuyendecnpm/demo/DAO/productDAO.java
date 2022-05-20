@@ -236,16 +236,16 @@ public class ProductDAO {
         return list;
     }
 
-    //getID Product
-    public String getIDProduct() {
-        String id = "";
-        String sql = "SELECT _productID FROM _Product ORDER BY _productID";
+    //check duplicate productID
+    public boolean checkDuplicateProductID(String productID) {
+        boolean check = false;
+        String sql = "Select * from _Product WHERE _productID = '" + productID + "'";
         try {
             Connection con = Connect.connectSQL();
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                id = rs.getString("_productID");
+            if (rs.next()) {
+                check = true;
             }
             con.close();
             stm.close();
@@ -253,7 +253,7 @@ public class ProductDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return id;
+        return check;
     }
 
 

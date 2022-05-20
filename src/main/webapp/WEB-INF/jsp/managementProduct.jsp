@@ -253,6 +253,30 @@
                           dangerMode: false,
                       })
                   }
+
+                  if (getIdDetails().message == "ProductID Exist") {
+                      swal({
+                          title: "ERROR",
+                          text: "This productID was exist, Please try again",
+                          icon: "error",
+                          button: true,
+                          dangerMode: true,
+                      })
+                  }
+
+                  if (getIdDetails().message == "Edit Product Success") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Edit product success",
+                      icon: "success",
+                      button: true,
+                      dangerMode: false,
+                    })
+                  }
+               
+
+
+                
                   
 
               </script>

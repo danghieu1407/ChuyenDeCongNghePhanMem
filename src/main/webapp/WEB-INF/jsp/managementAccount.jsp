@@ -288,6 +288,17 @@
                     })
                   }
 
+                  if (getIdDetails().message == "Add Account Success") {
+                    swal({
+                      title: "SUCCESS",
+                      text: "Add account Success",
+                      icon: "success",
+                      button: true,
+                      dangerMode: false,
+                    })
+                  }
+
+                
 
                 </script>
 
