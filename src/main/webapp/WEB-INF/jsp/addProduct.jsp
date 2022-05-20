@@ -251,6 +251,16 @@
                                     })
                                 }
 
+                                else if(getIdDetails().message == "ID already exists"){
+                                    swal({
+                                        title: "ERROR",
+                                        text: "ID Already Exists",
+                                        icon: "error",
+                                        button: true,
+                                        dangerMode: true,
+                                    })
+                                }
+
                             
 
                             </script>

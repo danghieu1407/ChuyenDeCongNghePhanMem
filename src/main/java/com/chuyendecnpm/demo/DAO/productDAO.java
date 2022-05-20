@@ -236,5 +236,25 @@ public class ProductDAO {
         return list;
     }
 
+    //getID Product
+    public String getIDProduct() {
+        String id = "";
+        String sql = "SELECT _productID FROM _Product ORDER BY _productID";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                id = rs.getString("_productID");
+            }
+            con.close();
+            stm.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+
 
 }

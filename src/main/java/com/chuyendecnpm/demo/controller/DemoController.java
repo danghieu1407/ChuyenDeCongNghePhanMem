@@ -164,6 +164,9 @@ public class DemoController {
     //Add Product
     @RequestMapping(value = { "/addProduct" }, method = { RequestMethod.POST })
     public String addProduct(Model model) {
+        //check duplicate
+   
+
         model.addAttribute("Product", new Product());
         return "addProduct";
     }
@@ -217,6 +220,11 @@ public class DemoController {
 
     @RequestMapping(value = { "/addProductProcess" }, method = { RequestMethod.POST })
     public String addProduct(Model model, @ModelAttribute("Product") Product product ,@PathParam("message") String message) {
+        //check duplicate ID 
+        if (dao1.getIDProduct() != null) {
+            return "redirect:/addProduct?message=ID already exists";
+        }
+
         try {
             dao1.addProduct(product);
             System.out.println(product);
@@ -228,7 +236,7 @@ public class DemoController {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Thêm thất bại");
-
+            return "redirect:/managementProduct?message=Add fail";
         }
 
         return "redirect:/managementProduct?message=Add Success";
@@ -480,6 +488,11 @@ public class DemoController {
     //add accountProcess
     @RequestMapping(value = { "/addAccountProcess" }, method = { RequestMethod.POST })
     public String addAccountProcess(Model model, @ModelAttribute("Account") User user) {
+
+        //check email exist
+        if (dao.getEmail() != null) {
+            return "redirect:/managementAccount?message=Email exist";
+        }
         try {
             dao.addAccount(user);
             System.out.println("Thêm thành công");

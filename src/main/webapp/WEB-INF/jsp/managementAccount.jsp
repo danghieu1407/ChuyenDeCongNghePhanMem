@@ -278,6 +278,16 @@
                     })
                   }
 
+                  if (getIdDetails().message == "Email exist") {
+                    swal({
+                      title: "ERROR",
+                      text: "Email exist",
+                      icon: "error",
+                      button: true,
+                      dangerMode: true,
+                    })
+                  }
+
 
                 </script>
 

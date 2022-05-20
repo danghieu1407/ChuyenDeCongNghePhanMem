@@ -191,4 +191,26 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    //get email 
+    public String getEmail() {
+        String id = "";
+        String sql = "SELECT _email FROM _User";
+        try {
+            Connection con = Connect.connectSQL();
+            PreparedStatement stm = con.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                id = rs.getString("_email");
+            }
+            con.close();
+            stm.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+
+
 }
