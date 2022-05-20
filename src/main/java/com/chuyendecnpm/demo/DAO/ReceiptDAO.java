@@ -93,7 +93,8 @@ public class ReceiptDAO {
     // get all receipt 
     public List<Receipt> getAllReceiptForStatistical() throws Exception {
         List<Receipt> list = new ArrayList<>();
-        String sql = "SELECT * FROM _Receipt";
+
+        String sql = "SELECT * FROM _Receipt WHERE _status = 'Done'";
         try (
                 Connection con = Connect.connectSQL();
                 PreparedStatement stm = con.prepareStatement(sql);
@@ -127,7 +128,7 @@ public class ReceiptDAO {
     //get all receipt sort by month
     public List<Receipt> getAllReceiptForStatisticalByMonth(String month) throws Exception {
         List<Receipt> list = new ArrayList<>();
-        String sql = "SELECT * FROM _Receipt WHERE MONTH(_date) LIKE '%"+month+"%'";
+        String sql = "SELECT * FROM _Receipt WHERE MONTH(_date) LIKE '%"+month+"%' and _status = 'Done'";
         try (
                 Connection con = Connect.connectSQL();
                 PreparedStatement stm = con.prepareStatement(sql);

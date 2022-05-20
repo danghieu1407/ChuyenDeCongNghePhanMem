@@ -11,7 +11,7 @@ create table _User
 	_address nvarchar(200) not null,
 	_wallet int default 0
 )
---nhớ insert thêm thằng này nhóe :D
+
 create table _Product
 (
 	
@@ -53,7 +53,7 @@ create table _Receipt
 	_detail text, 
 	_address text,
 	_date datetime default getdate(),
-	_status text default 'Waiting'
+	_status nchar(8) default 'Waiting'
 )
 
 insert into _Cart values('Nguyen Dang Hieu','DB1','2 ','3 ','4 ',' 55','6 ','7 ')
