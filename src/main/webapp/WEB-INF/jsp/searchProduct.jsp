@@ -145,7 +145,7 @@
                     <div class="row">
                         <c:forEach var="product1" items="${Listproduct}">
                             <div class="product-box col-lg-3" id="productbox">
-                                <form action="/productDetail?id=${product1.productID}" method="post">
+                                <form action="/productDetail?id=${product1.productID}&category=${product1.category}" method="post">
 
                                     <div id="imageIndexMain" class="product-item ">
                                         <div class="product-item-image">
